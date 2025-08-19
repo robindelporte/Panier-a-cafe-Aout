@@ -1,182 +1,311 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "hero_slider": {
-            "type": "hero_slider",
-            "blocks": {
-                "slide": {
-                    "name": "Slide",
-                    "type": "slide"
-                }
-            },
-            "block_order": [
-                "slide"
-            ]
+  "sections": {
+    "hero_slider": {
+      "type": "hero_slider",
+      "blocks": {
+        "slide": {
+          "type": "slide",
+          "name": "Slide",
+          "settings": {
+            "richtext_heading": "<p>Heading</p>",
+            "text_text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+            "url_button_1_link": "",
+            "text_button_1_text": "Button Text",
+            "image_image_desktop": "shopify://shop_images/Z10_Alu_Black_ecran.webp"
+          }
         },
-        "hero": {
-            "type": "hero"
-        },
-        "hero_2": {
-            "type": "hero_2"
-        },
-        "collection_tabs": {
-            "type": "collection_tabs"
-        },
-        "collection_tabs_marr": {
-            "type": "collection_tabs_marr"
-        },
-        "bandeau": {
-            "type": "bandeau",
-            "blocks": {
-                "icone": {
-                    "name": "icone",
-                    "type": "icone"
-                }
-            },
-            "block_order": [
-                "icone"
-            ]
-        },
-        "contenu": {
-            "type": "contenu",
-            "blocks": {
-                "h2": {
-                    "name": "H2",
-                    "type": "h2"
-                },
-                "headline": {
-                    "name": "Headline",
-                    "type": "headline"
-                },
-                "text": {
-                    "name": "Text",
-                    "type": "text"
-                },
-                "buttons": {
-                    "name": "Buttons",
-                    "type": "buttons"
-                }
-            },
-            "block_order": [
-                "h2",
-                "headline",
-                "text",
-                "buttons"
-            ]
-        },
-        "lookbook": {
-            "type": "lookbook",
-            "blocks": {
-                "dot": {
-                    "name": "Dot",
-                    "type": "dot"
-                }
-            },
-            "block_order": [
-                "dot"
-            ]
-        },
-        "liste_collections": {
-            "type": "liste_collections",
-            "blocks": {
-                "collection": {
-                    "name": "Collection",
-                    "type": "collection"
-                }
-            },
-            "block_order": [
-                "collection"
-            ]
-        },
-        "chiffres": {
-            "type": "chiffres",
-            "blocks": {
-                "chiffres": {
-                    "name": "Chiffres",
-                    "type": "chiffres"
-                }
-            },
-            "block_order": [
-                "chiffres"
-            ]
-        },
-        "selection": {
-            "type": "selection",
-            "blocks": {
-                "product": {
-                    "name": "Product",
-                    "type": "product"
-                }
-            },
-            "block_order": [
-                "product"
-            ]
-        },
-        "pages": {
-            "type": "pages",
-            "blocks": {
-                "carte": {
-                    "name": "Carte",
-                    "type": "carte"
-                }
-            },
-            "block_order": [
-                "carte"
-            ]
-        },
-        "contenu_2": {
-            "type": "contenu_2",
-            "blocks": {
-                "carte": {
-                    "name": "Carte",
-                    "type": "carte"
-                }
-            },
-            "block_order": [
-                "carte"
-            ]
-        },
-        "related_articles": {
-            "type": "related_articles"
-        },
-        "logo_defilants": {
-            "type": "logo_defilants",
-            "blocks": {
-                "logo-defilants": {
-                    "type": "logo-defilants",
-                    "name": "Logo defilants"
-                },
-                "logo-defilants-inverses": {
-                    "type": "logo-defilants-inverses",
-                    "name": "Logo defilants \/ Invers\u00e9s"
-                }
-            },
-            "block_order": [
-                "logo-defilants",
-                "logo-defilants-inverses"
-            ]
-        },
-        "collection_2": {
-            "type": "collection_2"
+        "slide_qEQDbY": {
+          "type": "slide",
+          "settings": {
+            "richtext_heading": "<p>Heading</p>",
+            "text_text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+            "url_button_1_link": "",
+            "text_button_1_text": "Button Text",
+            "image_image_desktop": "shopify://shop_images/Z10_Alu_Black_face.webp"
+          }
         }
+      },
+      "block_order": [
+        "slide",
+        "slide_qEQDbY"
+      ],
+      "settings": {}
     },
-    "layout": "theme",
-    "wrapper": "main.main-wrapper",
-    "order": [
-        "hero_slider",
-        "hero",
-        "hero_2",
-        "collection_tabs",
-        "collection_tabs_marr",
-        "bandeau",
-        "contenu",
-        "lookbook",
-        "liste_collections",
-        "chiffres",
-        "selection",
-        "pages",
-        "contenu_2",
-        "related_articles",
-        "logo_defilants",
-        "collection_2"
-    ]
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "text_headline": "Notre histoire",
+        "richtext_text": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>",
+        "url_button_link": "",
+        "text_button_text": "More Information"
+      }
+    },
+    "hero_2": {
+      "type": "hero_2",
+      "settings": {
+        "text_headline": "Short heading here",
+        "richtext_text": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>",
+        "url_button_link": "",
+        "text_button_text": "More Information"
+      }
+    },
+    "collection_tabs": {
+      "type": "collection_tabs",
+      "settings": {
+        "collection_list": []
+      }
+    },
+    "collection_tabs_marr": {
+      "type": "collection_tabs_marr",
+      "settings": {
+        "text_titre": "Heading",
+        "collection_list": []
+      }
+    },
+    "bandeau": {
+      "type": "bandeau",
+      "blocks": {
+        "icone": {
+          "type": "icone",
+          "name": "icone",
+          "settings": {
+            "text_titre_icone": "Livraison en 48h",
+            "text_description": "Grâce à Colissimo, votre colis arrive rapidement !"
+          }
+        }
+      },
+      "block_order": [
+        "icone"
+      ],
+      "settings": {
+        "text_heading": "Heading"
+      }
+    },
+    "contenu": {
+      "type": "contenu",
+      "blocks": {
+        "h2": {
+          "type": "h2",
+          "name": "H2",
+          "settings": {
+            "text_titre": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
+          }
+        },
+        "headline": {
+          "type": "headline",
+          "name": "Headline",
+          "settings": {
+            "text_headline": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
+          }
+        },
+        "text": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "richtext_paragraph": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>"
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "name": "Buttons",
+          "settings": {
+            "url_button_link": "",
+            "text_button_text": "Button",
+            "url_button_link_2": "",
+            "text_button_text_2": "Button 2"
+          }
+        }
+      },
+      "block_order": [
+        "h2",
+        "headline",
+        "text",
+        "buttons"
+      ],
+      "settings": {
+        "left_right": "left"
+      }
+    },
+    "lookbook": {
+      "type": "lookbook",
+      "blocks": {
+        "dot": {
+          "type": "dot",
+          "name": "Dot",
+          "settings": {
+            "text_x_achse": "This is some text inside of a div block.",
+            "text_y_achse": "This is some text inside of a div block.",
+            "product_produit": ""
+          }
+        }
+      },
+      "block_order": [
+        "dot"
+      ],
+      "settings": {}
+    },
+    "liste_collections": {
+      "type": "liste_collections",
+      "blocks": {
+        "collection": {
+          "type": "collection",
+          "name": "Collection",
+          "settings": {
+            "url_lien_collection": "",
+            "text_nom_collection": "Café en grain"
+          }
+        }
+      },
+      "block_order": [
+        "collection"
+      ],
+      "settings": {}
+    },
+    "chiffres": {
+      "type": "chiffres",
+      "blocks": {
+        "chiffres": {
+          "type": "chiffres",
+          "name": "Chiffres",
+          "settings": {
+            "text_valeur_gauche": "100",
+            "text_valeur_droite": "%",
+            "text_texte": "Nous mettons à l’honneur des cafés produits par des femmes engagées."
+          }
+        }
+      },
+      "block_order": [
+        "chiffres"
+      ],
+      "settings": {
+        "text_heading": "Le panier à café en chiffre"
+      }
+    },
+    "selection": {
+      "type": "selection",
+      "blocks": {
+        "product": {
+          "type": "product",
+          "name": "Product",
+          "settings": {
+            "product_product": "",
+            "text_etiquette": "Café du mois"
+          }
+        }
+      },
+      "block_order": [
+        "product"
+      ],
+      "settings": {
+        "text_titre": "Un café pour chaque mois, une ambiance pour chaque saison",
+        "text_sous_titre": "Chaque mois, on met en lumière un café d’exception : souvent issu d’un microlot, sourcé lors de nos voyages, il vous permet de découvrir des profils rares, parfois surprenants, toujours passionnants. En parallèle, on vous propose aussi un café par saison : un estival, un printanier, un automnal ou un hivernal,  pensés pour s’accorder aux humeurs météo du moment. Parce que le café, c’est aussi une affaire de sensations, de climat… et d’envie !"
+      }
+    },
+    "pages": {
+      "type": "pages",
+      "blocks": {
+        "carte": {
+          "type": "carte",
+          "name": "Carte",
+          "settings": {
+            "text_heading": "Notre histoire",
+            "text_text": "Découvrir",
+            "url_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "carte"
+      ],
+      "settings": {
+        "text_titre": "Heading"
+      }
+    },
+    "contenu_2": {
+      "type": "contenu_2",
+      "blocks": {
+        "carte": {
+          "type": "carte",
+          "name": "Carte",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "carte"
+      ],
+      "settings": {
+        "text_heading": "Recycle ton café, sans te prendre la tête",
+        "text_paragraph": "Si ton marc de café avait une seconde vie ? Grâce à notre sac de collecte, on te propose de recycler ton marc pour le transformer en pellets pour poêles à granulés via notre partenariat avec Environ Alpes. Pour les pros (PME, restaurateurs), on récupère le sac directement lors de nos livraisons de café. Pour les particuliers, il suffit de nous le rapporter sur les marchés ou à l’atelier lors de ta prochaine visite. Simple, utile… et bien plus écolo que de le jeter à la poubelle !",
+        "url_button_link": "",
+        "text_button_text": "Je veux un sac"
+      }
+    },
+    "related_articles": {
+      "type": "related_articles",
+      "settings": {
+        "text_headline": "Nouveautés du blog",
+        "url_bouton_lien": "",
+        "text_bouton_texte": "Voir plus d'articles"
+      }
+    },
+    "logo_defilants": {
+      "type": "logo_defilants",
+      "blocks": {
+        "logo-defilants": {
+          "type": "logo-defilants",
+          "name": "Logo defilants",
+          "settings": {},
+          "blocks": {}
+        },
+        "logo-defilants-inverses": {
+          "type": "logo-defilants-inverses",
+          "name": "Logo defilants / Inversés",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "logo-defilants",
+        "logo-defilants-inverses"
+      ],
+      "settings": {
+        "text_heading": "Ils nous font confiance"
+      }
+    },
+    "collection_2": {
+      "type": "collection_2",
+      "settings": {
+        "text_heading": "Nos nouveautés"
+      }
+    }
+  },
+  "layout": "theme",
+  "wrapper": "main.main-wrapper",
+  "order": [
+    "hero_slider",
+    "hero",
+    "hero_2",
+    "collection_tabs",
+    "collection_tabs_marr",
+    "bandeau",
+    "contenu",
+    "lookbook",
+    "liste_collections",
+    "chiffres",
+    "selection",
+    "pages",
+    "contenu_2",
+    "related_articles",
+    "logo_defilants",
+    "collection_2"
+  ]
 }
