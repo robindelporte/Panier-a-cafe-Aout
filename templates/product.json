@@ -1,0 +1,33 @@
+{
+    "sections": {
+        "product_hero_sub": {
+            "type": "product_hero_sub"
+        },
+        "product_recommended": {
+            "type": "product_recommended"
+        },
+        "contenu_produits": {
+            "type": "contenu_produits",
+            "blocks": {
+                "faq-item": {
+                    "name": "FAQ Item",
+                    "type": "faq-item"
+                }
+            },
+            "block_order": [
+                "faq-item"
+            ]
+        },
+        "category": {
+            "type": "category"
+        }
+    },
+    "layout": "product",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "product_hero_sub",
+        "product_recommended",
+        "contenu_produits",
+        "category"
+    ]
+}

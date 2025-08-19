@@ -1,0 +1,109 @@
+<script src="{{ 'li_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="product-variant-container" class="product-item_component" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)">
+                          <div class="product-item_image-link">
+                            <a li-object:href="product.url" href="{{ product.url }}" class="product-item_image-wrapper w-inline-block"><img li-object:src="product.featured_image | img_url: 'master'" li-object:alt="product.featured_image.alt" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | img_url: 'master' }}" loading="lazy" class="product-item_image"></a>
+                            <div class="product-item_tag_list">
+                              {% if product.selected_or_first_available_variant.available != true %}    <div li-if="product.selected_or_first_available_variant.available != true" class="product-item_tag is-red">
+    Épuisé    </div>
+{% endif %}
+                              {% if product.type == 'Cafe' %}    <div li-if="product.type == 'Cafe'">
+    
+                                {% if product.metafields.custom.pays_d_origine != blank %}    <div li-if="product.metafields.custom.pays_d_origine != blank" class="product-item_tag">
+    
+                                  {% assign pays_origine = product.metafields.custom.pays_d_origine.value %}<img src="{{ pays_origine.drapeau | img_url: 'large' }}" loading="lazy" li-object:src="pays_origine.drapeau | img_url: 'large'" alt="" class="flag_icon">
+                                  <div li-object="pays_origine.pays" class="product-item_tag-text">{{ pays_origine.pays }}</div>
+                                    </div>
+{% endif %}
+                                  </div>
+{% endif %}
+                              {% if product.type == 'The' %}    <div li-if="product.type == 'The'">
+    
+                                {% if product.metafields.custom.format_the != blank %}    <div li-if="product.metafields.custom.format_the != blank" class="product-item_tag">
+    
+                                  {% assign format = product.metafields.custom.format_the.value %}
+                                  <div li-object="format" class="product-item_tag-text">{{ format }}</div>
+                                    </div>
+{% endif %}
+                                  </div>
+{% endif %}
+                              {% if product.metafields.custom.certification %}    <div li-if="product.metafields.custom.certification" class="product-item_tag">
+    
+                                {% assign certification = product.metafields.custom.certification.value %}<img src="{{ certification.logo| img_url: 'large' }}" loading="lazy" li-object:src="certification.logo| img_url: 'large'" alt="" class="flag_icon">
+                                <div li-object="certification.nom" class="product-item_tag-text">{{ certification.nom }}</div>
+                                  </div>
+{% endif %}
+                            </div>
+                            {% if product.has_only_default_variant != true and product.options.size == 1 and product.variants.size == 2 %}    <div li-if="product.has_only_default_variant != true and product.options.size == 1 and product.variants.size == 2" class="product_atc-form">
+    
+                              {% form 'product', product %}
+{% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product_quick-atc-wrapper">
+    
+                                    <div class="product-header_radio-list-wrapper">
+                                      <template x-for="(option, optionKey) in product.options" :key="optionKey">
+    <div li-element="product-options-loop" class="product-header_radio-list is-quick-atc" data-ProductVariantsLoop="true"><template x-for="(variantName, variantKey) in options_by_name[option].option.values" :key="variantName">
+    <label li-element="product-option-loop" class="product-atc_radio w-radio">
+                                          <div class="w-form-formradioinput w-form-formradioinput--inputType-custom product-atc_radio-button w-radio-input"></div><input type="radio" li-element="product-option-input" style="opacity:0;position:absolute;z-index:-1" x-on:click="setVariant" :name="option" :data-name="option" :value="variantName" :id="variantName.toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w-]+/g, '').replace(/--+/g, '-')" :checked="selected_or_first_available_variant?.options.includes(variantName)" data-selectorType="radio" :class="firstOptionHasAvailableChildren[variantName] ? '' : 'data-disabled'"><span class="product_atc-label w-form-label" for="radio"><span li-element="product-option-name" class="variant-name" x-text="variantName" :for="variantName">125g</span> <span x-text="(variants.find(v => v.title === variantName)?.price / 100).toFixed(2) + '€'" class="variant-price">13,90€</span></span>
+                                        </label></template></div></template>
+                                    </div>
+                                    <div class="product_quick-atc">
+                                      <div>Ajout rapide</div>
+                                    </div>
+                                      </div>
+{% endif %}{% endform %}<button li-element="add-to-cart" fs-modal-element="open-2" class="quick_atc" @click="addToCart($event, true)" :disabled="!addToCartButton">
+                                <div class="icon-embed-custom-3 w-embed"><svg xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic" width="100%" height="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
+                                    <path fill="currentColor" d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2s-.9-2-2-2m10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2m-9.83-3.25l.03-.12l.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2l-2.76 5H8.53l-.13-.27L6.16 6l-.95-2l-.94-2H1v2h2l3.6 7.59l-1.35 2.45c-.16.28-.25.61-.25.96c0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25"></path>
+                                  </svg></div>
+                              </button>
+                                </div>
+{% endif %}
+                            {% if product.has_only_default_variant == true %}    <div li-if="product.has_only_default_variant == true" class="product_atc-form">
+    
+                              <div class="product_quick-atc-wrapper"><button li-element="add-to-cart" fs-modal-element="open-2" class="product_quick-atc is-no-variant" @click="addToCart($event, true)" :disabled="!addToCartButton">
+                                  <div>Ajout rapide</div>
+                                  <div class="icon-embed-custom-3 w-embed"><svg xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic" width="100%" height="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
+                                      <path fill="currentColor" d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2s-.9-2-2-2m10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2m-9.83-3.25l.03-.12l.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2l-2.76 5H8.53l-.13-.27L6.16 6l-.95-2l-.94-2H1v2h2l3.6 7.59l-1.35 2.45c-.16.28-.25.61-.25.96c0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25"></path>
+                                    </svg></div>
+                                </button></div>
+                                </div>
+{% endif %}
+                            {% if product.has_only_default_variant != true and product.options.size > 1 %}    <div li-if="product.has_only_default_variant != true and product.options.size > 1" class="product_atc-form">
+    
+                              <div class="product_quick-atc-wrapper">
+                                <a li-object:href="product.url" href="{{ product.url }}" class="product_quick-atc is-no-variant w-inline-block">
+                                  <div>Voir le produit</div>
+                                </a>
+                              </div>
+                                </div>
+{% endif %}
+                            {% if product.has_only_default_variant != true and product.options.size == 1 and product.options.first.values.size > 2 %}    <div li-if="product.has_only_default_variant != true and product.options.size == 1 and product.options.first.values.size > 2" class="product_atc-form">
+    
+                              <div class="product_quick-atc-wrapper">
+                                <a li-object:href="product.url" href="{{ product.url }}" class="product_quick-atc is-no-variant w-inline-block">
+                                  <div>Voir le produit</div>
+                                </a>
+                              </div>
+                                </div>
+{% endif %}
+                          </div>
+                          <div class="spacer-xxsmall"></div>
+                          <a li-object:href="product.url" href="{{ product.url }}" class="product-item_text-link w-inline-block">
+                            <div class="product-item_left">
+                              <div class="product_item-name">
+                                <div li-object="product.title" class="product_name">{{ product.title }}</div>
+                                <div class="loox_parent"></div>
+                              </div>
+                              <div>
+                                {% assign aromeNames = product.metafields.custom.famille_aromatique.value | map: 'nom' | slice: 0, 2 %}
+                                <div li-object="aromeNames | join: ', '">{{ aromeNames | join: ', ' }}</div>
+                              </div>
+                            </div>
+                            <div class="product-item_price">
+                              {% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price" class="padding-bottom padding-xxxsmall">
+    
+                                <div li-object="product.compare_at_price | money" class="text-size-small">{{ product.compare_at_price | money }}</div>
+                                  </div>
+{% endif %}
+                              <div li-object="product.price | money" class="text-size-regular text-weight-bold">{{ product.price | money }}</div>
+                            </div>
+                          </a>
+                        </div>

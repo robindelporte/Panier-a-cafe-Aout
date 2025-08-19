@@ -1,0 +1,20 @@
+{
+    "sections": {
+        "blog_post": {
+            "type": "blog_post"
+        },
+        "related_articles": {
+            "type": "related_articles"
+        },
+        "reseaux": {
+            "type": "reseaux"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "blog_post",
+        "related_articles",
+        "reseaux"
+    ]
+}

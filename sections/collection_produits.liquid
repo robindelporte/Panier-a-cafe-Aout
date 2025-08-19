@@ -1,0 +1,184 @@
+<div li-render-filter="wrapper" class="padding-global padding-section-small">
+          <div li-case="collection.filters.size">
+{% case collection.filters.size %}
+
+            {% when 1 %} 
+<div li-when="1">
+
+              <div class="container-large">
+                <div class="filter_feed-header"><select id="sort-by" li-for:inside="option in collection.sort_options" li-render-filter="sort" li-render-filter-trigger="input" class="sort_select filter_checkbox">
+        {% for option in collection.sort_options %}                            
+                    
+                            <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% elsif option.value == collection.default_sort_by %}selected{% endif %}>{{ option.name }}</option>
+                            
+                  
+                    {% endfor %}    </select>
+                  <a data-w-id="23d7e0f5-e651-d71d-f75d-54fc06f29ca8" href="#" class="filter_tablet-filters-button w-inline-block"><img loading="lazy" src="https://uploads-ssl.webflow.com/624380709031623bfe4aee60/62942b9f00484cf074e6f851_icon-filters.svg" alt="" class="button-icon-left">
+                    <div>Filtres</div>
+                  </a>
+                  <div class="filter_results-text"><span li-object="collection.all_products_count | append: ' '">{{ collection.all_products_count | append: ' ' }}</span> Produits</div>
+                </div>
+                <div class="filter_layout is-no-filter">
+                  <div id="w-node-_0b4a3b29-1fa7-6c47-5b26-de46d9ea3ce6-f2213f04" class="filter_feed">
+                    <div class="filter_product-list-wrapper w-dyn-list">
+                      <div role="list" class="filter_product-list w-dyn-items">
+                        {% for product in collection.products %}    <div li-for="product in collection.products" role="listitem" class="filter_product-list-item w-dyn-item">
+                                    
+                          
+                            {% render 'product_item', product: product %}
+                            
+                        
+                        </div>
+{% endfor %}
+                      </div>
+                      {% if collection.products == blank %}    <div li-if="collection.products == blank" class="filter_empty w-dyn-empty">
+    
+                        <div class="heading-style-h5">Aucun résultats trouvé.</div>
+                        <div class="spacer-xxsmall"></div>
+                        <div>Il n'y a pas de résultats correspondant à ces critères. Essayez de modifier votre recherche.</div>
+                        <div class="spacer-xxsmall"></div>
+                        <div class="spacer-xxsmall"></div>
+                        <div class="spacer-xxsmall"></div>
+                        <a li-object:href="routes.root_url" href="{{ routes.root_url }}" class="button w-button">Retourner à l'accueil</a>
+                          </div>
+{% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% else %} 
+<div li-when="">
+
+              <div class="container-large">
+                <div class="filter_feed-header"><select id="sort-by" li-for:inside="option in collection.sort_options" li-render-filter="sort" li-render-filter-trigger="input" class="sort_select filter_checkbox">
+        {% for option in collection.sort_options %}                            
+                    
+                            <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% elsif option.value == collection.default_sort_by %}selected{% endif %}>{{ option.name }}</option>
+                            
+                  
+                    {% endfor %}    </select>
+                  <a data-w-id="64dc751e-c7dd-071d-6fd1-842945fd53ae" href="#" class="filter_tablet-filters-button w-inline-block"><img loading="lazy" src="https://uploads-ssl.webflow.com/624380709031623bfe4aee60/62942b9f00484cf074e6f851_icon-filters.svg" alt="" class="button-icon-left">
+                    <div>Filtres</div>
+                  </a>
+                  <div class="filter_results-text"><span li-object="collection.all_products_count | append: ' '">{{ collection.all_products_count | append: ' ' }}</span> Produits</div>
+                </div>
+                <div class="filter_layout">
+                  <div id="w-node-_64dc751e-c7dd-071d-6fd1-842945fd53b7-f2213f04" data-w-id="64dc751e-c7dd-071d-6fd1-842945fd53b7" class="filter_filters-wrapper">
+                    <form action="{{ routes.search_url }}" method="get" role="search" class="filter_form_component">
+                      <div id="w-node-_64dc751e-c7dd-071d-6fd1-842945fd53b9-f2213f04" class="filter_form">
+                        <div class="filter_form-header">
+                          <div class="filter_heading">Filtres</div>
+                          <a li-render-filter="clear-all" href="#" class="button is-link hide-tablet w-inline-block">
+                            <div>Réinitialiser</div>
+                          </a>
+                        </div>
+                        <div class="filter_results-wrapper">
+                          <div class="filter_results-text"><span li-object="collection.all_products_count | append: ' '">{{ collection.all_products_count | append: ' ' }}</span> Produits</div>
+                        </div>
+                        <div class="filter_scroll-wrapper no-scrollbar">
+                          <div class="filter_filter-group-list">
+                            {% for filter in collection.filters %}    <div li-for="filter in collection.filters" class="filter_filter-group">
+                                    
+                              
+                            {% if filter.type == 'price_range' %}    <div li-if="filter.type == 'price_range'" class="filter_group-item">
+    
+                                <div class="filter_filter-group-heading">
+                                  <div li-object="filter.label" class="text-weight-bold">{{ filter.label }}</div>
+                                </div>
+                                <div class="filter_filter-options">
+                                  <div class="filter_list-wrapper">
+                                    <div class="filter_price-range">
+                                      <div class="filter_input-wrapper"><input type="number" li-render-filter="price-min" li-render-filter-min-param="{{ filter.min_value.param_name }}" class="filter_input" value="{{ filter.min_value }}">
+                                        <div li-object="localization.country.currency.symbol" class="filter_input-currency">{{ localization.country.currency.symbol }}</div>
+                                      </div>
+                                      <div class="text-size-small">à</div>
+                                      <div class="filter_input-wrapper"><input type="number" li-render-filter="price-max" li-render-filter-min-param="{{ filter.max_value.param_name }}" class="filter_input" value="{{ filter.max_value }}">
+                                        <div li-object="localization.country.currency.symbol" class="filter_input-currency">{{ localization.country.currency.symbol }}</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                  </div>
+{% endif %}
+                            
+                              
+                            {% if filter.values.size > 1 and filter.type != 'price_range' %}    <div x-data="{open: false}" li-if="filter.values.size > 1 and filter.type != 'price_range'" class="filter_group-item">
+    
+                                <div x-on:click="open = !open" class="filter_filter-group-heading">
+                                  <div li-object="filter.label" class="text-weight-bold">{{ filter.label }}</div>
+                                  <div x-bind:class="open === true ? 'is-open' : ''" class="filter-toggle w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 12 12" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                      <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg></div>
+                                </div>
+                                <div x-collapse="" x-show="open" class="filter_filter-options">
+                                  <div class="filter_list-wrapper">
+                                    <div class="filter_list">
+                                      {% for filter_value in filter.values %}    <div li-for="filter_value in filter.values" class="filter_item">
+                                    
+                                        
+                            <lable class="filter_form_checkbox"><input type="checkbox" li-render-filter="filter" li-render-filter-value="{{ filter_value.value }}" li-render-filter-name="{{ filter_value.param_name }}"><span li-object="filter_value.label | append: ' '" class="filter_span">{{ filter_value.label | append: ' ' }}</span><span li-object="filter_value.count | append: ')' | prepend: '('" class="filter_span">{{ filter_value.count | append: ')' | prepend: '(' }}</span></lable>
+                            
+                                      
+                        </div>
+{% endfor %}
+                                    </div>
+                                  </div>
+                                </div>
+                                  </div>
+{% endif %}
+                            
+                            
+                        </div>
+{% endfor %}
+                          </div>
+                        </div>
+                        <div class="margin-top margin-small"><button li-render-filter="submit-button" class="button is-filter is-full-width">
+                            <div>Filtrer</div>
+                          </button></div>
+                      </div>
+                    </form>
+                    <a data-w-id="64dc751e-c7dd-071d-6fd1-842945fd53ec" href="#" class="filter_tablet-modal-close-button w-inline-block"><img alt="" src="https://uploads-ssl.webflow.com/624380709031623bfe4aee60/624380709031623afe4aee7e_icon_close-modal.svg" class="icon-1x1-small"></a>
+                  </div>
+                  <div id="w-node-_64dc751e-c7dd-071d-6fd1-842945fd53ee-f2213f04" class="filter_feed">
+                    <div class="filter_product-list-wrapper w-dyn-list">
+                      <div role="list" class="filter_product-list w-dyn-items">
+                        {% for product in collection.products %}    <div li-for="product in collection.products" role="listitem" class="filter_product-list-item w-dyn-item">
+                                    
+                          
+                            {% render 'product_item', product: product %}
+                            
+                        
+                        </div>
+{% endfor %}
+                      </div>
+                      {% if collection.products == blank %}    <div li-if="collection.products == blank" class="filter_empty w-dyn-empty">
+    
+                        <div class="heading-style-h5">Aucun résultats trouvé.</div>
+                        <div class="spacer-xxsmall"></div>
+                        <div>Il n'y a pas de résultats correspondant à ces critères. Essayez de modifier votre recherche.</div>
+                        <div class="spacer-xxsmall"></div>
+                        <div class="spacer-xxsmall"></div>
+                        <div class="spacer-xxsmall"></div>
+                        <a li-object:href="routes.root_url" href="{{ routes.root_url }}" class="button w-button">Retourner à l'accueil</a>
+                          </div>
+{% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endcase %}
+</div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Collection produits",
+    "class": "section_filters",
+    "presets": [
+        {
+            "name": "Collection produits",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

@@ -1,0 +1,133 @@
+{
+    "sections": {
+        "hero": {
+            "type": "hero"
+        },
+        "contenu_avec_titre": {
+            "type": "contenu_avec_titre",
+            "blocks": {
+                "headline-small": {
+                    "name": "Headline small",
+                    "type": "headline-small"
+                },
+                "headline": {
+                    "name": "Headline",
+                    "type": "headline"
+                },
+                "text": {
+                    "name": "Text",
+                    "type": "text"
+                },
+                "buttons": {
+                    "name": "Buttons",
+                    "type": "buttons"
+                }
+            },
+            "block_order": [
+                "headline-small",
+                "headline",
+                "text",
+                "buttons"
+            ]
+        },
+        "content": {
+            "type": "content",
+            "blocks": {
+                "headline-small": {
+                    "name": "Headline small",
+                    "type": "headline-small"
+                },
+                "headline": {
+                    "name": "Headline",
+                    "type": "headline"
+                },
+                "text": {
+                    "name": "Text",
+                    "type": "text"
+                },
+                "buttons": {
+                    "name": "Buttons",
+                    "type": "buttons"
+                }
+            },
+            "block_order": [
+                "headline-small",
+                "headline",
+                "text",
+                "buttons"
+            ]
+        },
+        "badges": {
+            "type": "badges",
+            "blocks": {
+                "badge": {
+                    "name": "Badge",
+                    "type": "badge"
+                }
+            },
+            "block_order": [
+                "badge"
+            ]
+        },
+        "team": {
+            "type": "team",
+            "blocks": {
+                "tab": {
+                    "name": "Tab",
+                    "type": "tab"
+                }
+            },
+            "block_order": [
+                "tab"
+            ]
+        },
+        "team_2": {
+            "type": "team_2",
+            "blocks": {
+                "tab": {
+                    "name": "Tab",
+                    "type": "tab"
+                }
+            },
+            "block_order": [
+                "tab"
+            ]
+        },
+        "team_3": {
+            "type": "team_3",
+            "blocks": {
+                "tab": {
+                    "name": "Tab",
+                    "type": "tab"
+                }
+            },
+            "block_order": [
+                "tab"
+            ]
+        },
+        "faq": {
+            "type": "faq",
+            "blocks": {
+                "faq-item": {
+                    "name": "FAQ Item",
+                    "type": "faq-item"
+                }
+            },
+            "block_order": [
+                "faq-item"
+            ]
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "hero",
+        "contenu_avec_titre",
+        "content",
+        "badges",
+        "team",
+        "team_2",
+        "team_3",
+        "faq"
+    ]
+}

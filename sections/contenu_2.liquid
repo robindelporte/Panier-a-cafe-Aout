@@ -1,0 +1,85 @@
+<div class="padding-global">
+          <div class="padding-section-medium">
+            <div class="container-large">
+              <div class="recyclage_component">
+                <div class="recyclage_heading">
+                  <h2>
+{{ section.settings.text_heading }}
+</h2>
+                  <p>
+{{ section.settings.text_paragraph }}
+</p>
+                </div>
+                <div role="list" class="recyclage_image-list">
+                  {% for block in section.blocks %}
+    {% if block.type == "carte" %}
+                    <div li-block="Carte" role="listitem" class="recyclage_image-wrapper">
+                                    {% if block.settings.image_image %}
+{{ block.settings.image_image | image_url: width: 1000 | image_tag: loading: 'lazy', width: '283.5', class: 'recyclage_image' }}
+{% else %}
+<img src="{{ 'recyclage-1_1.avif' | asset_url }}" loading="lazy" width="283.5" alt="" class="recyclage_image">
+{% endif %}
+                            </div>
+            {% endif %}
+{% endfor %}
+                </div>
+                <div class="button-group">
+                  <a href="{{ section.settings.url_button_link }}" class="button is-alternate is-secondary w-button"> {{ section.settings.text_button_text }} </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "div",
+    "name": "Contenu-2",
+    "class": "section_recyclage",
+    "blocks": [
+        {
+            "name": "Carte",
+            "type": "carte",
+            "settings": [
+                {
+                    "id": "image_image",
+                    "type": "image_picker",
+                    "label": "Image"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Recycle ton caf\u00e9, sans te prendre la t\u00eate"
+        },
+        {
+            "id": "text_paragraph",
+            "type": "text",
+            "label": "Paragraph",
+            "default": "Si ton marc de caf\u00e9 avait une seconde vie ? Gr\u00e2ce \u00e0 notre sac de collecte, on te propose de recycler ton marc pour le transformer en pellets pour po\u00eales \u00e0 granul\u00e9s via notre partenariat avec Environ Alpes. Pour les pros (PME, restaurateurs), on r\u00e9cup\u00e8re le sac directement lors de nos livraisons de caf\u00e9. Pour les particuliers, il suffit de nous le rapporter sur les march\u00e9s ou \u00e0 l\u2019atelier lors de ta prochaine visite. Simple, utile\u2026 et bien plus \u00e9colo que de le jeter \u00e0 la poubelle !"
+        },
+        {
+            "id": "url_button_link",
+            "type": "url",
+            "label": "Button Link"
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button Text",
+            "default": "Je veux un sac"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Contenu-2",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "carte"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

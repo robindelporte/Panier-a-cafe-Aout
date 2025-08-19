@@ -1,0 +1,179 @@
+<div id="a-propos" class="padding-global padding-section-small">
+          <div class="container-large">
+            <div class="card_component-wrapper">
+              <h2 class="text-align-center">
+{{ section.settings.text_heading }}
+</h2>
+              <div class="card_component">
+                <div id="w-node-ce089dcc-b3c3-8b7b-b5da-79e4d2ef89ac-a70a52dd" class="card_img-wrapper" style="{% if section.settings.left_right == 'right'%}order: 9999;{% endif %}">{% if section.settings.image_image %}
+{{ section.settings.image_image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'card_img' }}
+{% else %}
+<img loading="lazy" alt="" src="{{ 'image.svg' | asset_url }}" class="card_img">
+{% endif %}</div>
+                <div li-content-for-blocks="" class="content_wrapper">
+{% for block in section.blocks %}
+{% case block.type %}
+{% when '@app' %}
+{% render block %}
+
+                  {% when 'headline-small' %}
+            <div li-block="Headline small">
+                    
+                    
+                    <div class="text-size-small text-weight-semibold">
+{{ block.settings.text_tag }}
+</div>
+                    
+                  
+                </div>
+                  {% when 'headline' %}
+            <div li-block="Headline">
+                    
+                    
+                    <h3>
+{{ block.settings.text_headline }}
+</h3>
+                    
+                  
+                </div>
+                  {% when 'text' %}
+            <div li-block="Text">
+                    
+                    
+                    <div> {{ block.settings.richtext_paragraph }} </div>
+                    
+                  
+                </div>
+                  {% when 'buttons' %}
+            <div li-block="Buttons">
+                    
+                    
+                    <div class="button-group">
+                      {% if block.settings.url_button_link %}    <div li-if="block.settings.url_button_link">
+    
+                        <a href="{{ block.settings.url_button_link }}" class="button w-button"> {{ block.settings.text_button_text }} </a>
+                          </div>
+{% endif %}
+                      {% if block.settings.url_button_link_2 %}    <div li-if="block.settings.url_button_link_2">
+    
+                        <a href="{{ block.settings.url_button_link_2 }}" class="button is-secondary w-button"> {{ block.settings.text_button_text_2 }} </a>
+                          </div>
+{% endif %}
+                    </div>
+                    
+                  
+                </div>
+                {% endcase %}
+{% endfor %}
+
+    </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Contenu avec titre",
+    "class": "section_content",
+    "blocks": [
+        {
+            "name": "Headline small",
+            "type": "headline-small",
+            "settings": [
+                {
+                    "id": "text_tag",
+                    "type": "text",
+                    "label": "Tag",
+                    "default": "Small Headline"
+                }
+            ]
+        },
+        {
+            "name": "Headline",
+            "type": "headline",
+            "settings": [
+                {
+                    "id": "text_headline",
+                    "type": "text",
+                    "label": "Headline",
+                    "default": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
+                }
+            ]
+        },
+        {
+            "name": "Text",
+            "type": "text",
+            "settings": [
+                {
+                    "id": "richtext_paragraph",
+                    "type": "richtext",
+                    "label": "Paragraph",
+                    "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.<\/p>"
+                }
+            ]
+        },
+        {
+            "name": "Buttons",
+            "type": "buttons",
+            "settings": [
+                {
+                    "id": "url_button_link",
+                    "type": "url",
+                    "label": "Button Link"
+                },
+                {
+                    "id": "text_button_text",
+                    "type": "text",
+                    "label": "Button Text",
+                    "default": "Button"
+                },
+                {
+                    "id": "url_button_link_2",
+                    "type": "url",
+                    "label": "Button Link 2"
+                },
+                {
+                    "id": "text_button_text_2",
+                    "type": "text",
+                    "label": "Button Text 2",
+                    "default": "Button 2"
+                }
+            ]
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Heading"
+        },
+        {
+            "id": "image_image",
+            "type": "image_picker",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Contenu avec titre",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "headline-small"
+                },
+                {
+                    "type": "headline"
+                },
+                {
+                    "type": "text"
+                },
+                {
+                    "type": "buttons"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

@@ -1,0 +1,202 @@
+<div class="home-hero_wrapper">
+          <div class="swiper_component is-home-hero">
+            <div class="swiper is-home-hero">
+              <div role="list" class="swiper-wrapper is-home-hero">
+                {% for block in section.blocks %}
+    {% if block.type == "slide" %}
+                    <div li-block="Slide" class="swiper-slide is-home-hero">
+                                    
+                  
+                                    <div class="container-large">
+                    <div class="swiper_content">
+                      <div class="heading-style-h1"> {{ block.settings.richtext_heading }} </div>
+                      <div class="text-size-regular">
+{{ block.settings.text_text }}
+</div>
+                      {% if block.settings.text_button_1_text != blank or block.settings.text_button_2_text != blank %}    <div li-if="block.settings.text_button_1_text != blank or block.settings.text_button_2_text != blank" class="button-group z-index-2">
+    
+                        {% if block.settings.text_button_1_text != blank %}    <div li-if="block.settings.text_button_1_text != blank" class="button-block animation-css-fade">
+    
+                          <a href="{{ block.settings.url_button_1_link }}" class="button is-alternate w-button"> {{ block.settings.text_button_1_text }} </a>
+                            </div>
+{% endif %}
+                          </div>
+{% endif %}
+                    </div>
+                  </div>
+                                    
+                  
+                                    <div class="image-hero_bg">
+                    <div class="image-hero_desktop-bg">{% if block.settings.image_image_desktop %}
+{{ block.settings.image_image_desktop | image_url: width: 1000 | image_tag: loading: 'eager', class: 'image-hero_bg-image' }}
+{% else %}
+<img loading="eager" alt="" src="{{ 'image_1.svg' | asset_url }}" class="image-hero_bg-image">
+{% endif %}
+                      {% if block.settings.video_desktop != blank %}    <div li-if="block.settings.video_desktop != blank" class="image-hero_video-wrapper">
+    
+                        <video style="height: 100%; width: 100%; object-fit: cover" volume="0" slot="media" playsinline="" loop="" autoplay="" muted="" alt="{{block.settings.video_desktop.alt}}">{% for video_source in block.settings.video_desktop.sources %}<source src="{{video_source.url}}" type="{{video_source.mime_type}}">{% endfor %}</video>
+                          </div>
+{% endif %}
+                    </div>
+                    {% if block.settings.video_mobile != blank or block.settings.image_image_mobile_480px != blank %}    <div li-if="block.settings.video_mobile != blank or block.settings.image_image_mobile_480px != blank" class="image-hero_mobile-bg">
+    {% if block.settings.image_image_mobile %}
+{{ block.settings.image_image_mobile | image_url: width: 1000 | image_tag: loading: 'eager', class: 'image-hero_bg-image' }}
+{% else %}
+<img loading="eager" alt="" src="{{ 'platzhalter.svg' | asset_url }}" class="image-hero_bg-image">
+{% endif %}
+                      {% if block.settings.video_mobile != blank %}    <div li-if="block.settings.video_mobile != blank" class="image-hero_video-wrapper">
+    
+                        <video style="height: 100%; width: 100%; object-fit: cover" volume="0" slot="media" playsinline="" loop="" autoplay="" muted="" alt="{{block.settings.video_mobile.alt}}">{% for video_source in block.settings.video_mobile.sources %}<source src="{{video_source.url}}" type="{{video_source.mime_type}}">{% endfor %}</video>
+                          </div>
+{% endif %}
+                        </div>
+{% endif %}
+                  </div>
+                                    
+                  
+                                    
+                                    
+                
+                            </div>
+            {% endif %}
+{% endfor %}
+              </div>
+            </div>
+            <div class="home-hero_controls">
+              <div class="home-hero_navigation is-home-hero"><button aria-label="Previous slide" type="button" class="swiper_button swiper-prev is-home-hero">
+                  <div class="swiper_button-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323" style="transform: rotate(180deg)">
+                      <g id="Group_44" data-name="Group 44" transform="translate(0 1.014)">
+                        <path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path>
+                        <line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line>
+                      </g>
+                    </svg></div>
+                </button><button aria-label="Next slide" type="button" class="swiper_button swiper-next is-home-hero">
+                  <div class="swiper_button-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323">
+                      <g id="Group_44" data-name="Group 44" transform="translate(0 1.014)">
+                        <path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path>
+                        <line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line>
+                      </g>
+                    </svg></div>
+                </button></div>
+              <div class="swiper_pagination is-home-hero is-mixed">
+                <div class="swiper_bullet"></div>
+                <div class="swiper_bullet is-active"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hide w-embed w-script">
+          <script>
+document.addEventListener('DOMContentLoaded', () => {
+  $(".swiper_component.is-home-hero").each(function(index) {    
+    const swiper = new Swiper($(this).find(".swiper")[0], {
+      speed: 800,
+      autoHeight: true,
+      followFinger: true,
+      freeMode: false,
+      slideToClickedSlide: false,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      rewind: false,
+      fadeEffect: {
+        crossFade: true
+      },
+      mousewheel: {
+        forceToAxis: true
+      },
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true
+      },
+      pagination: {
+        el: $(this).find(".swiper_pagination")[0],
+        bulletActiveClass: "is-active",
+        bulletClass: "swiper_bullet",
+        bulletElement: "button",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: $(this).find(".swiper_button.swiper-next")[0],
+        prevEl: $(this).find(".swiper_button.swiper-prev")[0],
+        disabledClass: "swiper-button-disabled",
+      },
+      slideActiveClass: "is-active",
+      slideDuplicateActiveClass: "is-active",
+      a11y: {
+        slideRole: 'listitem'
+      }
+    });
+  });
+});
+</script>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Hero Slider",
+    "class": "section_home-hero",
+    "blocks": [
+        {
+            "name": "Slide",
+            "type": "slide",
+            "settings": [
+                {
+                    "id": "richtext_heading",
+                    "type": "richtext",
+                    "label": "Heading",
+                    "default": "<p>Heading<\/p>"
+                },
+                {
+                    "id": "text_text",
+                    "type": "text",
+                    "label": "Text",
+                    "default": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
+                },
+                {
+                    "id": "url_button_1_link",
+                    "type": "url",
+                    "label": "Button 1 Link"
+                },
+                {
+                    "id": "text_button_1_text",
+                    "type": "text",
+                    "label": "Button 1 Text",
+                    "default": "Button Text"
+                },
+                {
+                    "id": "image_image_desktop",
+                    "type": "image_picker",
+                    "label": "Image Desktop"
+                },
+                {
+                    "id": "image_image_mobile",
+                    "type": "image_picker",
+                    "label": "Image Mobile"
+                },
+                {
+                    "type": "header",
+                    "content": "Video"
+                },
+                {
+                    "type": "video",
+                    "id": "video_desktop",
+                    "label": "Video Desktop"
+                },
+                {
+                    "type": "video",
+                    "id": "video_mobile",
+                    "label": "Video Mobile"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Hero Slider",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "slide"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

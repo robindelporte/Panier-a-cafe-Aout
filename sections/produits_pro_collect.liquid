@@ -1,0 +1,54 @@
+<div li-render-filter="wrapper" class="padding-global padding-section-small">
+          <div class="container-large">
+            <div class="filter_feed-header"><select id="sort-by" li-for:inside="option in collection.sort_options" li-render-filter="sort" li-render-filter-trigger="input" class="sort_select filter_checkbox">
+        {% for option in collection.sort_options %}                            
+                
+                            <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% elsif option.value == collection.default_sort_by %}selected{% endif %}>{{ option.name }}</option>
+                            
+              
+                    {% endfor %}    </select>
+              <a data-w-id="cbf74ad1-eabf-c682-bfe7-b67470e149c8" href="#" class="filter_tablet-filters-button w-inline-block"><img loading="lazy" src="https://uploads-ssl.webflow.com/624380709031623bfe4aee60/62942b9f00484cf074e6f851_icon-filters.svg" alt="" class="button-icon-left">
+                <div>Filtres</div>
+              </a>
+              <div class="filter_results-text"><span li-object="collection.all_products_count | append: ' '">{{ collection.all_products_count | append: ' ' }}</span> Produits</div>
+            </div>
+            <div class="filter_layout is-no-filter">
+              <div id="w-node-cbf74ad1-eabf-c682-bfe7-b67470e149d1-fe62cc2a" class="filter_feed">
+                <div class="filter_product-list-wrapper w-dyn-list">
+                  <div role="list" class="filter_product-list w-dyn-items">
+                    {% for product in collection.products %}    <div li-for="product in collection.products" role="listitem" class="filter_product-list-item w-dyn-item">
+                                    
+                      
+                            {% render 'product_pro_item', product: product %}
+                            
+                    
+                        </div>
+{% endfor %}
+                  </div>
+                  {% if collection.products == blank %}    <div li-if="collection.products == blank" class="filter_empty w-dyn-empty">
+    
+                    <div class="heading-style-h5">Aucun résultats trouvé.</div>
+                    <div class="spacer-xxsmall"></div>
+                    <div>Il n'y a pas de résultats correspondant à ces critères. Essayez de modifier votre recherche.</div>
+                    <div class="spacer-xxsmall"></div>
+                    <div class="spacer-xxsmall"></div>
+                    <div class="spacer-xxsmall"></div>
+                    <a li-object:href="routes.root_url" href="{{ routes.root_url }}" class="button w-button">Retourner à l'accueil</a>
+                      </div>
+{% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Produits-Pro-Collect",
+    "class": "section_filters",
+    "presets": [
+        {
+            "name": "Produits-Pro-Collect",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

@@ -1,0 +1,65 @@
+<div class="padding-global">
+          <div class="padding-section-medium">
+            <div class="container-large">
+              <div class="collections_wrapper">
+                <div class="collections_heading">
+                  <h2 li-setting:text="heading" class="heading-style-h3">Les produits du Panier à Café</h2>
+                </div>
+                <div class="max-width-xlarge">
+                  <div class="collections_list is-collections">
+                    {% for block in section.blocks %}
+    {% if block.type == "collection" %}
+                    <div li-block="Collection">
+                                    
+                      
+                                    <a href="{{ block.settings.url_lien_collection }}" class="collections_item no-underline w-inline-block"> {% if block.settings.image_image_collection %} {{ block.settings.image_image_collection | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'collection_image' }} {% else %} <img src="{{ 'icon.avif' | asset_url }}" loading="lazy" alt="" class="collection_image"> {% endif %} <div>{{ block.settings.text_nom_collection }}</div> </a>
+                                    
+                    
+                            </div>
+            {% endif %}
+{% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Liste Collections",
+    "class": "section_collections",
+    "blocks": [
+        {
+            "name": "Collection",
+            "type": "collection",
+            "settings": [
+                {
+                    "id": "url_lien_collection",
+                    "type": "url",
+                    "label": "Lien Collection"
+                },
+                {
+                    "id": "image_image_collection",
+                    "type": "image_picker",
+                    "label": "Image Collection"
+                },
+                {
+                    "id": "text_nom_collection",
+                    "type": "text",
+                    "label": "Nom collection",
+                    "default": "Caf\u00e9 en grain"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Liste Collections",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "collection"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

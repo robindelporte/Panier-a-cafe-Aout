@@ -1,0 +1,127 @@
+<div class="padding-global padding-section-small">
+          <div class="container-large">
+            <div class="account-tabs_wrapper">
+              <div id="w-node-_9c14f2bc-0721-1bfd-70b3-261810ff7877-61322538" class="account-tabs_left-links">
+                <a href="{{ routes.account_url }}" li-object:href="routes.account_url" aria-current="page" class="account-tabs_link w--current">Compte</a>
+                <a href="{{ routes.account_addresses_url }}" li-object:href="routes.account_addresses_url" id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f1e7-61322538" class="account-tabs_link">Adresses</a>
+              </div>
+              <a li-object:href="routes.account_logout_url" href="{{ routes.account_logout_url }}" class="account-tabs_link">Déconnexion</a>
+            </div>
+            {% if customer.orders.size != 0 %}    <div li-if="customer.orders.size != 0" class="cart_grid-wrapper">
+    
+              <div id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f22c-61322538" class="cart_table outline-solid-1">
+                <div class="cart_grid is-header hide-mobil">
+                  <div class="cart_table-header">
+                    <div item="date" class="text-size-regular text-weight-bold">Date</div>
+                  </div>
+                  <div class="cart_table-header">
+                    <div class="text-size-regular text-weight-bold">Commande</div>
+                  </div>
+                  <div class="cart_table-header">
+                    <div item="payment-status" class="text-size-regular text-weight-bold">État du paiement</div>
+                  </div>
+                  <div class="cart_table-header">
+                    <div item="fulfillment-status" class="text-size-regular text-weight-bold">État de la livraison</div>
+                  </div>
+                  <div class="cart_table-header">
+                    <div item="total" class="text-size-regular text-weight-bold">Total</div>
+                  </div>
+                </div>
+                {% for order in customer.orders %}    <div li-for="order in customer.orders" class="cart_grid">
+                                    
+                  
+                            <div li-object="order.created_at | date: '%e.%m.%Y'" id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f241-61322538" class="text-size-regular text-style-no-wrap">{{ order.created_at | date: '%e.%m.%Y' }}</div>
+                            
+                  
+                            <div li-object="order.name">{{ order.name }}</div>
+                            
+                  
+                            <div li-object="order.financial_status_label" class="text-size-regular">{{ order.financial_status_label }}</div>
+                            
+                  
+                            <div li-object="order.fulfillment_status_label" id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f245-61322538" class="text-size-regular">{{ order.fulfillment_status_label }}</div>
+                            
+                  
+                            <div li-object="order.total_price | money" id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f247-61322538" class="text-size-regular">{{ order.total_price | money }}</div>
+                            
+                  
+                            <a li-object:href="order.customer_url" id="w-node-aa321970-ac27-d565-a3a7-4c7a4b98598d-61322538" href="{{ order.customer_url }}" class="text-size-regular text-style-link text-weight-bold w-inline-block">
+                    <div>Détails</div>
+                  </a>
+                            
+                
+                        </div>
+{% endfor %}
+              </div>
+                </div>
+{% endif %}
+            <div class="spacer-large"></div>
+            <div class="account_grid">
+              <div id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f1ef-61322538" class="cart_table outline-solid-1">
+                <div class="cart_grid is-header is-last-order">
+                  <div id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f1f1-61322538" class="cart_table-header">
+                    <div class="text-size-regular">Dernière commande</div>
+                  </div>
+                </div>
+                <div>
+                  {% if customer.orders.size != 0 %}    <div li-if="customer.orders.size != 0">
+    
+                    <div class="account_single-cart-wrapper">
+                      <div id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f1f7-61322538" class="account_single-cart-line">
+                        <div class="text-size-regular text-weight-bold">Commande <span li-object="customer.last_order.name">{{ customer.last_order.name }}</span></div>
+                        <div li-object="customer.last_order.created_at | date: '%e.%m.%Y'" class="text-size-regular">{{ customer.last_order.created_at | date: '%e.%m.%Y' }}</div>
+                      </div>
+                      <div id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f1fe-61322538" class="account_single-cart-line">
+                        <div class="text-size-regular">Total</div>
+                        <div li-object="customer.last_order.total_price | money" class="text-size-regular">{{ customer.last_order.total_price | money }}</div>
+                      </div>
+                      <div id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f203-61322538" class="account_single-cart-line">
+                        <div class="text-size-regular">État du paiement</div>
+                        <div li-object="customer.last_order.financial_status_label" class="text-size-regular">{{ customer.last_order.financial_status_label }}</div>
+                      </div>
+                      <div id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f208-61322538" class="account_single-cart-line">
+                        <div class="text-size-regular">État de la livraison</div>
+                        <div li-object="customer.last_order.fulfillment_status_label" class="text-size-regular">{{ customer.last_order.fulfillment_status_label }}</div>
+                      </div>
+                      <a href="{{ customer.last_order.customer_url }}" li-object:href="customer.last_order.customer_url" class="button is-secondary w-button">Détails</a>
+                    </div>
+                      </div>
+{% endif %}
+                  {% if customer.orders.size == 0 %}    <div li-if="customer.orders.size == 0" class="account_single-cart-wrapper">
+    
+                    <div id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f210-61322538">Vous n'avez pas encore passé de commande</div>
+                    <a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="button w-button">Voir les produits</a>
+                      </div>
+{% endif %}
+                </div>
+              </div>
+              <div id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f214-61322538" class="cart_table outline-solid-1">
+                <div class="cart_grid is-header">
+                  <div item="total" id="w-node-_8c82e38b-4ad7-4dfa-961b-5e98ba69f216-61322538" class="text-size-regular">Informations</div>
+                </div>
+                <div class="addresses_account-wrapper">
+                  <div class="customer-name">
+                    <div li-object="customer.first_name" class="customer-name">{{ customer.first_name }}</div>
+                    <div li-object="customer.last_name">{{ customer.last_name }}</div>
+                  </div>
+                  <div li-object="customer.email">{{ customer.email }}</div>
+                  <address class="addresses_wrapper-default">
+                    <div li-object="customer.default_address | format_address">{{ customer.default_address | format_address }}</div>
+                  </address>
+                  <a href="{{ routes.account_addresses_url }}" li-object:href="routes.account_addresses_url" class="button w-button">Ajouter une adresse</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Account-Orders",
+    "class": "section_account",
+    "presets": [
+        {
+            "name": "Account-Orders",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

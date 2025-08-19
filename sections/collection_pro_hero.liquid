@@ -1,0 +1,58 @@
+<div class="padding-global padding-section-small">
+          <div class="container-large">
+            <div class="margin-bottom margin-medium">
+              <h1 li-object="collection.title" class="heading-style-h1">{{ collection.title }}</h1>
+            </div>
+            {% if collection.description %}    <div li-if="collection.description" class="text_container-wrapper">
+    
+              <div class="text_container">
+                <div li-object="collection.description" class="collection_description w-richtext">{{ collection.description }}</div>
+                <div class="text_overlay is-active"></div>
+              </div>
+              <a role="button" href="#" class="see_more">Voir plus</a>
+              <div class="hide w-embed w-script">
+                <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // S&eacute;lectionner tous les boutons "Voir plus"
+  var seeMoreButtons = document.querySelectorAll('.see_more');
+  // Ajouter un gestionnaire d'&eacute;v&eacute;nements &agrave; chaque bouton
+  seeMoreButtons.forEach(function(button) {
+    button.addEventListener('click', function(e) {
+      e.preventDefault(); // Emp&ecirc;cher le comportement par d&eacute;faut du lien
+      // Trouver les &eacute;l&eacute;ments &agrave; modifier
+      var wrapper = this.closest('.text_container-wrapper');
+      var description = wrapper.querySelector('.collection_description');
+      var overlay = wrapper.querySelector('.text_overlay');
+      // V&eacute;rifier si le texte est d&eacute;j&agrave; d&eacute;velopp&eacute;
+      var isExpanded = description.style.maxHeight === '2000px';
+      if (!isExpanded) {
+        // D&eacute;velopper le texte
+        description.style.maxHeight = '2000px';
+        overlay.classList.add('is-active');
+        this.textContent = 'Voir moins';
+      } else {
+        // Replier le texte
+        description.style.maxHeight = '';  // Retour &agrave; la valeur CSS par d&eacute;faut
+        overlay.classList.remove('is-active');
+        this.textContent = 'Voir plus';
+      }
+    });
+  });
+});
+</script>
+              </div>
+                </div>
+{% endif %}
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Collection-Pro-Hero",
+    "class": "section_small-hero",
+    "presets": [
+        {
+            "name": "Collection-Pro-Hero",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

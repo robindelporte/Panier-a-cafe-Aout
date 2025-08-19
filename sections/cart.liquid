@@ -1,0 +1,344 @@
+<div class="padding-global padding-section-small">
+            <div class="container-large">
+              <div class="cart_headline-wrapper">
+                <h2 id="w-node-_32e49c3e-e09f-a684-4ca4-d41552096b5e-2ef81999" class="heading-style-h2">
+{{ section.settings.text_heading }}
+</h2>
+                <a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="text-size-small text-style-link">Retourner à la boutique</a>
+              </div>
+              <div x-data="{   freeShipping: 8000,  cartTotal: 0,  init() {    fetch('/cart.js')      .then(r => r.json())      .then(data => this.cartTotal = data.total_price);  }}" class="mini-cart_progress-component">
+                <div x-show="(freeShipping - cartTotal) > 0" class="cart_top_progress-component">
+                  <div class="text-size-small">Plus que <span x-text="((freeShipping - cartTotal) / 100).toFixed(2) + '€'">45,75€</span>, et nous couvrons vos frais d'expédition !</div>
+                  <div class="mini-cart_top_progress-bar">
+                    <div :style="'width: ' + (cartTotal/freeShipping) * 100 + '%'" class="mini-cart_top_progress-bar-innner"></div>
+                  </div>
+                </div>
+                <div x-show="(freeShipping - cartTotal) <= 0" class="cart_top_progress-component">
+                  <div class="heading-style-h4">Félicitations !</div>
+                  <div class="spacer-tiny"></div>
+                  <div class="text-size-small">Vous avez débloqué la livraison gratuite pour votre commande.</div>
+                </div>
+              </div>
+              {% if cart.item_count > 0 %}    <div li-if="cart.item_count > 0" class="cart_form-block w-form">
+    
+                {% form 'cart', cart, class: 'cart_grid-wrapper' %}
+<div class="cart_table outline-solid-1">
+                    <div class="cart_grid is-header w-hidden-tiny">
+                      <div id="w-node-_32e49c3e-e09f-a684-4ca4-d41552096b66-2ef81999" class="cart_table-header">
+                        <p class="text-size-regular text-weight-bold">Produit</p>
+                      </div>
+                      <div class="cart_table-header">
+                        <p class="text-size-regular text-weight-bold">Quantité</p>
+                      </div>
+                      <div id="w-node-_32e49c3e-e09f-a684-4ca4-d41552096b6c-2ef81999" class="cart_table-header">
+                        <p class="text-size-regular text-weight-bold">Total</p>
+                      </div>
+                    </div>
+                    {% for item in cart.items %}    <div bss-b2b-cart-item-key="{{ item.key }}" li-for="item in cart.items" class="cart_grid is-cart">
+                                    
+                      
+                            <div id="w-node-_32e49c3e-e09f-a684-4ca4-d41552096b70-2ef81999" class="display-inlineflex">
+                        <a href="{{ item.url }}" li-object:href="item.url" id="w-node-_32e49c3e-e09f-a684-4ca4-d41552096b71-2ef81999" class="w-inline-block"><img li-object:src="item.image |  img_url: 'small'" src="{{ item.image |  img_url: 'small' }}" alt="" class="cart_image"></a>
+                        <div class="cart_info-order">
+                          <a href="{{ item.url }}" li-object:href="item.url" li-object="item.title" class="text-size-regular">{{ item.title }}</a>
+                          <div li-object="item.variant.title" class="text-size-small text-color-secondary">{{ item.variant.title }}</div>
+                          <div class="hide">
+                            <p item="price" class="cart_price">$13</p>
+                            <p item="original-price" class="cart_price away">$18</p>
+                          </div>
+                        </div>
+                      </div>
+                            
+                      
+                            <div id="w-node-_32e49c3e-e09f-a684-4ca4-d41552096b7b-2ef81999" class="cart_table-item is-quantity">
+                        <div class="quantity-container"><button type="button" cart-number-button="decrease" data-id="cart-item-{{ item.variant_id }}" class="quantity-btn decrement">
+                            <div class="icon-1x1-10px w-embed"><svg width="11" height="3" viewbox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 2.2192V0.777344H10.093V2.2192H0Z" fill="#77634F"></path>
+                              </svg></div>
+                          </button><input type="text" min="1" max="99" li-object:value="item.quantity" name="updates[]" cart-number-input="cart-item-{{ item.variant_id }}" class="quantity-display" value="{{ item.quantity }}"><button type="button" cart-number-button="increase" data-id="cart-item-{{ item.variant_id }}" class="quantity-btn increment">
+                            <div class="icon-1x1-10px w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 11 11" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                <path d="M4.41861 6.22057H0.0930252V4.77871H4.41861V0.453125H5.86047V4.77871H10.186V6.22057H5.86047V10.5461H4.41861V6.22057Z" fill="currentColor"></path>
+                              </svg></div>
+                          </button></div>
+                        <a href="{{ item.url_to_remove }}" li-object:href="item.url_to_remove" class="text-size-tiny text-style-link text-align-center w-inline-block">
+                          <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 25 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                              <mask id="mask0_7490_4045" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="25" height="25">
+                                <rect x="0.591797" y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                              </mask>
+                              <g mask="url(#mask0_7490_4045)">
+                                <path d="M7.89955 20.9997C7.40238 20.9997 6.9768 20.8227 6.6228 20.4687C6.2688 20.1147 6.0918 19.6892 6.0918 19.192V6.49973H5.8418C5.6293 6.49973 5.45121 6.42782 5.30755 6.28398C5.16371 6.14015 5.0918 5.96198 5.0918 5.74948C5.0918 5.53682 5.16371 5.35873 5.30755 5.21523C5.45121 5.07157 5.6293 4.99973 5.8418 4.99973H9.5918C9.5918 4.7549 9.67805 4.54624 9.85055 4.37374C10.0229 4.2014 10.2315 4.11523 10.4763 4.11523H14.7073C14.9521 4.11523 15.1607 4.2014 15.333 4.37374C15.5055 4.54624 15.5918 4.7549 15.5918 4.99973H19.3418C19.5543 4.99973 19.7324 5.07165 19.876 5.21548C20.0199 5.35932 20.0918 5.53748 20.0918 5.74998C20.0918 5.96265 20.0199 6.14073 19.876 6.28423C19.7324 6.4279 19.5543 6.49973 19.3418 6.49973H19.0918V19.192C19.0918 19.6892 18.9148 20.1147 18.5608 20.4687C18.2068 20.8227 17.7812 20.9997 17.284 20.9997H7.89955ZM17.5918 6.49973H7.5918V19.192C7.5918 19.2818 7.62063 19.3556 7.6783 19.4132C7.73596 19.4709 7.80971 19.4997 7.89955 19.4997H17.284C17.3739 19.4997 17.4476 19.4709 17.5053 19.4132C17.563 19.3556 17.5918 19.2818 17.5918 19.192V6.49973ZM10.746 17.4997C10.9585 17.4997 11.1366 17.4279 11.2803 17.2842C11.4238 17.1404 11.4955 16.9622 11.4955 16.7497V9.24973C11.4955 9.03723 11.4236 8.85907 11.2798 8.71523C11.1361 8.57157 10.958 8.49973 10.7453 8.49973C10.5328 8.49973 10.3547 8.57157 10.211 8.71523C10.0675 8.85907 9.9958 9.03723 9.9958 9.24973V16.7497C9.9958 16.9622 10.0676 17.1404 10.2113 17.2842C10.3551 17.4279 10.5334 17.4997 10.746 17.4997ZM14.4383 17.4997C14.6508 17.4997 14.8289 17.4279 14.9725 17.2842C15.116 17.1404 15.1878 16.9622 15.1878 16.7497V9.24973C15.1878 9.03723 15.116 8.85907 14.9723 8.71523C14.8285 8.57157 14.6502 8.49973 14.4375 8.49973C14.225 8.49973 14.047 8.57157 13.9033 8.71523C13.7598 8.85907 13.688 9.03723 13.688 9.24973V16.7497C13.688 16.9622 13.76 17.1404 13.9038 17.2842C14.0475 17.4279 14.2256 17.4997 14.4383 17.4997Z" fill="#848484"></path>
+                              </g>
+                            </svg></div>
+                        </a>
+                      </div>
+                            
+                      
+                            <div bss-b2b-final-line-price="" id="w-node-_32e49c3e-e09f-a684-4ca4-d41552096b83-2ef81999" class="cart_price-info">
+                        <div bss-b2b-item-original-price="" li-object="item.final_line_price | money" class="text-size-regular">{{ item.final_line_price | money }}</div>
+                        {% if item.original_line_price > item.final_line_price %}    <div li-if="item.original_line_price > item.final_line_price">
+    
+                          <div li-object="item.original_line_price | money" class="text-size-regular text-style-strikethrough">{{ item.original_line_price | money }}</div>
+                            </div>
+{% endif %}
+                      </div>
+                            
+                    
+                        </div>
+{% endfor %}
+                  </div>
+                  <div id="w-node-_32e49c3e-e09f-a684-4ca4-d41552096b89-2ef81999" class="cart_wrapper-right">
+                    <div id="w-node-_32e49c3e-e09f-a684-4ca4-d41552096b8a-2ef81999" class="cart_resume">
+                      <div class="cart_content">
+                        <div class="cart_wrapper">
+                          <div>{% assign product = all_products[section.settings.product_product] %} 
+                            <script src="{{ 'li_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="product-variant-container" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)">
+                              <div data-donation="true" class="cart_don-wrapper">
+                                <div class="text-size-small">Vous souhaitez faire un don à l’association ? Choisissez le montant de votre choix.</div>
+                                <div class="quantity-container is-don"><button type="button" x-on:click="quantity = quantity > 1 ? quantity-1 : quantity" class="quantity-btn decrement">
+                                    <div class="icon-1x1-10px w-embed"><svg width="11" height="3" viewbox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 2.2192V0.777344H10.093V2.2192H0Z" fill="#77634F"></path>
+                                      </svg></div>
+                                  </button><input type="text" readonly="" data-type="currency" li-element="add-to-cart-quantity" class="quantity-display is-don" value="1" x-model="quantity">
+                                  <div class="display-inlineflex">
+                                    <div class="currency_wrapper">
+                                      <div>€</div>
+                                    </div>
+                                  </div><button type="button" x-on:click="quantity = Math.min(quantity + 1)" class="quantity-btn increment">
+                                    <div class="icon-1x1-10px w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 11 11" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                        <path d="M4.41861 6.22057H0.0930252V4.77871H4.41861V0.453125H5.86047V4.77871H10.186V6.22057H5.86047V10.5461H4.41861V6.22057Z" fill="currentColor"></path>
+                                      </svg></div>
+                                  </button>
+                                </div><button type="button" x-on:click="addToCart($event, true)" class="button is-link">
+                                  <div class="text-style-link text-size-small">Ajouter le don au panier</div>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="cart_details">
+                            {% if cart.total_discounts > 0 %}    <div li-if="cart.total_discounts > 0" class="cart_details-wrapper">
+    
+                              <div class="text-size-regular">Réduction</div>
+                              <div li-object="cart.total_discount | money">{{ cart.total_discount | money }}</div>
+                                </div>
+{% endif %}
+                            <div class="cart_details-wrapper">
+                              <div class="text-size-regular">Total <span class="text-size-tiny">(TVA inclue.)</span></div>
+                              <div class="cart_details-price">
+                                {% if cart.total_discounts > 0 %}    <div li-if="cart.total_discounts > 0">
+    
+                                  <div li-object="cart.original_total_price | money" class="text-style-strikethrough">{{ cart.original_total_price | money }}</div>
+                                    </div>
+{% endif %}
+                                <div bss-b2b-cart-total-price="" li-object="cart.total_price | money">{{ cart.total_price | money }}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart_action"><input type="submit" data-wait="Please wait..." class="button w-button" value="Checkout" name="Passer commande"></div>
+                      </div>
+                    </div>
+                  </div>
+                {% endform %}
+                <div class="w-form-done">
+                  <div>Thank you! Your submission has been received!</div>
+                </div>
+                <div class="w-form-fail">
+                  <div>Oops! Something went wrong while submitting the form.</div>
+                </div>
+                  </div>
+{% endif %}
+              {% if cart.item_count == 0 %}    <div li-if="cart.item_count == 0" class="cart_empty outline-solid-1">
+    
+                <div>
+{{ section.settings.text_cart_empty }}
+</div>
+                <a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="button w-button">Retourner à la boutique</a>
+                  </div>
+{% endif %}
+            </div>
+          </div>
+          <div class="hide w-embed">
+            <style>
+quantity-display {
+    -moz-appearance: textfield; /* Firefox */
+}
+.quantity-display::-webkit-outer-spin-button,
+.quantity-display::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Chrome/Safari */
+    margin: 0;
+}
+.quantity-display.is-don {
+    position: relative;
+}
+.quantity-display.is-don::after {
+    content: '&euro;';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #77634F;
+}
+</style>
+          </div>
+          <div class="hide w-embed w-script">
+            <script>
+document.addEventListener('DOMContentLoaded', function() {
+    let isUpdating = false; // &Eacute;viter les appels multiples
+    let quantityUpdateTimeout = null; // Pour les boutons quantit&eacute;
+    // FONCTION PRINCIPALE DE MISE &Agrave; JOUR (une seule fois)
+    function updateCartSection() {
+        if (isUpdating) return; // &Eacute;viter les doublons
+        isUpdating = true;
+        fetch(window.location.pathname + '?section_id=template--25274103464275__cart')
+            .then(res => res.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const newSection = doc.querySelector('#shopify-section-template--25274103464275__cart');
+                const currentSection = document.querySelector('#shopify-section-template--25274103464275__cart');
+                if (currentSection && newSection) {
+                    currentSection.outerHTML = newSection.outerHTML;
+                    // R&Eacute;ATTACHER les event listeners des boutons quantit&eacute;
+                    initializeQuantityButtons();
+                    // METTRE &Agrave; JOUR LE MINI-CART LIQUIFY SEULEMENT
+                    // (Ne pas re-d&eacute;clencher les &eacute;v&eacute;nements pour &eacute;viter la boucle)
+                    fetch('/cart.js')
+                        .then(r => r.json())
+                        .then(cartData => {
+                            // Ne d&eacute;clencher QUE les &eacute;v&eacute;nements pour le mini-cart
+                            // PAS cartupdated pour &eacute;viter la boucle !
+                            window.dispatchEvent(new CustomEvent('carttotalitems', { 
+                                detail: cartData.item_count 
+                            }));
+                            window.dispatchEvent(new CustomEvent('currentcartitems', { 
+                                detail: cartData.items 
+                            }));
+                        });
+                }
+                isUpdating = false; // Permettre les prochains appels
+            })
+            .catch(() => {
+                isUpdating = false;
+                location.reload();
+            });
+    }
+    // FONCTION POUR INITIALISER LES BOUTONS QUANTIT&Eacute;
+    function initializeQuantityButtons() {
+        const quantityInputs = document.querySelectorAll('[cart-number-input]');
+        function updateInputValue(input, newValue) {
+            input.value = newValue;
+            input.dispatchEvent(new Event('input'));
+            input.dispatchEvent(new Event('change'));
+            // Annuler le timeout pr&eacute;c&eacute;dent s'il existe
+            if (quantityUpdateTimeout) {
+                clearTimeout(quantityUpdateTimeout);
+            }
+            // Nouveau timeout avec d&eacute;lai
+            quantityUpdateTimeout = setTimeout(() => {
+                const form = input.closest('form');
+                if (form) {
+                    const formData = new FormData(form);
+                    fetch('/cart', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(() => updateCartSection())
+                    .catch(() => form.submit());
+                }
+            }, 800); // D&eacute;lai de 800ms pour permettre plusieurs clics
+        }
+        quantityInputs.forEach(input => {
+            const id = input.getAttribute('cart-number-input');
+            const incrementButton = input.parentElement.querySelector(`[cart-number-button="increase"][data-id="${id}"]`);
+            const decrementButton = input.parentElement.querySelector(`[cart-number-button="decrease"][data-id="${id}"]`);
+            if (incrementButton) {
+                // Supprimer les anciens listeners
+                incrementButton.replaceWith(incrementButton.cloneNode(true));
+                const newIncrementButton = input.parentElement.querySelector(`[cart-number-button="increase"][data-id="${id}"]`);
+                newIncrementButton.addEventListener('click', function() {
+                    let currentValue = parseInt(input.value, 10);
+                    updateInputValue(input, currentValue + 1);
+                });
+            }
+            if (decrementButton) {
+                // Supprimer les anciens listeners
+                decrementButton.replaceWith(decrementButton.cloneNode(true));
+                const newDecrementButton = input.parentElement.querySelector(`[cart-number-button="decrease"][data-id="${id}"]`);
+                newDecrementButton.addEventListener('click', function() {
+                    let currentValue = parseInt(input.value, 10);
+                    if (currentValue > 1) {
+                        updateInputValue(input, currentValue - 1);
+                    }
+                });
+            }
+            input.addEventListener('change', function() {
+                let currentValue = parseInt(this.value, 10);
+                if (isNaN(currentValue) || currentValue < 1) {
+                    updateInputValue(this, 1);
+                }
+            });
+        });
+    }
+    // INITIALISER AU CHARGEMENT
+    initializeQuantityButtons();
+    // GESTION DES DONS - &Eacute;couter les &eacute;v&eacute;nements Liquify (sans boucle)
+    let donEventHandled = false;
+    window.addEventListener('cartupdated', function(e) {
+        if (!donEventHandled && !isUpdating) {
+            console.log('Cart updated event for don received!', e.detail);
+            donEventHandled = true;
+            setTimeout(() => {
+                updateCartSection();
+                // Reset apr&egrave;s d&eacute;lai
+                setTimeout(() => { donEventHandled = false; }, 2000);
+            }, 500);
+        }
+    });
+    // GESTION DES BOUTONS POUBELLE
+    document.addEventListener('click', function(e) {
+        const removeLink = e.target.closest('a[li-object\\:href*="url_to_remove"]');
+        if (removeLink) {
+            e.preventDefault();
+            const removeUrl = removeLink.getAttribute('href') || removeLink.getAttribute('li-object:href');
+            fetch(removeUrl)
+                .then(() => updateCartSection())
+                .catch(() => window.location.href = removeUrl);
+        }
+    });
+    // Rendre accessible globalement
+    window.updateCartSection = updateCartSection;
+});
+</script>
+          </div> {% schema %} {
+    "tag": "section",
+    "name": "Cart",
+    "class": "section_account",
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Mon panier \u00e0 caf\u00e9"
+        },
+        {
+            "id": "product_product",
+            "type": "product",
+            "label": "Product"
+        },
+        {
+            "id": "text_cart_empty",
+            "type": "text",
+            "label": "Cart Empty",
+            "default": "Votre panier est vide :("
+        }
+    ],
+    "presets": [
+        {
+            "name": "Cart",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

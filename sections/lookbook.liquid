@@ -1,0 +1,131 @@
+<div x-data="{ index: 0 }" class="lookbook_component">
+          <div class="lookbook_image-wrapper">{% if section.settings.image_bg_image %}
+{{ section.settings.image_bg_image | image_url: width: 1000 | image_tag: class: 'lookbook_image', width: '720', sizes: '(max-width: 767px) 100vw, 720px', loading: 'lazy' }}
+{% else %}
+<img class="lookbook_image" src="{{ 'lookbook_1.avif' | asset_url }}" width="720" alt="" sizes="(max-width: 767px) 100vw, 720px" loading="lazy" srcset="{{ 'lookbook_1lookbook.avif' | asset_url }} 500w, {{ 'lookbook_1lookbook.avif' | asset_url }} 800w, {{ 'lookbook_1.avif' | asset_url }} 1440w">
+{% endif %}
+            <div class="lookbook_points-wrapper">
+              {% for block in section.blocks %}
+    {% if block.type == "dot" %}
+                    <div li-block="Dot" style="left:{{ block.settings.text_x_achse }}%; top:{{ block.settings.text_y_achse }}%; zIndex: {% if forloop.index == index %}50{% else %}auto{% endif %}" tabindex="0" x-on:mouseover="index = {{ forloop.index }}; $store.swiperStore.swiperInstance.slideTo({{ forloop.index0 }})" id="" class="lookbook_points">
+                                    
+                
+                                    
+                                    
+                
+                                    <div class="lookbook_ellipse-camel"></div>
+                                    
+                
+                                    <div class="lookbook_ellipse-white"></div>
+                                    
+                
+                                    <div class="lookbook_plus w-embed"><svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 8H0V6H6V0H8V6H14V8H8V14H6V8Z" fill="#77634F"></path>
+                  </svg></div>
+                                    
+                
+                                    <div class="hide">
+{{ block.settings.text_x_achse }}
+</div>
+                                    
+                
+                                    <div class="hide">
+{{ block.settings.text_y_achse }}
+</div>
+                                    
+                
+                                    <div class="hide">{% assign product = all_products[block.settings.product_produit] %} </div>
+                                    
+              
+                            </div>
+            {% endif %}
+{% endfor %}
+            </div>
+          </div>
+          <div class="lookbook_swiper-wrapper">
+            <div class="swiper in-lookbook">
+              <div role="list" class="swiper-wrapper in-lookbook">
+                {% for block in section.blocks %}    <div li-for="block in section.blocks" class="swiper-slide in-lookbook">
+                                    
+                  
+                            {% assign product = all_products[block.settings.product_produit] %}
+                            
+                  
+                            <div class="lookbook-product">
+                    {% render 'product_item', product: product %}
+                  </div>
+                            
+                
+                        </div>
+{% endfor %}
+              </div>
+            </div>
+            <div class="swiper_overlay-navigation in-lookbook"><button aria-label="Previous slide" type="button" x-on:click="index = index > 1 ? index - 1 : {{ dots_total }}" class="swiper_button swiper-prev in-lookbook">
+                <div class="swiper_button-icon in-lookbook w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323" style="transform: rotate(180deg)">
+                    <g id="Group_44" data-name="Group 44" transform="translate(0 1.014)">
+                      <path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path>
+                      <line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line>
+                    </g>
+                  </svg></div>
+              </button><button aria-label="Next slide" type="button" x-on:click="index = index < {{ dots_total }} ? index + 1 : 1" class="swiper_button swiper-next in-lookbook">
+                <div class="swiper_button-icon in-lookbook w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323">
+                    <g id="Group_44" data-name="Group 44" transform="translate(0 1.014)">
+                      <path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path>
+                      <line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line>
+                    </g>
+                  </svg></div>
+              </button></div>
+            <script> let swiper; document.addEventListener('DOMContentLoaded', function(){swiper = new Swiper('.swiper.in-lookbook',{slidesPerView: 1, spaceBetween: 20, loop: false, navigation:{nextEl: '.swiper-next.in-lookbook', prevEl: '.swiper-prev.in-lookbook'}}); if (window.Alpine){window.Alpine.store('swiperStore',{swiperInstance: swiper});}}); </script>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Lookbook",
+    "class": "section_lookbook",
+    "blocks": [
+        {
+            "name": "Dot",
+            "type": "dot",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Dot Position"
+                },
+                {
+                    "id": "text_x_achse",
+                    "type": "text",
+                    "label": "X-Achse",
+                    "default": "This is some text inside of a div block."
+                },
+                {
+                    "id": "text_y_achse",
+                    "type": "text",
+                    "label": "Y-Achse",
+                    "default": "This is some text inside of a div block."
+                },
+                {
+                    "id": "product_produit",
+                    "type": "product",
+                    "label": "Produit"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "image_bg_image",
+            "type": "image_picker",
+            "label": "BG Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Lookbook",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "dot"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

@@ -1,0 +1,123 @@
+<div class="padding-global">
+          <div class="padding-section-large">
+            <div class="container-large">
+              <div class="container-large">
+                <div class="hide w-embed">
+                  <style>
+@container (width > 55em) {
+	.benefits_layout:has(.benefits_card_wrap:is(:hover, :focus-within)) .benefits_card_wrap:not(:is(:hover, :focus-within)) .benefits_card_content { opacity: 1; }
+	.benefits_card_wrap { min-height: 25.25rem; }
+	.benefits_card_wrap:is(:hover, :focus-within) .benefits_card_mask_wrap { grid-template-rows: 1fr; }
+	.benefits_card_mask_wrap { grid-template-rows: 0fr; }
+	.benefits_layout { flex-direction: row; }
+}
+</style>
+                </div>
+                <div class="no-acess_wrap">
+                  {% if section.settings.text_titre != blank %}    <div li-if="section.settings.text_titre != blank" class="no-access_heading">
+    
+                    <h2 class="text-align-center">
+{{ section.settings.text_titre }}
+</h2>
+                    <div class="max-width-large">
+                      <p class="text-align-center">Cette page est réservée aux clients professionnels disposant d’un compte validé.</p>
+                    </div>
+                      </div>
+{% endif %}
+                  <div role="list" class="benefits_layout">
+                    {% for block in section.blocks %}
+    {% if block.type == "carte" %}
+                    <div li-block="Carte" role="listitem" class="benefits_card_wrap">
+                                    {% if block.settings.image_image %}
+{{ block.settings.image_image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'benefits_card_img' }}
+{% else %}
+<img loading="lazy" alt="" src="{{ 'histoire_1.avif' | asset_url }}" class="benefits_card_img">
+{% endif %}
+                                    
+                      
+                                    <div class="benefits_card_content">
+                        <div class="benefits_card_header">
+                          <h2 class="benefits_card_title">
+{{ block.settings.text_titre }}
+</h2>
+                          <div class="benefits_card_mask_wrap">
+                            <div id="w-node-efc0fbfc-3c69-455e-10a9-da20969372aa-96937295" class="benefits_card_mask_clip">
+                              <div class="button is-link is-icon is-alternate">
+                                <div>
+{{ block.settings.text_texte_lien }}
+</div>
+                                <div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 12 12" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                    <path d="M4.5 9L7.5 6L4.5 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  </svg></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                                    
+                      
+                                    <a href="{{ block.settings.url_lien }}" class="no_access-link w-inline-block"> </a>
+                                    
+                    
+                            </div>
+            {% endif %}
+{% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Acc\u00e8s r\u00e9serv\u00e9",
+    "class": "section_no-access",
+    "blocks": [
+        {
+            "name": "Carte",
+            "type": "carte",
+            "settings": [
+                {
+                    "id": "image_image",
+                    "type": "image_picker",
+                    "label": "Image"
+                },
+                {
+                    "id": "text_titre",
+                    "type": "text",
+                    "label": "Titre",
+                    "default": "Se connecter"
+                },
+                {
+                    "id": "text_texte_lien",
+                    "type": "text",
+                    "label": "Texte lien",
+                    "default": "Je me connecte"
+                },
+                {
+                    "id": "url_lien",
+                    "type": "url",
+                    "label": "Lien"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_titre",
+            "type": "text",
+            "label": "Titre",
+            "default": "Acc\u00e8s r\u00e9serv\u00e9"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Acc\u00e8s r\u00e9serv\u00e9",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "carte"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

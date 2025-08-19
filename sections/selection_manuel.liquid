@@ -1,0 +1,173 @@
+<div class="padding-global">
+          <div class="padding-section-medium">
+            <div class="container-large">
+              <div class="highlight_component">
+                <div class="highlight_heading">
+                  <h2 class="max-width-medium">
+{{ section.settings.text_titre_section }}
+</h2>
+                  <div class="max-width-large">
+                    <p>
+{{ section.settings.text_sous_titre }}
+</p>
+                  </div>
+                </div>
+                <div class="highlight_list">
+                  {% for block in section.blocks %}
+    {% if block.type == "selection" %}
+                    <div li-block="Selection" class="highlight_item">
+                                    
+                    
+                                    <div class="highlight_content">
+                      <div class="highlight_item-heading">
+                        <h3 class="heading-style-h2">
+{{ block.settings.text_titre_selection }}
+</h3>
+                      </div>
+                      <div class="highlight_tag-wrapper is-in-content">
+                        {% if block.settings.image_tag_1 != blank %}    <div li-if="block.settings.image_tag_1 != blank" class="highlight_tag">
+    {% if block.settings.image_tag_1 %}
+{{ block.settings.image_tag_1 | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'tag_flag' }}
+{% else %}
+<img loading="lazy" alt="" src="{{ 'icon-_Costa-Rica_.png' | asset_url }}" class="tag_flag">
+{% endif %}
+                          <div>
+{{ block.settings.text_texte_tag_1 }}
+</div>
+                            </div>
+{% endif %}
+                        {% if block.settings.image_tag_2 != blank %}    <div li-if="block.settings.image_tag_2 != blank" class="highlight_tag">
+    {% if block.settings.image_tag_2 %}
+{{ block.settings.image_tag_2 | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'tag_flag' }}
+{% else %}
+<img loading="lazy" alt="" src="{{ 'icon-_Costa-Rica_.png' | asset_url }}" class="tag_flag">
+{% endif %}
+                          <div>
+{{ block.settings.text_texte_tag_2 }}
+</div>
+                            </div>
+{% endif %}
+                      </div>
+                      <div class="highlight_paragraph">
+                        <p>
+{{ block.settings.text_paragraphe }}
+</p>
+                      </div>
+                      <a href="{{ block.settings.url_lien }}" class="button is-secondary w-inline-block"> <div>{{ block.settings.text_texte_bouton }}</div> </a>
+                    </div>
+                                    
+                    
+                                    <a href="{{ block.settings.url_link }}" class="highlight_image-wrapper w-inline-block"> {% if block.settings.image_image_produit %} {{ block.settings.image_image_produit | image_url: width: 1000 | image_tag: width: '207.5', loading: 'lazy', class: 'highlight_image' }} {% else %} <img width="207.5" alt="" src="{{ 'talamanca.avif' | asset_url }}" loading="lazy" class="highlight_image"> {% endif %} </a>
+                                    
+                    
+                                    <div id="w-node-_0bcf95ed-8df7-442e-8bf1-8856bec58e1f-bec58dfe" class="highlight_item-tag">
+{{ block.settings.text_etiquette }}
+</div>
+                                    
+                  
+                            </div>
+            {% endif %}
+{% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Selection manuel",
+    "class": "section_highlight",
+    "blocks": [
+        {
+            "name": "Selection",
+            "type": "selection",
+            "settings": [
+                {
+                    "id": "text_titre_selection",
+                    "type": "text",
+                    "label": "Titre Selection",
+                    "default": "Talamanca"
+                },
+                {
+                    "id": "image_tag_1",
+                    "type": "image_picker",
+                    "label": "Tag 1"
+                },
+                {
+                    "id": "text_texte_tag_1",
+                    "type": "text",
+                    "label": "Texte Tag 1",
+                    "default": "Costa Rica"
+                },
+                {
+                    "id": "image_tag_2",
+                    "type": "image_picker",
+                    "label": "Tag_2"
+                },
+                {
+                    "id": "text_texte_tag_2",
+                    "type": "text",
+                    "label": "Texte Tag 2",
+                    "default": "Costa Rica"
+                },
+                {
+                    "id": "text_paragraphe",
+                    "type": "text",
+                    "label": "Paragraphe",
+                    "default": "Un caf\u00e9 riche et gourmand, parfait pour m\u00e9thode douce (V60, Chemex et A\u00e9ropress) ou en espresso pour r\u00e9v\u00e9ler toute la complexit\u00e9. Ce caf\u00e9 nous vient tout droit de la r\u00e9gion de Chirripo, dans la province de San Jos\u00e9, au Costa Rica. Cultiv\u00e9 par la famille Urena Rojas, ce micro-lot est issu de la plantation Higueron, un lieu embl\u00e9matique nich\u00e9 \u00e0 1825m d'altitude."
+                },
+                {
+                    "id": "url_lien",
+                    "type": "url",
+                    "label": "Lien"
+                },
+                {
+                    "id": "text_texte_bouton",
+                    "type": "text",
+                    "label": "Texte bouton",
+                    "default": "This is some text inside of a div block."
+                },
+                {
+                    "id": "url_link",
+                    "type": "url",
+                    "label": "Link"
+                },
+                {
+                    "id": "image_image_produit",
+                    "type": "image_picker",
+                    "label": "Image Produit"
+                },
+                {
+                    "id": "text_etiquette",
+                    "type": "text",
+                    "label": "Etiquette",
+                    "default": "Caf\u00e9 du mois"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_titre_section",
+            "type": "text",
+            "label": "Titre Section",
+            "default": "Un caf\u00e9 pour chaque mois, une ambiance pour chaque saison"
+        },
+        {
+            "id": "text_sous_titre",
+            "type": "text",
+            "label": "Sous-titre",
+            "default": "Chaque mois, on met en lumi\u00e8re un caf\u00e9 d\u2019exception : souvent issu d\u2019un microlot, sourc\u00e9 lors de nos voyages, il vous permet de d\u00e9couvrir des profils rares, parfois surprenants, toujours passionnants. En parall\u00e8le, on vous propose aussi un caf\u00e9 par saison : un estival, un printanier, un automnal ou un hivernal, \u00a0pens\u00e9s pour s\u2019accorder aux humeurs m\u00e9t\u00e9o du moment. Parce que le caf\u00e9, c\u2019est aussi une affaire de sensations, de climat\u2026 et d\u2019envie !"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Selection manuel",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "selection"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

@@ -1,0 +1,679 @@
+<div class="padding-global padding-section-small is-hero-product">
+            <div class="container-large">
+              <div class="product-header_component">
+                <script src="{{ 'li_custom.js' | asset_url }}" type="text/javascript"></script>
+<div data-section-id="{{ section.id }}" li-element="product-variant-container" class="w-layout-grid product-header_layout" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)">
+                  <div id="w-node-_9aaa613b-8e17-c44d-2144-26a60c99cba5-fac49146" class="swiper-container is-product-gallery">
+                    <div class="swiper is-product-gallery">
+                      <div class="swiper_button-wrapper is-product-slider">
+                        <a aria-label="Previous Slide" href="#" class="swiper_button swiper-prev pointer-events-on w-inline-block">
+                          <div class="swiper_button-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323" style="transform: rotate(180deg)">
+                              <g id="Group_44" data-name="Group 44" transform="translate(0 1.014)">
+                                <path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path>
+                                <line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line>
+                              </g>
+                            </svg></div>
+                        </a>
+                        <a aria-label="Next Slide" href="#" class="swiper_button swiper-next pointer-events-on w-inline-block">
+                          <div class="swiper_button-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323">
+                              <g id="Group_44" data-name="Group 44" transform="translate(0 1.014)">
+                                <path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path>
+                                <line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line>
+                              </g>
+                            </svg></div>
+                        </a>
+                      </div>
+                      <div id="my-gallery" class="swiper-wrapper is-product-gallery">
+                        {% for image in product.images %}    <div li-for="image in product.images" class="swiper-slide is-product-gallery">
+                                    
+                          
+                            <div class="product-header_gallery-lightbox"><img li-object:src="image.src | product_img_url: 'master'" li-object:alt="image.alt" alt="{{ image.alt }}" src="{{ image.src | product_img_url: 'master' }}" loading="lazy" class="product-header_gallery-image"></div>
+                            
+                        
+                        </div>
+{% endfor %}
+                      </div>
+                      <div class="swiper_pagination is-product-slider is-mixed">
+                        <div class="swiper_bullet is-active"></div>
+                        <div class="swiper_bullet"></div>
+                      </div>
+                    </div>
+                    <div class="product-header_slider-wrapper">
+                      <div class="swiper is-product-thumbnail">
+                        <div class="swiper-wrapper is-product-thumbnail">
+                          {% for image in product.images %}    <div li-for="image in product.images" class="swiper-slide is-product-thumbnail">
+                                    <img li-object:src="image.src | product_img_url: 'master'" li-object:alt="image.alt" alt="{{ image.alt }}" src="{{ image.src | product_img_url: 'master' }}" loading="lazy" class="product_thumbnail-image">
+                        </div>
+{% endfor %}
+                        </div>
+                      </div>
+                      <div class="swiper-slide is-product-thumbnail is-active hide"></div>
+                    </div>
+                    {% if product.type == 'Cafe' %}    <div li-if="product.type == 'Cafe'" class="product_flag-wrapper">
+    {% if section.settings.image_settingsimage %}
+{{ section.settings.image_settingsimage | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'product_flag' }}
+{% else %}
+<img src="{{ 'drapeau.avif' | asset_url }}" loading="lazy" alt="" class="product_flag">
+{% endif %}    </div>
+{% endif %}
+                  </div>
+                  <div bss-b2b-main-product-form="" x-data="{selling_plan: '', sellingplan_active: false}" class="product-header_product-details">
+                    <h1 li-object:text="product.title" class="heading-style-h2">
+{{ product.title }}
+</h1>
+                    <div class="product-header_price-wrapper">
+                      <div class="product-header_price">
+                        <div bss-b2b-item-original-price="" bss-b2b-cart-item-key="{{ item.key }}" class="product_price">
+                          <div li-js-price="product.selected_or_first_available_variant.price" class="text-size-medium" x-text="LiquifyHelper.moneyFormat(product.selected_or_first_available_variant.price, true, '{{ shop.money_with_currency_format }}')">12,40€</div>
+                          <template x-if="selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price">
+            <div li-js-if="selected_or_first_available_variant.compare_at_price > selected_or_first_available_variant.price">
+        
+                            <div li-object="product.compare_at_price | money" class="text-size-regular text-style-strikethrough text-align-right text-style-muted">{{ product.compare_at_price | money }}</div>
+                                  </div>
+    </template>
+                        </div>
+                        {% if product.selected_or_first_available_variant.unit_price %}    <div li-if="product.selected_or_first_available_variant.unit_price" class="product_price-per-kilo">
+    
+                          <div>–</div>
+                          <div data-price-per-kg=""><span li-object="product.selected_or_first_available_variant.unit_price | money">{{ product.selected_or_first_available_variant.unit_price | money }}</span>{% if product.selected_or_first_available_variant.unit_price_measurement.reference_unit %}    <span li-if="product.selected_or_first_available_variant.unit_price_measurement.reference_unit">
+    /kg    </span>
+{% endif %}</div>
+                            </div>
+{% endif %}
+                      </div>
+                      <div class="product-header_shipping-wrapper">
+                        <div class="product-header_shipping">
+                          <template x-if="selected_or_first_available_variant.available == true">
+            <div li-js-if="selected_or_first_available_variant.available == true" class="display-inlineflex display-align-center gap-0-25">
+        
+                            <div class="product-header_shipping-icon w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.00747 16C6.90696 16 5.87048 15.7918 4.89802 15.3754C3.92557 14.959 3.07443 14.386 2.34462 13.6565C1.6148 12.927 1.04154 12.0765 0.624835 11.1051C0.208278 10.1338 0 9.0959 0 7.99143C0 6.88696 0.208205 5.85216 0.624615 4.88703C1.04103 3.9219 1.61399 3.07443 2.34352 2.34462C3.07304 1.6148 3.92352 1.04154 4.89495 0.624835C5.86623 0.208278 6.9041 0 8.00857 0C9.11304 0 10.1478 0.208205 11.113 0.624615C12.0781 1.04103 12.9256 1.61399 13.6554 2.34352C14.3852 3.07304 14.9585 3.92176 15.3752 4.88967C15.7917 5.85773 16 6.89201 16 7.99253C16 9.09304 15.7918 10.1295 15.3754 11.102C14.959 12.0744 14.386 12.9256 13.6565 13.6554C12.927 14.3852 12.0782 14.9585 11.1103 15.3752C10.1423 15.7917 9.10799 16 8.00747 16Z" fill="#34C759" fill-opacity="0.3"></path>
+                                <path d="M8.00534 13.7137C7.21926 13.7137 6.47891 13.565 5.7843 13.2676C5.08969 12.9701 4.48174 12.5609 3.96044 12.0398C3.43914 11.5187 3.02967 10.9112 2.73202 10.2173C2.43448 9.52356 2.28571 8.78222 2.28571 7.99332C2.28571 7.20441 2.43443 6.46527 2.73187 5.77589C3.0293 5.08652 3.43856 4.48118 3.95965 3.95988C4.48074 3.43858 5.08822 3.02911 5.7821 2.73147C6.47587 2.43393 7.21721 2.28516 8.00612 2.28516C8.79503 2.28516 9.53417 2.43387 10.2235 2.73131C10.9129 3.02875 11.5183 3.43801 12.0396 3.9591C12.5609 4.48018 12.9703 5.08641 13.268 5.77778C13.5655 6.46925 13.7143 7.20802 13.7143 7.9941C13.7143 8.78018 13.5656 9.52053 13.2681 10.2151C12.9707 10.9097 12.5614 11.5177 12.0403 12.039C11.5193 12.5603 10.913 12.9698 10.2217 13.2674C9.53019 13.565 8.79142 13.7137 8.00534 13.7137Z" fill="#34C759"></path>
+                              </svg></div>
+                            <div>En stock</div>
+                                  </div>
+    </template>
+                          <template x-if="selected_or_first_available_variant.available == false">
+            <div li-js-if="selected_or_first_available_variant.available == false" class="display-inlineflex display-align-center gap-0-25">
+        
+                            <div class="product-header_shipping-icon w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.00747 16C6.90696 16 5.87048 15.7918 4.89802 15.3754C3.92557 14.959 3.07443 14.386 2.34462 13.6565C1.6148 12.927 1.04154 12.0765 0.624835 11.1051C0.208278 10.1338 0 9.0959 0 7.99143C0 6.88696 0.208205 5.85216 0.624615 4.88703C1.04103 3.9219 1.61399 3.07443 2.34352 2.34462C3.07304 1.6148 3.92352 1.04154 4.89495 0.624835C5.86623 0.208278 6.9041 0 8.00857 0C9.11304 0 10.1478 0.208205 11.113 0.624615C12.0781 1.04103 12.9256 1.61399 13.6554 2.34352C14.3852 3.07304 14.9585 3.92176 15.3752 4.88967C15.7917 5.85773 16 6.89201 16 7.99253C16 9.09304 15.7918 10.1295 15.3754 11.102C14.959 12.0744 14.386 12.9256 13.6565 13.6554C12.927 14.3852 12.0782 14.9585 11.1103 15.3752C10.1423 15.7917 9.10799 16 8.00747 16Z" fill="#FF3B30" fill-opacity="0.3"></path>
+                                <path d="M8.00527 13.7137C7.21919 13.7137 6.47884 13.565 5.78423 13.2676C5.08962 12.9701 4.48167 12.5609 3.96037 12.0398C3.43907 11.5187 3.0296 10.9112 2.73196 10.2173C2.43441 9.52356 2.28564 8.78222 2.28564 7.99332C2.28564 7.20441 2.43436 6.46527 2.7318 5.77589C3.02923 5.08652 3.4385 4.48118 3.95958 3.95988C4.48067 3.43858 5.08816 3.02911 5.78203 2.73147C6.47581 2.43393 7.21715 2.28516 8.00605 2.28516C8.79496 2.28516 9.5341 2.43387 10.2235 2.73131C10.9129 3.02875 11.5182 3.43801 12.0395 3.9591C12.5608 4.48018 12.9703 5.08641 13.2679 5.77778C13.5654 6.46925 13.7142 7.20802 13.7142 7.9941C13.7142 8.78018 13.5655 9.52053 13.2681 10.2151C12.9706 10.9097 12.5614 11.5177 12.0403 12.039C11.5192 12.5603 10.913 12.9698 10.2216 13.2674C9.53012 13.565 8.79135 13.7137 8.00527 13.7137Z" fill="#FF3B30"></path>
+                              </svg></div>
+                            <div class="text-color-red">En rupture de stock</div>
+                                  </div>
+    </template>
+                        </div>
+                        <template x-if="selected_or_first_available_variant.available == true">
+            <div li-js-if="selected_or_first_available_variant.available == true">
+        
+                          <template x-if="product.type == 'Cafe' || product.type == 'The'">
+            <div li-js-if="product.type == 'Cafe' || product.type == 'The'" class="product-header_shipping">
+        
+                            <div class="icon-1x1-xsmall w-embed"><svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <mask id="mask0_7326_1201" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="21" height="20">
+                                  <rect x="0.166656" width="20" height="20" fill="#D9D9D9"></rect>
+                                </mask>
+                                <g mask="url(#mask0_7326_1201)">
+                                  <path d="M6.12602 16.0846C5.48964 16.0846 4.94846 15.8619 4.50248 15.4163C4.05637 14.9706 3.83332 14.4295 3.83332 13.793H2.93915C2.78568 13.793 2.657 13.7414 2.55311 13.6384C2.44936 13.5353 2.39748 13.4077 2.39748 13.2555C2.39748 13.1031 2.44936 12.9741 2.55311 12.8684C2.657 12.7626 2.78568 12.7096 2.93915 12.7096H4.11707C4.3104 12.3506 4.5863 12.0595 4.94477 11.8363C5.30339 11.613 5.69679 11.5013 6.12498 11.5013C6.55332 11.5013 6.94672 11.613 7.30519 11.8363C7.66366 12.0595 7.93964 12.3506 8.13311 12.7096H12.4006L14.1908 5.5013H5.85894C5.70547 5.5013 5.57686 5.44977 5.47311 5.34672C5.36922 5.24366 5.31727 5.11602 5.31727 4.9638C5.31727 4.81144 5.36922 4.68241 5.47311 4.57672C5.57686 4.47089 5.70547 4.41797 5.85894 4.41797H14.7244C14.9284 4.41797 15.1023 4.50429 15.246 4.67693C15.3896 4.84957 15.4321 5.04373 15.3733 5.25943L14.8846 7.20964H15.5912C15.8048 7.20964 16.0073 7.2595 16.1985 7.35922C16.3896 7.45908 16.5542 7.59616 16.6923 7.77047L18.2852 10.0303C18.4081 10.2086 18.4855 10.3921 18.5175 10.5807C18.5496 10.7691 18.5336 10.9639 18.4696 11.1648L17.8558 13.3155C17.8194 13.4521 17.742 13.5659 17.6235 13.6567C17.5051 13.7476 17.3704 13.793 17.2196 13.793H17.0704C17.0704 14.4287 16.8477 14.9695 16.4023 15.4155C15.9569 15.8616 15.416 16.0846 14.7798 16.0846C14.1435 16.0846 13.6023 15.8619 13.1562 15.4163C12.7103 14.9706 12.4873 14.4295 12.4873 13.793H8.41665C8.41665 14.4287 8.19394 14.9695 7.74852 15.4155C7.30311 15.8616 6.76227 16.0846 6.12602 16.0846ZM13.9006 11.1055H17.3702L17.4648 10.724L15.7196 8.29297H14.5977L13.9006 11.1055ZM12.5642 12.0317L12.6742 11.5846C12.7475 11.2866 12.8406 10.9217 12.9535 10.4901C13.0198 10.2444 13.0751 10.0152 13.1194 9.80255C13.1637 9.58991 13.2066 9.40991 13.2483 9.26255L13.3585 8.81547C13.4319 8.51741 13.525 8.15255 13.6379 7.72089C13.7507 7.28922 13.8438 6.92436 13.9173 6.6263L14.0273 6.17922L14.1908 5.5013L12.4006 12.7096L12.5642 12.0317ZM1.83415 11.0317C1.68332 11.0317 1.55575 10.9802 1.45144 10.8771C1.34714 10.7741 1.29498 10.6464 1.29498 10.4942C1.29498 10.3419 1.34672 10.2128 1.45019 10.1071C1.5538 10.0013 1.68214 9.94839 1.83519 9.94839H4.4479C4.60096 9.94839 4.7304 9.99991 4.83623 10.103C4.94221 10.206 4.99519 10.3337 4.99519 10.4859C4.99519 10.6382 4.94339 10.7673 4.83977 10.8732C4.73616 10.9789 4.60783 11.0317 4.45477 11.0317H1.83415ZM3.33436 8.26255C3.18116 8.26255 3.05165 8.21102 2.94582 8.10797C2.83984 8.00491 2.78686 7.87727 2.78686 7.72505C2.78686 7.57269 2.83866 7.44359 2.94227 7.33776C3.04589 7.23207 3.17429 7.17922 3.32748 7.17922H6.69769C6.85089 7.17922 6.9804 7.23075 7.08623 7.3338C7.19221 7.43686 7.24519 7.5645 7.24519 7.71672C7.24519 7.86908 7.19339 7.99811 7.08977 8.1038C6.98616 8.20964 6.85776 8.26255 6.70457 8.26255H3.33436ZM6.12498 15.0013C6.46179 15.0013 6.74734 14.8841 6.98165 14.6496C7.21609 14.4153 7.33332 14.1298 7.33332 13.793C7.33332 13.4562 7.21609 13.1706 6.98165 12.9363C6.74734 12.7019 6.46179 12.5846 6.12498 12.5846C5.78818 12.5846 5.50262 12.7019 5.26832 12.9363C5.03387 13.1706 4.91665 13.4562 4.91665 13.793C4.91665 14.1298 5.03387 14.4153 5.26832 14.6496C5.50262 14.8841 5.78818 15.0013 6.12498 15.0013ZM14.7789 15.0013C15.1156 15.0013 15.4012 14.8841 15.6356 14.6496C15.8701 14.4153 15.9873 14.1298 15.9873 13.793C15.9873 13.4562 15.8701 13.1706 15.6356 12.9363C15.4012 12.7019 15.1156 12.5846 14.7789 12.5846C14.4421 12.5846 14.1565 12.7019 13.9221 12.9363C13.6876 13.1706 13.5704 13.4562 13.5704 13.793C13.5704 14.1298 13.6876 14.4153 13.9221 14.6496C14.1565 14.8841 14.4421 15.0013 14.7789 15.0013Z" fill="#241F18"></path>
+                                </g>
+                              </svg></div>
+                            <div data-max-days="4" data-min-days="2" class="delivery-estimate">Votre produit arrivera entre le <span class="delivery-start">2 mars </span><span>et le </span><span class="delivery-end">4 mars</span></div><button data-tippy-content="Peut varier, compter 2 à 4 jours ouvrés." class="tooltip_tippy">
+                              <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic" width="100%" height="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
+                                  <path fill="currentColor" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8"></path>
+                                </svg></div>
+                            </button>
+                                  </div>
+    </template>
+                                </div>
+    </template>
+                      </div>
+                    </div>
+                    <div class="product_header-separator"></div>
+                    <div li-case="product.type" class="product-header_tag-list-wrapper">
+{% case product.type %}
+
+                      {% when 'Cafe' %} 
+<div li-when="'Cafe'" class="product-header_tag-list">
+
+                        <div class="product_header-tag">{% if section.settings.image_badges_variete_cafe_image %}
+{{ section.settings.image_badges_variete_cafe_image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'icon-embed-xsmall is-cover' }}
+{% else %}
+<img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="icon-embed-xsmall is-cover">
+{% endif %}
+                          <div class="product_header-tag-text">
+{{ section.settings.text_badges_variete_cafe_texte }}
+</div>
+                        </div>
+                        {% if product.metafields.custom.certification %}    <div li-if="product.metafields.custom.certification" class="product_header-tag">
+    {% if section.settings.image_badges_certification_cafe_image %}
+{{ section.settings.image_badges_certification_cafe_image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'icon-embed-xsmall is-cover' }}
+{% else %}
+<img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="icon-embed-xsmall is-cover">
+{% endif %}
+                          <div class="product_header-tag-text">
+{{ section.settings.text_badges_certification_cafe_texte }}
+</div>
+                            </div>
+{% endif %}
+                        {% if product.metafields.custom.certification2 %}    <div li-if="product.metafields.custom.certification2" class="product_header-tag">
+    {% if section.settings.image_badges_certification_2_cafe_image %}
+{{ section.settings.image_badges_certification_2_cafe_image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'icon-embed-xsmall is-cover' }}
+{% else %}
+<img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="icon-embed-xsmall is-cover">
+{% endif %}
+                          <div class="product_header-tag-text">
+{{ section.settings.text_badges_certification_2_cafe_texte }}
+</div><button data-tippy-content="Le Panier à Café propose exclusivement du café en grain. Pour en savoir plus rendez-vous en bas de page dans la foire aux questions." class="tooltip_tippy">
+                            <div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic" width="100%" height="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
+                                <path fill="currentColor" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8"></path>
+                              </svg></div>
+                          </button>
+                            </div>
+{% endif %}
+                      </div>
+                      {% when 'The' %} 
+<div li-when="'The'" class="product-header_tag-list">
+
+                        <div class="product_header-tag">
+                          <div class="product_header-tag-text">
+{{ section.settings.text_badges_type_de_the_texte }}
+</div>
+                        </div>
+                        {% if product.metafields.custom.format_the != blank %}    <div li-if="product.metafields.custom.format_the != blank" class="product_header-tag">
+    
+                          {% assign format = product.metafields.custom.format_the.value %}
+                          <div li-object="format" class="product_header-tag-text">{{ format }}</div>
+                            </div>
+{% endif %}
+                      </div>
+                    {% endcase %}
+</div>
+                    <div class="product-header_description">
+                      <div li-object="product.description" class="product_rich-text w-richtext">{{ product.description }}</div>
+                    </div>
+                    <div class="product-header_form-block w-form">
+                      <form id="wf-form-Add-To-Cart" name="wf-form-Add-To-Cart" data-name="Add To Cart" method="get" class="product-header_default-state" data-wf-page-id="684beacef1d05d00fac49146" data-wf-element-id="9aaa613b-8e17-c44d-2144-26a60c99cbd8">
+                        {% render 'bss_b2b_product_vat', product: product %}
+                        <div li-case="product.type">
+{% case product.type %}
+
+                          {% when 'Cafe' %} 
+<div li-when="'Cafe'" class="cafe_wrapper">
+
+                            {% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_option-wrapper">
+    
+                              <template x-for="(option, optionKey) in product.options" :key="optionKey">
+    <div li-element="product-options-loop" class="product-header_option" data-ProductVariantsLoop="true">
+                                <div li-element="product-options-name" x-text="option">Grammages</div><select type="select" li-element="product-option-select" class="form_input is-select" x-on:change="setVariant" :name="option" :data-name="option" data-selectorType="select">
+                                  <template x-for="(variantName, variantKey) in options_by_name[option].option.values" :key="variantName">
+    <option li-element="product-option-select-loop" x-text="variantName" :value="variantName" :selected="selected_or_first_available_variant?.options[optionKey] == variantName">250gr</option></template>
+                                </select>
+                              </div></template>
+                                </div>
+{% endif %}
+                            {% if product.selling_plan_groups.size > 0 %}    <div li-if="product.selling_plan_groups.size > 0" class="subscription_wrapper">
+    
+                              <div li-for:inside="variant in product.variants">
+        {% for variant in product.variants %}                            
+                                
+                            <template x-if="{{ variant.id }} === product.selected_or_first_available_variant.id">
+            <div li-js-if="{{ variant.id }} === product.selected_or_first_available_variant.id" class="product-header_subscription">
+        
+                                  <div class="product-header_subscription_radio-wrap"><label class="product-header_subscription_radio-lable is-on w-radio">
+                                      <div class="w-form-formradioinput w-form-formradioinput--inputType-custom product_header-radio w-radio-input"></div><input type="radio" name="selling_plan_active" id="radio-4" data-name="selling_plan_active" x-on:click="sellingplan_active = true; selling_plan = '{{ variant.selling_plan_allocations.first.selling_plan.id }}'" style="opacity:0;position:absolute;z-index:-1" value="Radio 4"><span class="product-header_radio-label w-form-label" for="radio-4">
+{{ section.settings.text_with_subscription }}
+</span>
+                                    </label>
+                                    <div x-show="sellingplan_active" class="w-layout-vflex product-header_subscription_radio-lable is-on">
+                                      <div class="subscription_ponctual">
+                                        <div class="text-color-camel">
+                                          <div class="text-size-large text-weight-bold"><span li-js-price="product.selected_or_first_available_variant.price" x-text="LiquifyHelper.moneyFormat(product.selected_or_first_available_variant.price, true, '{{ shop.money_with_currency_format }}')">12,40€</span>/unité</div>
+                                        </div><select x-model="selling_plan" data-name="selling_plan" class="form_input is-select">
+                                          <option value="">Choisir un plan</option>
+                                          {% for plan in variant.selling_plan_allocations %}    <option li-for="plan in variant.selling_plan_allocations" value="{{ plan.selling_plan.id }}">
+                                    {{ plan.selling_plan.name }}
+                        </option>
+{% endfor %}
+                                        </select>
+                                        <template x-if="selected_or_first_available_variant.available">
+            <div li-js-if="selected_or_first_available_variant.available" class="product-header_buy-wrappper">
+        
+                                          <div class="quantity-container"><button type="button" x-on:click="quantity = quantity > 1 ? quantity-1 : quantity" class="quantity-btn decrement">
+                                              <div class="icon-1x1-10px w-embed"><svg width="11" height="3" viewbox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                  <path d="M0 2.2192V0.777344H10.093V2.2192H0Z" fill="#77634F"></path>
+                                                </svg></div>
+                                            </button><input type="text" min="1" max="99" li-element="add-to-cart-quantity" class="quantity-display" value="1" x-model="quantity"><button type="button" x-on:click="quantity = Math.min(quantity + 1)" class="quantity-btn increment">
+                                              <div class="icon-1x1-10px w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 11 11" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                                  <path d="M4.41861 6.22057H0.0930252V4.77871H4.41861V0.453125H5.86047V4.77871H10.186V6.22057H5.86047V10.5461H4.41861V6.22057Z" fill="currentColor"></path>
+                                                </svg></div>
+                                            </button></div>
+                                          <a fs-modal-element="open-2" li-element="add-to-cart" href="#" class="button max-width-full w-button" @click="addToCart($event, true)" :disabled="!addToCartButton">Ajouter au panier</a>
+                                                </div>
+    </template>
+                                        <template x-if="!selected_or_first_available_variant.available">
+            <div li-js-if="!selected_or_first_available_variant.available" class="product-header_out-of-stock">
+        
+                                          <a href="#" class="button is-secondary max-width-full pointer-events-off w-button">Rupture de stock</a>
+                                                </div>
+    </template>
+                                      </div>
+                                    </div>
+                                    <div class="product_subscription-tag-wrapper"><button data-tippy-content="Livraison automatique selon la fréquence choisie." class="tooltip_tippy">
+                                        <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic" width="100%" height="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
+                                            <path fill="currentColor" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8"></path>
+                                          </svg></div>
+                                      </button></div>
+                                  </div>
+                                  <div x-data="{ subscriptionPonctual: true }" class="product-header_subscription_radio-wrap"><label class="product-header_subscription_radio-lable w-radio">
+                                      <div class="w-form-formradioinput w-form-formradioinput--inputType-custom product_header-radio w-radio-input w--redirected-checked"></div><input x-on:click="sellingplan_active = false; selling_plan = ''" name="selling_plan_active" data-name="selling_plan_active" type="radio" id="radio-5" style="opacity:0;position:absolute;z-index:-1" checked="" value=""><span class="product-header_radio-label w-form-label" for="radio-5">
+{{ section.settings.text_without_subscription }}
+</span>
+                                    </label>
+                                    <div x-show="!sellingplan_active" class="subscription_ponctual">
+                                      <div class="text-color-camel">
+                                        <div li-js-price="product.selected_or_first_available_variant.price" class="text-size-large text-weight-bold" x-text="LiquifyHelper.moneyFormat(product.selected_or_first_available_variant.price, true, '{{ shop.money_with_currency_format }}')">12,40€</div>
+                                      </div>
+                                      <div class="subscription_shipping-block">
+                                        <template x-if="selected_or_first_available_variant.available == true">
+            <div li-js-if="selected_or_first_available_variant.available == true" class="product-header_shipping">
+        
+                                          <div class="icon-1x1-xsmall w-embed"><svg width="20" height="21" viewbox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <mask id="mask0_40000058_7163" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="20" height="21">
+                                                <rect y="0.5" width="20" height="20" fill="#D9D9D9"></rect>
+                                              </mask>
+                                              <g mask="url(#mask0_40000058_7163)">
+                                                <path d="M9.89271 4.07375L4.89583 6.93438L10 9.86708L15.1042 6.93438L10.149 4.07375C10.1063 4.04708 10.0636 4.03375 10.0208 4.03375C9.97806 4.03375 9.93535 4.04708 9.89271 4.07375ZM3.41667 13.6827V7.32063C3.41667 7.07813 3.47528 6.85576 3.5925 6.65354C3.70972 6.45146 3.87445 6.28868 4.08667 6.16521L9.30146 3.13708C9.42104 3.07139 9.53528 3.02174 9.64417 2.98812C9.75306 2.95437 9.87056 2.9375 9.99667 2.9375C10.1228 2.9375 10.2436 2.95437 10.3592 2.98812C10.4749 3.02174 10.5853 3.07326 10.6906 3.14271L15.9133 6.16521C16.1256 6.28868 16.2903 6.45146 16.4075 6.65354C16.5247 6.85576 16.5833 7.07813 16.5833 7.32063V10.3958C16.5833 10.5493 16.5318 10.678 16.4288 10.7819C16.3257 10.8856 16.1981 10.9375 16.0458 10.9375C15.8935 10.9375 15.7644 10.8856 15.6588 10.7819C15.5529 10.678 15.5 10.5493 15.5 10.3958V7.94875L10.649 10.726C10.436 10.8488 10.2119 10.9102 9.97646 10.9102C9.74104 10.9102 9.51868 10.8488 9.30938 10.726L4.5 7.94875V13.67C4.5 13.7126 4.5107 13.7527 4.53208 13.7902C4.55347 13.8276 4.58549 13.8596 4.62813 13.8863L9.48563 16.71C9.56688 16.756 9.63229 16.8204 9.68188 16.9033C9.7316 16.9861 9.75646 17.0781 9.75646 17.1794C9.75646 17.391 9.6675 17.5484 9.48958 17.6515C9.31167 17.7545 9.13243 17.7484 8.95188 17.6331L4.08667 14.8381C3.87583 14.7269 3.71146 14.5683 3.59354 14.3625C3.47563 14.1565 3.41667 13.9299 3.41667 13.6827ZM14.9952 19.9808C13.9995 19.9808 13.1542 19.6317 12.4592 18.9335C11.7642 18.2355 11.4167 17.3885 11.4167 16.3927C11.4167 15.397 11.7658 14.5517 12.464 13.8567C13.162 13.1617 14.009 12.8142 15.0048 12.8142C16.0005 12.8142 16.8458 13.1633 17.5408 13.8615C18.2358 14.5595 18.5833 15.4065 18.5833 16.4023C18.5833 17.398 18.2342 18.2433 17.536 18.9383C16.838 19.6333 15.991 19.9808 14.9952 19.9808ZM15.4519 16.2325V14.9215C15.4519 14.801 15.4067 14.6956 15.3163 14.6052C15.226 14.5148 15.1206 14.4696 15 14.4696C14.8794 14.4696 14.774 14.5148 14.6838 14.6052C14.5933 14.6956 14.5481 14.801 14.5481 14.9215V16.3415C14.5481 16.4395 14.5663 16.5276 14.6025 16.6056C14.6389 16.6837 14.6897 16.7554 14.755 16.8208L15.8238 17.8894C15.9153 17.976 16.0226 18.0207 16.1456 18.0233C16.2687 18.026 16.3761 17.9813 16.4679 17.8894C16.5599 17.7976 16.6058 17.6915 16.6058 17.5713C16.6058 17.4508 16.5599 17.3422 16.4679 17.2452L15.4519 16.2325Z" fill="#1C1B1F"></path>
+                                              </g>
+                                            </svg></div>
+                                          <div>Livraison offerte en point relais pour toute commande de +80€</div>
+                                                </div>
+    </template>
+                                      </div>
+                                      <template x-if="selected_or_first_available_variant.available">
+            <div li-js-if="selected_or_first_available_variant.available" class="product-header_buy-wrappper">
+        
+                                        <div class="quantity-container"><button type="button" x-on:click="quantity = quantity > 1 ? quantity-1 : quantity" class="quantity-btn decrement">
+                                            <div class="icon-1x1-10px w-embed"><svg width="11" height="3" viewbox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M0 2.2192V0.777344H10.093V2.2192H0Z" fill="#77634F"></path>
+                                              </svg></div>
+                                          </button><input type="text" min="1" max="99" li-element="add-to-cart-quantity" class="quantity-display" value="1" x-model="quantity"><button type="button" x-on:click="quantity = Math.min(quantity + 1)" class="quantity-btn increment">
+                                            <div class="icon-1x1-10px w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 11 11" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                                <path d="M4.41861 6.22057H0.0930252V4.77871H4.41861V0.453125H5.86047V4.77871H10.186V6.22057H5.86047V10.5461H4.41861V6.22057Z" fill="currentColor"></path>
+                                              </svg></div>
+                                          </button></div>
+                                        <a fs-modal-element="open-2" li-element="add-to-cart" href="#" class="button max-width-full w-button" @click="addToCart($event, true)" :disabled="!addToCartButton">Ajouter au panier</a>
+                                              </div>
+    </template>
+                                      <template x-if="!selected_or_first_available_variant.available">
+            <div li-js-if="!selected_or_first_available_variant.available" class="product-header_out-of-stock">
+        
+                                        <a href="#" class="button is-secondary max-width-full pointer-events-off w-button">Rupture de stock</a>
+                                              </div>
+    </template>
+                                    </div>
+                                  </div>
+                                        </div>
+    </template>
+                            <template x-if="sellingplan_active">
+            <input name="selling_plan" type="hidden" x-model="selling_plan" li-js-if="sellingplan_active">
+    </template>
+                            
+                              
+                    {% endfor %}    </div>
+                                </div>
+{% endif %}
+                            {% unless product.selling_plan_groups.size > 0 %}    <div li-unless="product.selling_plan_groups.size > 0" class="no-subscription_wrapper">
+    
+                              <div>
+                                <template x-if="selected_or_first_available_variant.available">
+            <div li-js-if="selected_or_first_available_variant.available" class="product-header_buy-wrappper in-machine">
+        
+                                  <div class="quantity_container-wrapper">
+                                    <div>Quantité</div>
+                                    <div class="quantity-container"><button type="button" x-on:click="quantity = quantity > 1 ? quantity-1 : quantity" class="quantity-btn decrement">
+                                        <div class="icon-1x1-10px w-embed"><svg width="11" height="3" viewbox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 2.2192V0.777344H10.093V2.2192H0Z" fill="#77634F"></path>
+                                          </svg></div>
+                                      </button><input type="text" min="1" max="99" li-element="add-to-cart-quantity" class="quantity-display" value="1" x-model="quantity"><button type="button" x-on:click="quantity = Math.min(quantity + 1)" class="quantity-btn increment">
+                                        <div class="icon-1x1-10px w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 11 11" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                            <path d="M4.41861 6.22057H0.0930252V4.77871H4.41861V0.453125H5.86047V4.77871H10.186V6.22057H5.86047V10.5461H4.41861V6.22057Z" fill="currentColor"></path>
+                                          </svg></div>
+                                      </button></div>
+                                  </div>
+                                  <div class="button-group is-full-width">
+                                    <a fs-modal-element="open-2" li-element="add-to-cart" href="#" class="button max-width-full w-button" @click="addToCart($event, true)" :disabled="!addToCartButton">Ajouter au panier</a>
+                                  </div>
+                                        </div>
+    </template>
+                                <template x-if="!selected_or_first_available_variant.available">
+            <div li-js-if="!selected_or_first_available_variant.available" class="product-header_out-of-stock">
+        
+                                  <a href="#" class="button is-secondary max-width-full pointer-events-off w-button">Rupture de stock</a>
+                                        </div>
+    </template>
+                              </div>
+                                </div>
+{% endunless %}
+                          </div>
+                          {% when 'The' %} 
+<div li-when="'The'" class="the_wrapper">
+
+                            {% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_option-wrapper">
+    
+                              <template x-for="(option, optionKey) in product.options" :key="optionKey">
+    <div li-element="product-options-loop" class="product-header_option" data-ProductVariantsLoop="true">
+                                <div li-element="product-options-name" x-text="option">Grammages</div><select type="select" li-element="product-option-select" class="form_input is-select" x-on:change="setVariant" :name="option" :data-name="option" data-selectorType="select">
+                                  <template x-for="(variantName, variantKey) in options_by_name[option].option.values" :key="variantName">
+    <option li-element="product-option-select-loop" x-text="variantName" :value="variantName" :selected="selected_or_first_available_variant?.options[optionKey] == variantName">250gr</option></template>
+                                </select>
+                              </div></template>
+                                </div>
+{% endif %}
+                            {% if product.selling_plan_groups.size > 0 %}    <div li-if="product.selling_plan_groups.size > 0" class="subscription_wrapper">
+    
+                              <div li-for:inside="variant in product.variants">
+        {% for variant in product.variants %}                            
+                                
+                            <template x-if="{{ variant.id }} === product.selected_or_first_available_variant.id">
+            <div li-js-if="{{ variant.id }} === product.selected_or_first_available_variant.id" class="product-header_subscription">
+        
+                                  <div class="product-header_subscription_radio-wrap"><label class="product-header_subscription_radio-lable is-on w-radio">
+                                      <div class="w-form-formradioinput w-form-formradioinput--inputType-custom product_header-radio w-radio-input"></div><input type="radio" name="selling_plan_active" id="radio-4" data-name="selling_plan_active" x-on:click="sellingplan_active = true; selling_plan = '{{ variant.selling_plan_allocations.first.selling_plan.id }}'" style="opacity:0;position:absolute;z-index:-1" value="Radio 4"><span class="product-header_radio-label w-form-label" for="radio-4">
+{{ section.settings.text_with_subscription }}
+</span>
+                                    </label>
+                                    <div x-show="sellingplan_active" class="w-layout-vflex product-header_subscription_radio-lable is-on">
+                                      <div class="subscription_ponctual">
+                                        <div class="text-color-camel">
+                                          <div class="text-size-large text-weight-bold"><span li-js-price="product.selected_or_first_available_variant.price" x-text="LiquifyHelper.moneyFormat(product.selected_or_first_available_variant.price, true, '{{ shop.money_with_currency_format }}')">12,40€</span>/unité</div>
+                                        </div><select x-model="selling_plan" data-name="selling_plan" class="form_input is-select">
+                                          <option value="">Choisir un plan</option>
+                                          {% for plan in variant.selling_plan_allocations %}    <option li-for="plan in variant.selling_plan_allocations" value="{{ plan.selling_plan.id }}">
+                                    {{ plan.selling_plan.name }}
+                        </option>
+{% endfor %}
+                                        </select>
+                                        <template x-if="selected_or_first_available_variant.available">
+            <div li-js-if="selected_or_first_available_variant.available" class="product-header_buy-wrappper">
+        
+                                          <div class="quantity-container"><button type="button" x-on:click="quantity = quantity > 1 ? quantity-1 : quantity" class="quantity-btn decrement">
+                                              <div class="icon-1x1-10px w-embed"><svg width="11" height="3" viewbox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                  <path d="M0 2.2192V0.777344H10.093V2.2192H0Z" fill="#77634F"></path>
+                                                </svg></div>
+                                            </button><input type="text" min="1" max="99" li-element="add-to-cart-quantity" class="quantity-display" value="1" x-model="quantity"><button type="button" x-on:click="quantity = Math.min(quantity + 1)" class="quantity-btn increment">
+                                              <div class="icon-1x1-10px w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 11 11" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                                  <path d="M4.41861 6.22057H0.0930252V4.77871H4.41861V0.453125H5.86047V4.77871H10.186V6.22057H5.86047V10.5461H4.41861V6.22057Z" fill="currentColor"></path>
+                                                </svg></div>
+                                            </button></div>
+                                          <a fs-modal-element="open-2" li-element="add-to-cart" href="#" class="button max-width-full w-button" @click="addToCart($event, true)" :disabled="!addToCartButton">Ajouter au panier</a>
+                                                </div>
+    </template>
+                                        <template x-if="!selected_or_first_available_variant.available">
+            <div li-js-if="!selected_or_first_available_variant.available" class="product-header_out-of-stock">
+        
+                                          <a href="#" class="button is-secondary max-width-full pointer-events-off w-button">Rupture de stock</a>
+                                                </div>
+    </template>
+                                      </div>
+                                    </div>
+                                    <div class="product_subscription-tag-wrapper"><button data-tippy-content="Livraison automatique selon la fréquence choisie." class="tooltip_tippy">
+                                        <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic" width="100%" height="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
+                                            <path fill="currentColor" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8"></path>
+                                          </svg></div>
+                                      </button></div>
+                                  </div>
+                                  <div x-data="{ subscriptionPonctual: true }" class="product-header_subscription_radio-wrap"><label class="product-header_subscription_radio-lable w-radio">
+                                      <div class="w-form-formradioinput w-form-formradioinput--inputType-custom product_header-radio w-radio-input w--redirected-checked"></div><input x-on:click="sellingplan_active = false; selling_plan = ''" name="selling_plan_active" data-name="selling_plan_active" type="radio" id="radio-5" style="opacity:0;position:absolute;z-index:-1" checked="" value=""><span class="product-header_radio-label w-form-label" for="radio-5">
+{{ section.settings.text_without_subscription }}
+</span>
+                                    </label>
+                                    <div x-show="!sellingplan_active" class="subscription_ponctual">
+                                      <div class="text-color-camel">
+                                        <div li-js-price="product.selected_or_first_available_variant.price" class="text-size-large text-weight-bold" x-text="LiquifyHelper.moneyFormat(product.selected_or_first_available_variant.price, true, '{{ shop.money_with_currency_format }}')">12,40€</div>
+                                      </div>
+                                      <div class="subscription_shipping-block">
+                                        <template x-if="selected_or_first_available_variant.available == true">
+            <div li-js-if="selected_or_first_available_variant.available == true" class="product-header_shipping">
+        
+                                          <div class="icon-1x1-xsmall w-embed"><svg width="20" height="21" viewbox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <mask id="mask0_40000058_7163" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="20" height="21">
+                                                <rect y="0.5" width="20" height="20" fill="#D9D9D9"></rect>
+                                              </mask>
+                                              <g mask="url(#mask0_40000058_7163)">
+                                                <path d="M9.89271 4.07375L4.89583 6.93438L10 9.86708L15.1042 6.93438L10.149 4.07375C10.1063 4.04708 10.0636 4.03375 10.0208 4.03375C9.97806 4.03375 9.93535 4.04708 9.89271 4.07375ZM3.41667 13.6827V7.32063C3.41667 7.07813 3.47528 6.85576 3.5925 6.65354C3.70972 6.45146 3.87445 6.28868 4.08667 6.16521L9.30146 3.13708C9.42104 3.07139 9.53528 3.02174 9.64417 2.98812C9.75306 2.95437 9.87056 2.9375 9.99667 2.9375C10.1228 2.9375 10.2436 2.95437 10.3592 2.98812C10.4749 3.02174 10.5853 3.07326 10.6906 3.14271L15.9133 6.16521C16.1256 6.28868 16.2903 6.45146 16.4075 6.65354C16.5247 6.85576 16.5833 7.07813 16.5833 7.32063V10.3958C16.5833 10.5493 16.5318 10.678 16.4288 10.7819C16.3257 10.8856 16.1981 10.9375 16.0458 10.9375C15.8935 10.9375 15.7644 10.8856 15.6588 10.7819C15.5529 10.678 15.5 10.5493 15.5 10.3958V7.94875L10.649 10.726C10.436 10.8488 10.2119 10.9102 9.97646 10.9102C9.74104 10.9102 9.51868 10.8488 9.30938 10.726L4.5 7.94875V13.67C4.5 13.7126 4.5107 13.7527 4.53208 13.7902C4.55347 13.8276 4.58549 13.8596 4.62813 13.8863L9.48563 16.71C9.56688 16.756 9.63229 16.8204 9.68188 16.9033C9.7316 16.9861 9.75646 17.0781 9.75646 17.1794C9.75646 17.391 9.6675 17.5484 9.48958 17.6515C9.31167 17.7545 9.13243 17.7484 8.95188 17.6331L4.08667 14.8381C3.87583 14.7269 3.71146 14.5683 3.59354 14.3625C3.47563 14.1565 3.41667 13.9299 3.41667 13.6827ZM14.9952 19.9808C13.9995 19.9808 13.1542 19.6317 12.4592 18.9335C11.7642 18.2355 11.4167 17.3885 11.4167 16.3927C11.4167 15.397 11.7658 14.5517 12.464 13.8567C13.162 13.1617 14.009 12.8142 15.0048 12.8142C16.0005 12.8142 16.8458 13.1633 17.5408 13.8615C18.2358 14.5595 18.5833 15.4065 18.5833 16.4023C18.5833 17.398 18.2342 18.2433 17.536 18.9383C16.838 19.6333 15.991 19.9808 14.9952 19.9808ZM15.4519 16.2325V14.9215C15.4519 14.801 15.4067 14.6956 15.3163 14.6052C15.226 14.5148 15.1206 14.4696 15 14.4696C14.8794 14.4696 14.774 14.5148 14.6838 14.6052C14.5933 14.6956 14.5481 14.801 14.5481 14.9215V16.3415C14.5481 16.4395 14.5663 16.5276 14.6025 16.6056C14.6389 16.6837 14.6897 16.7554 14.755 16.8208L15.8238 17.8894C15.9153 17.976 16.0226 18.0207 16.1456 18.0233C16.2687 18.026 16.3761 17.9813 16.4679 17.8894C16.5599 17.7976 16.6058 17.6915 16.6058 17.5713C16.6058 17.4508 16.5599 17.3422 16.4679 17.2452L15.4519 16.2325Z" fill="#1C1B1F"></path>
+                                              </g>
+                                            </svg></div>
+                                          <div>Livraison offerte en point relais pour toute commande de +80€</div>
+                                                </div>
+    </template>
+                                      </div>
+                                      <template x-if="selected_or_first_available_variant.available">
+            <div li-js-if="selected_or_first_available_variant.available" class="product-header_buy-wrappper">
+        
+                                        <div class="quantity-container"><button type="button" x-on:click="quantity = quantity > 1 ? quantity-1 : quantity" class="quantity-btn decrement">
+                                            <div class="icon-1x1-10px w-embed"><svg width="11" height="3" viewbox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M0 2.2192V0.777344H10.093V2.2192H0Z" fill="#77634F"></path>
+                                              </svg></div>
+                                          </button><input type="text" min="1" max="99" li-element="add-to-cart-quantity" class="quantity-display" value="1" x-model="quantity"><button type="button" x-on:click="quantity = Math.min(quantity + 1)" class="quantity-btn increment">
+                                            <div class="icon-1x1-10px w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 11 11" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                                <path d="M4.41861 6.22057H0.0930252V4.77871H4.41861V0.453125H5.86047V4.77871H10.186V6.22057H5.86047V10.5461H4.41861V6.22057Z" fill="currentColor"></path>
+                                              </svg></div>
+                                          </button></div>
+                                        <a fs-modal-element="open-2" li-element="add-to-cart" href="#" class="button max-width-full w-button" @click="addToCart($event, true)" :disabled="!addToCartButton">Ajouter au panier</a>
+                                              </div>
+    </template>
+                                      <template x-if="!selected_or_first_available_variant.available">
+            <div li-js-if="!selected_or_first_available_variant.available" class="product-header_out-of-stock">
+        
+                                        <a href="#" class="button is-secondary max-width-full pointer-events-off w-button">Rupture de stock</a>
+                                              </div>
+    </template>
+                                    </div>
+                                  </div>
+                                        </div>
+    </template>
+                            <template x-if="sellingplan_active">
+            <input name="selling_plan" type="hidden" x-model="selling_plan" li-js-if="sellingplan_active">
+    </template>
+                            
+                              
+                    {% endfor %}    </div>
+                                </div>
+{% endif %}
+                            {% unless product.selling_plan_groups.size > 0 %}    <div li-unless="product.selling_plan_groups.size > 0" class="no-subscription_wrapper">
+    
+                              <div>
+                                <template x-if="selected_or_first_available_variant.available">
+            <div li-js-if="selected_or_first_available_variant.available" class="product-header_buy-wrappper in-machine">
+        
+                                  <div class="quantity-container"><button type="button" x-on:click="quantity = quantity > 1 ? quantity-1 : quantity" class="quantity-btn decrement">
+                                      <div class="icon-1x1-10px w-embed"><svg width="11" height="3" viewbox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M0 2.2192V0.777344H10.093V2.2192H0Z" fill="#77634F"></path>
+                                        </svg></div>
+                                    </button><input type="text" min="1" max="99" li-element="add-to-cart-quantity" class="quantity-display" value="1" x-model="quantity"><button type="button" x-on:click="quantity = Math.min(quantity + 1)" class="quantity-btn increment">
+                                      <div class="icon-1x1-10px w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 11 11" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                          <path d="M4.41861 6.22057H0.0930252V4.77871H4.41861V0.453125H5.86047V4.77871H10.186V6.22057H5.86047V10.5461H4.41861V6.22057Z" fill="currentColor"></path>
+                                        </svg></div>
+                                    </button></div>
+                                  <div class="button-group is-full-width">
+                                    <a fs-modal-element="open-2" li-element="add-to-cart" href="#" class="button max-width-full w-button" @click="addToCart($event, true)" :disabled="!addToCartButton">Ajouter au panier</a>
+                                  </div>
+                                        </div>
+    </template>
+                                <template x-if="!selected_or_first_available_variant.available">
+            <div li-js-if="!selected_or_first_available_variant.available" class="product-header_out-of-stock">
+        
+                                  <a href="#" class="button is-secondary max-width-full pointer-events-off w-button">Rupture de stock</a>
+                                        </div>
+    </template>
+                              </div>
+                                </div>
+{% endunless %}
+                          </div>
+                          {% when 'Machine' %} 
+<div li-when="'Machine'" class="machine_wrapper">
+
+                            {% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_option-list is-machines">
+    
+                              <template x-for="(option, optionKey) in product.options" :key="optionKey">
+    <div li-element="product-options-loop" class="product-header_option" data-ProductVariantsLoop="true">
+                                <div li-element="product-options-name" x-text="option">Couleur</div>
+                                <div class="product-header_radio-list"><template x-for="(variantName, variantKey) in options_by_name[option].option.values" :key="variantName">
+    <label li-element="product-option-loop" class="product-header_radio w-radio">
+                                    <div class="w-form-formradioinput w-form-formradioinput--inputType-custom product-header_radio-button w-radio-input"></div><input type="radio" li-element="product-option-input" style="opacity:0;position:absolute;z-index:-1" x-on:click="setVariant" :name="option" :data-name="option" :value="variantName" :id="variantName.toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w-]+/g, '').replace(/--+/g, '-')" :checked="selected_or_first_available_variant?.options.includes(variantName)" data-selectorType="radio" :class="firstOptionHasAvailableChildren[variantName] ? '' : 'data-disabled'"><span li-element="product-option-name" class="text-size-regular text-weight-semibold w-form-label" for="radio-8" x-text="variantName" :for="variantName">XS</span>
+                                  </label></template></div>
+                              </div></template>
+                                </div>
+{% endif %}
+                            <div class="product-header_add-to-cart-wrapper">
+                              <template x-if="selected_or_first_available_variant.available">
+            <div li-js-if="selected_or_first_available_variant.available" class="product-header_buy-wrappper in-machine">
+        
+                                <div class="quantity-container"><button type="button" x-on:click="quantity = quantity > 1 ? quantity-1 : quantity" class="quantity-btn decrement">
+                                    <div class="icon-1x1-10px w-embed"><svg width="11" height="3" viewbox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 2.2192V0.777344H10.093V2.2192H0Z" fill="#77634F"></path>
+                                      </svg></div>
+                                  </button><input type="text" min="1" max="99" li-element="add-to-cart-quantity" class="quantity-display" value="1" x-model="quantity"><button type="button" x-on:click="quantity = Math.min(quantity + 1)" class="quantity-btn increment">
+                                    <div class="icon-1x1-10px w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 11 11" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                        <path d="M4.41861 6.22057H0.0930252V4.77871H4.41861V0.453125H5.86047V4.77871H10.186V6.22057H5.86047V10.5461H4.41861V6.22057Z" fill="currentColor"></path>
+                                      </svg></div>
+                                  </button></div>
+                                <div class="button-group is-full-width">
+                                  <a fs-modal-element="open-2" li-element="add-to-cart" href="#" class="button max-width-full w-button" @click="addToCart($event, true)" :disabled="!addToCartButton">Ajouter au panier</a>
+                                </div>
+                                      </div>
+    </template>
+                              <template x-if="!selected_or_first_available_variant.available">
+            <div li-js-if="!selected_or_first_available_variant.available" class="product-header_out-of-stock">
+        
+                                <a href="#" class="button is-secondary max-width-full pointer-events-off w-button">Rupture de stock</a>
+                                      </div>
+    </template>
+                            </div>
+                          </div>
+                          {% when 'Accessoires' %} 
+<div li-when="'Accessoires'" class="machine_wrapper">
+
+                            {% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_option-list is-machines">
+    
+                              <template x-for="(option, optionKey) in product.options" :key="optionKey">
+    <div li-element="product-options-loop" class="product-header_option" data-ProductVariantsLoop="true">
+                                <div li-element="product-options-name" x-text="option">Couleur</div>
+                                <div class="product-header_radio-list"><template x-for="(variantName, variantKey) in options_by_name[option].option.values" :key="variantName">
+    <label li-element="product-option-loop" class="product-header_radio w-radio">
+                                    <div class="w-form-formradioinput w-form-formradioinput--inputType-custom product-header_radio-button w-radio-input"></div><input type="radio" li-element="product-option-input" style="opacity:0;position:absolute;z-index:-1" x-on:click="setVariant" :name="option" :data-name="option" :value="variantName" :id="variantName.toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w-]+/g, '').replace(/--+/g, '-')" :checked="selected_or_first_available_variant?.options.includes(variantName)" data-selectorType="radio" :class="firstOptionHasAvailableChildren[variantName] ? '' : 'data-disabled'"><span li-element="product-option-name" class="text-size-regular text-weight-semibold w-form-label" for="radio-9" x-text="variantName" :for="variantName">XS</span>
+                                  </label></template></div>
+                              </div></template>
+                                </div>
+{% endif %}
+                            <div class="product-header_add-to-cart-wrapper">
+                              <template x-if="selected_or_first_available_variant.available">
+            <div li-js-if="selected_or_first_available_variant.available" class="product-header_buy-wrappper in-machine">
+        
+                                <div class="quantity-container"><button type="button" x-on:click="quantity = quantity > 1 ? quantity-1 : quantity" class="quantity-btn decrement">
+                                    <div class="icon-1x1-10px w-embed"><svg width="11" height="3" viewbox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 2.2192V0.777344H10.093V2.2192H0Z" fill="#77634F"></path>
+                                      </svg></div>
+                                  </button><input type="text" min="1" max="99" li-element="add-to-cart-quantity" class="quantity-display" value="1" x-model="quantity"><button type="button" x-on:click="quantity = Math.min(quantity + 1)" class="quantity-btn increment">
+                                    <div class="icon-1x1-10px w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 11 11" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                        <path d="M4.41861 6.22057H0.0930252V4.77871H4.41861V0.453125H5.86047V4.77871H10.186V6.22057H5.86047V10.5461H4.41861V6.22057Z" fill="currentColor"></path>
+                                      </svg></div>
+                                  </button></div>
+                                <div class="button-group is-full-width">
+                                  <a fs-modal-element="open-2" li-element="add-to-cart" href="#" class="button max-width-full w-button" @click="addToCart($event, true)" :disabled="!addToCartButton">Ajouter au panier</a>
+                                </div>
+                                      </div>
+    </template>
+                              <template x-if="!selected_or_first_available_variant.available">
+            <div li-js-if="!selected_or_first_available_variant.available" class="product-header_out-of-stock">
+        
+                                <a href="#" class="button is-secondary max-width-full pointer-events-off w-button">Rupture de stock</a>
+                                      </div>
+    </template>
+                            </div>
+                          </div>
+                        {% endcase %}
+</div>
+                      </form>
+                      <div class="hide w-form-done">
+                        <div>Thank you! Your submission has been received!</div>
+                      </div>
+                      <div class="hide w-form-fail">
+                        <div>Oops! Something went wrong while submitting the form.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> {% schema %} {
+    "tag": "section",
+    "name": "Product-Hero-Pro",
+    "class": "section_product-header",
+    "settings": [
+        {
+            "id": "image_settingsimage",
+            "type": "image_picker",
+            "label": "settings.image"
+        },
+        {
+            "id": "image_badges_variete_cafe_image",
+            "type": "image_picker",
+            "label": "Badges - Variete Cafe - Image"
+        },
+        {
+            "id": "text_badges_variete_cafe_texte",
+            "type": "text",
+            "label": "Badges - Variete Cafe - Texte",
+            "default": "100% Arabica"
+        },
+        {
+            "id": "image_badges_certification_cafe_image",
+            "type": "image_picker",
+            "label": "Badges - Certification Cafe - Image"
+        },
+        {
+            "id": "text_badges_certification_cafe_texte",
+            "type": "text",
+            "label": "Badges - Certification Cafe - Texte",
+            "default": "100% Arabica"
+        },
+        {
+            "id": "image_badges_certification_2_cafe_image",
+            "type": "image_picker",
+            "label": "Badges - Certification 2 Cafe - Image"
+        },
+        {
+            "id": "text_badges_certification_2_cafe_texte",
+            "type": "text",
+            "label": "Badges - Certification 2 Cafe - Texte",
+            "default": "100% Arabica"
+        },
+        {
+            "id": "text_badges_type_de_the_texte",
+            "type": "text",
+            "label": "Badges - Type de The - Texte",
+            "default": "100% Arabica"
+        },
+        {
+            "id": "text_with_subscription",
+            "type": "text",
+            "label": "with Subscription",
+            "default": "Je m\u2019abonne"
+        },
+        {
+            "id": "text_without_subscription",
+            "type": "text",
+            "label": "without Subscription",
+            "default": "Je commande ponctuellement"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Product-Hero-Pro",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

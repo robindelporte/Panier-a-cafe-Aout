@@ -1,0 +1,125 @@
+{
+    "sections": {
+        "header_landing": {
+            "type": "header_landing",
+            "blocks": {
+                "titre": {
+                    "name": "Titre",
+                    "type": "titre"
+                },
+                "paragrpahe": {
+                    "name": "Paragrpahe",
+                    "type": "paragrpahe"
+                },
+                "bouttons": {
+                    "name": "Bouttons",
+                    "type": "bouttons"
+                },
+                "logos": {
+                    "name": "Logos",
+                    "type": "logos"
+                }
+            },
+            "block_order": [
+                "titre",
+                "paragrpahe",
+                "bouttons",
+                "logos"
+            ]
+        },
+        "bandeau": {
+            "type": "bandeau",
+            "blocks": {
+                "icone": {
+                    "name": "icone",
+                    "type": "icone"
+                }
+            },
+            "block_order": [
+                "icone"
+            ]
+        },
+        "content": {
+            "type": "content",
+            "blocks": {
+                "headline-small": {
+                    "name": "Headline small",
+                    "type": "headline-small"
+                },
+                "headline": {
+                    "name": "Headline",
+                    "type": "headline"
+                },
+                "text": {
+                    "name": "Text",
+                    "type": "text"
+                },
+                "buttons": {
+                    "name": "Buttons",
+                    "type": "buttons"
+                }
+            },
+            "block_order": [
+                "headline-small",
+                "headline",
+                "text",
+                "buttons"
+            ]
+        },
+        "selection_manuel": {
+            "type": "selection_manuel",
+            "blocks": {
+                "selection": {
+                    "name": "Selection",
+                    "type": "selection"
+                }
+            },
+            "block_order": [
+                "selection"
+            ]
+        },
+        "logo_defilants": {
+            "type": "logo_defilants",
+            "blocks": {
+                "logo-defilants": {
+                    "type": "logo-defilants",
+                    "name": "Logo defilants"
+                },
+                "logo-defilants-inverses": {
+                    "type": "logo-defilants-inverses",
+                    "name": "Logo defilants \/ Invers\u00e9s"
+                }
+            },
+            "block_order": [
+                "logo-defilants",
+                "logo-defilants-inverses"
+            ]
+        },
+        "faq": {
+            "type": "faq",
+            "blocks": {
+                "faq-item": {
+                    "name": "FAQ Item",
+                    "type": "faq-item"
+                }
+            },
+            "block_order": [
+                "faq-item"
+            ]
+        },
+        "reseaux": {
+            "type": "reseaux"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "header_landing",
+        "bandeau",
+        "content",
+        "selection_manuel",
+        "logo_defilants",
+        "faq",
+        "reseaux"
+    ]
+}

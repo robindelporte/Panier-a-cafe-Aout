@@ -1,0 +1,111 @@
+<div class="padding-global">
+          <div class="padding-section-medium">
+            <div class="container-large">
+              <div class="highlight_component">
+                <div class="highlight_heading">
+                  <h2 class="max-width-medium">
+{{ section.settings.text_titre }}
+</h2>
+                  <div class="max-width-large">
+                    <p>
+{{ section.settings.text_sous_titre }}
+</p>
+                  </div>
+                </div>
+                <div class="highlight_list">
+                  {% for block in section.blocks %}
+    {% if block.type == "product" %}
+                    <div li-block="Product">
+                                    
+                    
+                                    <div class="highlight_item">{% assign product = all_products[block.settings.product_product] %} 
+                      <div class="highlight_content">
+                        <div class="highlight_item-heading">
+                          <h3 li-object="product.title" class="heading-style-h2">{{ product.title }}</h3>
+                          <div li-object="product.metafields.custom.famille_aromatique.first" class="text-size-medium">{{ product.metafields.custom.famille_aromatique.first }}</div>
+                        </div>
+                        <div class="highlight_tag-wrapper is-in-content">
+                          {% if product.metafields.custom.certification %}    <div li-if="product.metafields.custom.certification" class="product-item_tag">
+    
+                            {% assign certification = product.metafields.custom.certification.value %}<img src="{{ certification.logo| img_url: 'large' }}" loading="lazy" li-object:src="certification.logo| img_url: 'large'" alt="" class="flag_icon">
+                            <div li-object="certification.nom" class="product-item_tag-text">{{ certification.nom }}</div>
+                              </div>
+{% endif %}
+                        </div>
+                        <div class="highlight_paragraph">
+                          <p li-object="product.description">{{ product.description }}</p>
+                        </div>
+                        <a li-object:href="product.url" href="{{ product.url }}" class="button is-secondary w-button">Découvrir</a>
+                      </div>
+                      <a li-object:href="product.url" href="{{ product.url }}" class="highlight_image-wrapper w-inline-block"><img src="{{ product.featured_image | image_url: width: 600 }}" loading="lazy" width="207.5" li-object:src="product.featured_image | image_url: width: 600" alt="{{ product.featured_image.alt }}" li-object:alt="product.featured_image.alt" class="highlight_image">
+                        <div class="highlight_tag-wrapper">
+                          {% if product.metafields.custom.pays_d_origine != blank %}    <div li-if="product.metafields.custom.pays_d_origine != blank" class="product-item_tag">
+    
+                            {% assign pays_origine = product.metafields.custom.pays_d_origine.value %}<img src="{{ pays_origine.drapeau | img_url: 'large' }}" loading="lazy" li-object:src="pays_origine.drapeau | img_url: 'large'" alt="" class="flag_icon">
+                            <div li-object="pays_origine.pays" class="product-item_tag-text">{{ pays_origine.pays }}</div>
+                              </div>
+{% endif %}
+                        </div>
+                      </a>
+                      <div id="w-node-_813df436-4c50-60ed-d244-e1a464e02947-64e02923" class="highlight_item-tag">
+{{ block.settings.text_etiquette }}
+</div>
+                    </div>
+                                    
+                  
+                            </div>
+            {% endif %}
+{% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Selection",
+    "class": "section_highlight",
+    "blocks": [
+        {
+            "name": "Product",
+            "type": "product",
+            "settings": [
+                {
+                    "id": "product_product",
+                    "type": "product",
+                    "label": "Product"
+                },
+                {
+                    "id": "text_etiquette",
+                    "type": "text",
+                    "label": "Etiquette",
+                    "default": "Caf\u00e9 du mois"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_titre",
+            "type": "text",
+            "label": "Titre",
+            "default": "Un caf\u00e9 pour chaque mois, une ambiance pour chaque saison"
+        },
+        {
+            "id": "text_sous_titre",
+            "type": "text",
+            "label": "Sous-titre",
+            "default": "Chaque mois, on met en lumi\u00e8re un caf\u00e9 d\u2019exception : souvent issu d\u2019un microlot, sourc\u00e9 lors de nos voyages, il vous permet de d\u00e9couvrir des profils rares, parfois surprenants, toujours passionnants. En parall\u00e8le, on vous propose aussi un caf\u00e9 par saison : un estival, un printanier, un automnal ou un hivernal, \u00a0pens\u00e9s pour s\u2019accorder aux humeurs m\u00e9t\u00e9o du moment. Parce que le caf\u00e9, c\u2019est aussi une affaire de sensations, de climat\u2026 et d\u2019envie !"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Selection",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "product"
+                }
+            ]
+        }
+    ]
+} {% endschema %}
