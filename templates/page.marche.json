@@ -1,0 +1,25 @@
+{
+    "sections": {
+        "marche": {
+            "type": "marche",
+            "blocks": {
+                "tab": {
+                    "name": "Tab",
+                    "type": "tab"
+                }
+            },
+            "block_order": [
+                "tab"
+            ]
+        },
+        "reseaux": {
+            "type": "reseaux"
+        }
+    },
+    "layout": "page.marche",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "marche",
+        "reseaux"
+    ]
+}

@@ -1,0 +1,964 @@
+<div li-case="product.type">
+{% case product.type %}
+
+          {% when 'Machine' %} 
+<div li-when="'Machine'">
+
+            <section class="section_caracteristiques">
+              <div class="padding-global">
+                <div class="padding-section-medium">
+                  <div class="container-large">
+                    <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="caracteristiques_component w-tabs">
+                      <div class="caracteristiques_tabs-menu w-tab-menu">
+                        <a data-w-tab="Tab 1" class="button is-tab-button w-inline-block w-tab-link w--current">
+                          <div>Données techniques</div>
+                        </a>
+                        <a data-w-tab="Tab 2" class="button is-tab-button w-inline-block w-tab-link">
+                          <div>Avantages</div>
+                        </a>
+                      </div>
+                      <div class="caracteristiques_tabs-content w-tab-content">
+                        <div data-w-tab="Tab 1" class="caracteristiques_tabs-pane w-tab-pane w--tab-active">
+                          <div class="margin-bottom margin-medium">
+                            <div class="button-group is-center">
+                              <a href="{{ section.settings.url_button_link }}" class="button is-secondary w-button"> {{ section.settings.text_button_text }} </a>
+                            </div>
+                          </div>
+                          <div class="caracteristiques_tabs-pane-content">
+                            <div class="caracteristiques_tabs-pane-column">
+                              <div class="tableau_wrapper">
+                                <ul role="list" class="tableau_list w-list-unstyled">
+                                  <li class="tableau_list-item is-heading">
+                                    <h3 class="text-size-large text-font-body text-weight-bold">
+{{ section.settings.text_tableau_1 }}
+</h3>
+                                  </li>
+                                  <li class="tableau_list-item">
+                                    <div class="display-inlineflex display-align-center gap-0-75">
+                                      <div>Nombre de spécialité</div>
+                                    </div>
+                                    <div>
+{{ section.settings.text_6 }}
+</div>
+                                  </li>
+                                  <li class="tableau_list-item hide">
+                                    {% assign machine = product.metafields.custom.machine.value %}{% assign specialites_raw = machine.specialites | strip_newlines | remove: '[' | remove: ']' %}{% assign specialites = specialites_raw | split: '","' %}
+                                  </li>
+                                  {% for specialite in specialites %}    <li li-for="specialite in specialites" class="tableau_list-item">
+                                    
+                                    
+                            <div class="display-inlineflex display-align-center gap-0-75">
+                                      <div class="w-embed">{{ specialite | remove: '"' | strip }}</div>
+                                    </div>
+                            
+                                    
+                            <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 24" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                        <mask id="mask0_7952_15246" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                          <rect width="24" height="24" fill="#D9D9D9"></rect>
+                                        </mask>
+                                        <g mask="url(#mask0_7952_15246)">
+                                          <path d="M9.54976 15.515L18.1883 6.87653C18.3369 6.7277 18.5109 6.6517 18.7103 6.64853C18.9096 6.64537 19.0868 6.72137 19.242 6.87653C19.3972 7.0317 19.4748 7.20987 19.4748 7.41103C19.4748 7.61237 19.3972 7.79061 19.242 7.94578L10.1825 17.0208C10.0017 17.2014 9.79076 17.2918 9.54976 17.2918C9.30876 17.2918 9.09785 17.2014 8.91701 17.0208L4.74201 12.8458C4.59335 12.6969 4.52001 12.5203 4.52201 12.3158C4.52385 12.1114 4.60235 11.9317 4.75751 11.7765C4.91268 11.6214 5.09085 11.5438 5.29201 11.5438C5.49335 11.5438 5.6716 11.6214 5.82676 11.7765L9.54976 15.515Z" fill="#1C1B1F"></path>
+                                        </g>
+                                      </svg></div>
+                            
+                                  
+                        </li>
+{% endfor %}
+                                </ul>
+                              </div>
+                              <div class="tableau_wrapper">
+                                <ul role="list" class="tableau_list w-list-unstyled">
+                                  <li class="tableau_list-item is-heading">
+                                    <h3 class="text-size-large text-font-body text-weight-bold">
+{{ section.settings.text_tableau_3 }}
+</h3>
+                                  </li>
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item">
+    
+                                    {% assign machine = product.metafields.custom.machine.value %}
+                                    <div class="display-inlineflex display-align-center gap-0-75">
+                                      <div li-object="machine.caracteristique_item_1_titre">{{ machine.caracteristique_item_1_titre }}</div>
+                                    </div>
+                                    <div li-object="machine.caracteristique_item_1_texte">{{ machine.caracteristique_item_1_texte }}</div>
+                                      </li>
+{% endif %}
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item">
+    
+                                    {% assign machine = product.metafields.custom.machine.value %}
+                                    <div class="display-inlineflex display-align-center gap-0-75">
+                                      <div li-object="machine.caracteristique_item_2_titre">{{ machine.caracteristique_item_2_titre }}</div>
+                                    </div>
+                                    <div li-object="machine.caracteristique_item_2_texte">{{ machine.caracteristique_item_2_texte }}</div>
+                                      </li>
+{% endif %}
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item">
+    
+                                    {% assign machine = product.metafields.custom.machine.value %}
+                                    <div class="display-inlineflex display-align-center gap-0-75">
+                                      <div li-object="machine.caracteristique_item_3_titre">{{ machine.caracteristique_item_3_titre }}</div>
+                                    </div>
+                                    <div li-object="machine.caracteristique_item_3_texte">{{ machine.caracteristique_item_3_texte }}</div>
+                                      </li>
+{% endif %}
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item">
+    
+                                    {% assign machine = product.metafields.custom.machine.value %}
+                                    <div class="display-inlineflex display-align-center gap-0-75">
+                                      <div li-object="machine.caracteristique_item_4_titre">{{ machine.caracteristique_item_4_titre }}</div>
+                                    </div>
+                                    <div li-object="machine.caracteristique_item_4_texte">{{ machine.caracteristique_item_4_texte }}</div>
+                                      </li>
+{% endif %}
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="caracteristiques_tabs-pane-column">
+                              <div class="tableau_wrapper">
+                                <ul role="list" class="tableau_list w-list-unstyled">
+                                  <li class="tableau_list-item is-heading">
+                                    <h3 class="text-size-large text-font-body text-weight-bold">
+{{ section.settings.text_tableau_2 }}
+</h3>
+                                  </li>
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item is-machine">
+    
+                                    {% assign machine = product.metafields.custom.machine.value %}
+                                    <div li-object="machine.pourquoi_item_1_titre" class="text-size-medium">{{ machine.pourquoi_item_1_titre }}</div>
+                                    <div li-object="machine.pourquoi_item_1_texte">{{ machine.pourquoi_item_1_texte }}</div>
+                                      </li>
+{% endif %}
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item is-machine">
+    
+                                    {% assign machine = product.metafields.custom.machine.value %}
+                                    <div li-object="machine.pourquoi_item_2_titre" class="text-size-medium">{{ machine.pourquoi_item_2_titre }}</div>
+                                    <div li-object="machine.pourquoi_item_2_texte">{{ machine.pourquoi_item_2_texte }}</div>
+                                      </li>
+{% endif %}
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item is-machine">
+    
+                                    {% assign machine = product.metafields.custom.machine.value %}
+                                    <div li-object="machine.pourquoi_item_3_titre" class="text-size-medium">{{ machine.pourquoi_item_3_titre }}</div>
+                                    <div li-object="machine.pourquoi_item_3_texte">{{ machine.pourquoi_item_3_texte }}</div>
+                                      </li>
+{% endif %}
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item is-machine">
+    
+                                    {% assign machine = product.metafields.custom.machine.value %}
+                                    <div li-object="machine.pourquoi_item_4_titre" class="text-size-medium">{{ machine.pourquoi_item_4_titre }}</div>
+                                    <div li-object="machine.pourquoi_item_4_texte">{{ machine.pourquoi_item_4_texte }}</div>
+                                      </li>
+{% endif %}
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item is-machine">
+    
+                                    {% assign machine = product.metafields.custom.machine.value %}
+                                    <div li-object="machine.pourquoi_item_5_titre" class="text-size-medium">{{ machine.pourquoi_item_5_titre }}</div>
+                                    <div li-object="machine.pourquoi_item_5_texte">{{ machine.pourquoi_item_5_texte }}</div>
+                                      </li>
+{% endif %}
+                                </ul>
+                              </div>
+                              <div class="tableau_wrapper">
+                                <ul role="list" class="tableau_list w-list-unstyled">
+                                  <li class="tableau_list-item is-heading">
+                                    <h3 class="text-size-large text-font-body text-weight-bold">
+{{ section.settings.text_tableau_4 }}
+</h3>
+                                  </li>
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item">
+    
+                                    <div class="display-inlineflex display-align-center gap-0-75">
+                                      <div li-object="pourquoi_item_2_titre">{{ pourquoi_item_2_titre }}</div>
+                                    </div>
+                                    <div li-object="pourquoi_item_2_texte">{{ pourquoi_item_2_texte }}</div>
+                                      </li>
+{% endif %}
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item">
+    
+                                    <div class="display-inlineflex display-align-center gap-0-75">
+                                      <div li-object="pourquoi_item_2_titre">{{ pourquoi_item_2_titre }}</div>
+                                    </div>
+                                    <div li-object="pourquoi_item_2_texte">{{ pourquoi_item_2_texte }}</div>
+                                      </li>
+{% endif %}
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item">
+    
+                                    <div class="display-inlineflex display-align-center gap-0-75">
+                                      <div li-object="pourquoi_item_2_titre">{{ pourquoi_item_2_titre }}</div>
+                                    </div>
+                                    <div li-object="pourquoi_item_2_texte">{{ pourquoi_item_2_texte }}</div>
+                                      </li>
+{% endif %}
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item">
+    
+                                    <div class="display-inlineflex display-align-center gap-0-75">
+                                      <div li-object="pourquoi_item_2_titre">{{ pourquoi_item_2_titre }}</div>
+                                    </div>
+                                    <div li-object="pourquoi_item_2_texte">{{ pourquoi_item_2_texte }}</div>
+                                      </li>
+{% endif %}
+                                  {% if product.metafields.custom.machine != blank %}    <li li-if="product.metafields.custom.machine != blank" class="tableau_list-item">
+    
+                                    <div class="display-inlineflex display-align-center gap-0-75">
+                                      <div li-object="pourquoi_item_2_titre">{{ pourquoi_item_2_titre }}</div>
+                                    </div>
+                                    <div li-object="pourquoi_item_2_texte">{{ pourquoi_item_2_texte }}</div>
+                                      </li>
+{% endif %}
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div data-w-tab="Tab 2" class="caracteristiques_tabs-pane w-tab-pane">
+                          <div class="card_component-wrapper">
+                            {% if product.metafields.custom.machine != blank %}    <div li-if="product.metafields.custom.machine != blank" class="card_component">
+    
+                              {% assign machine = product.metafields.custom.machine.value %}
+                              <div id="w-node-b0de3c19-293a-7159-9278-7522a786335a-0a9591df" class="card_img-wrapper" style="{% if section.settings.left_right == 'right'%}order: 9999;{% endif %}"><img li-object:src="machine.a_propos_item_1_image | img_url: 'master'" loading="lazy" alt="" src="{{ machine.a_propos_item_1_image | img_url: 'master' }}" class="card_img"></div>
+                              <div class="content_wrapper">
+                                <h3 li-object="machine.a_propos_item_1_titre" id="w-node-b0de3c19-293a-7159-9278-7522a786335e-0a9591df" class="text-size-large text-font-body text-weight-bold">{{ machine.a_propos_item_1_titre }}</h3>
+                                <p li-object="machine.a_propos_item_1_texte">{{ machine.a_propos_item_1_texte }}</p>
+                              </div>
+                                </div>
+{% endif %}
+                            {% if product.metafields.custom.machine != blank %}    <div li-if="product.metafields.custom.machine != blank" class="card_component">
+    
+                              {% assign machine = product.metafields.custom.machine.value %}
+                              <div class="content_wrapper">
+                                <h3 li-object="machine.a_propos_item_2_titre" class="text-size-large text-font-body text-weight-bold">{{ machine.a_propos_item_2_titre }}</h3>
+                                <p li-object="machine.a_propos_item_2_texte">{{ machine.a_propos_item_2_texte }}</p>
+                              </div>
+                              <div id="w-node-b0de3c19-293a-7159-9278-7522a786336b-0a9591df" class="card_img-wrapper" style="{% if section.settings.left_right == 'right'%}order: 9999;{% endif %}"><img li-object:src="machine.a_propos_item_2_image | img_url: 'master'" loading="lazy" alt="" src="{{ machine.a_propos_item_2_image | img_url: 'master' }}" class="card_img"></div>
+                                </div>
+{% endif %}
+                            {% if product.metafields.custom.machine != blank %}    <div li-if="product.metafields.custom.machine != blank" class="card_component">
+    
+                              {% assign machine = product.metafields.custom.machine.value %}
+                              <div id="w-node-b0de3c19-293a-7159-9278-7522a786336e-0a9591df" class="card_img-wrapper" style="{% if section.settings.left_right == 'right'%}order: 9999;{% endif %}"><img li-object:src="machine.a_propos_item_3_image | img_url: 'master'" loading="lazy" alt="" src="{{ machine.a_propos_item_3_image | img_url: 'master' }}" class="card_img"></div>
+                              <div class="content_wrapper">
+                                <h3 li-object="machine.a_propos_item_3_titre" class="text-size-large text-font-body text-weight-bold">{{ machine.a_propos_item_3_titre }}</h3>
+                                <p li-object="machine.a_propos_item_3_texte">{{ machine.a_propos_item_3_texte }}</p>
+                              </div>
+                                </div>
+{% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          {% when 'Cafe' %} 
+<div li-when="'Cafe'">
+
+            <div class="section_tableau">
+              <div class="padding-global">
+                <div class="padding-section-medium">
+                  <div class="container-large">
+                    <div class="tableau_component">
+                      <div class="tableau_component-wrapper">
+                        <div class="tableau_wrapper">
+                          <ul role="list" class="tableau_list w-list-unstyled">
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                    <mask id="mask0_7353_753" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7353_753)">
+                                      <path d="M12 20.0135C13.9564 18.2622 15.4534 16.5823 16.4913 14.974C17.5291 13.3657 18.048 11.957 18.048 10.748C18.048 8.925 17.4689 7.42633 16.3105 6.252C15.1522 5.07767 13.7154 4.4905 12 4.4905C10.2847 4.4905 8.84786 5.07767 7.68953 6.252C6.53119 7.42633 5.95203 8.925 5.95203 10.748C5.95203 11.957 6.47094 13.3657 7.50878 14.974C8.54661 16.5823 10.0437 18.2622 12 20.0135ZM12 21.4403C11.8052 21.4403 11.6104 21.4067 11.4155 21.3395C11.2205 21.2722 11.0442 21.168 10.8865 21.027C9.98919 20.2 9.14944 19.3483 8.36728 18.472C7.58528 17.5958 6.90553 16.7199 6.32803 15.8443C5.75036 14.9686 5.29328 14.1007 4.95678 13.2405C4.62028 12.3802 4.45203 11.5493 4.45203 10.748C4.45203 8.44033 5.19844 6.57208 6.69128 5.14325C8.18428 3.71442 9.95386 3 12 3C14.0462 3 15.8158 3.71442 17.3088 5.14325C18.8016 6.57208 19.548 8.44033 19.548 10.748C19.548 11.5493 19.3798 12.3785 19.0433 13.2355C18.7068 14.0927 18.2514 14.9607 17.677 15.8395C17.1025 16.7183 16.4243 17.5942 15.6423 18.4672C14.8603 19.3404 14.0205 20.1904 13.123 21.0173C12.9677 21.1583 12.7911 21.264 12.5933 21.3345C12.3956 21.405 12.1979 21.4403 12 21.4403ZM12.0018 12.3652C12.4993 12.3652 12.9246 12.1881 13.2778 11.8338C13.6311 11.4794 13.8078 11.0535 13.8078 10.556C13.8078 10.0585 13.6306 9.63308 13.2763 9.27975C12.9219 8.92658 12.4959 8.75 11.9983 8.75C11.5008 8.75 11.0754 8.92717 10.7223 9.2815C10.3689 9.63583 10.1923 10.0618 10.1923 10.5595C10.1923 11.057 10.3694 11.4823 10.7238 11.8355C11.0781 12.1887 11.5041 12.3652 12.0018 12.3652Z" fill="#5D544B"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Pays</div>
+                              </div>
+                              <div class="display-inlineflex display-align-center gap-0-75">{% if section.settings.image_drapeau_pays %}
+{{ section.settings.image_drapeau_pays | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'icon-embed-xsmall is-cover' }}
+{% else %}
+<img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="icon-embed-xsmall is-cover">
+{% endif %}
+                                <div>
+{{ section.settings.text_salvador }}
+</div>
+                              </div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_7353_782" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7353_782)">
+                                      <path d="M9.09225 22C8.91792 22 8.76542 21.9519 8.63475 21.8557C8.50392 21.7596 8.41158 21.6288 8.35775 21.4635L5.84625 13.25H3.25C3.0375 13.25 2.85942 13.1781 2.71575 13.0343C2.57192 12.8904 2.5 12.7122 2.5 12.4998C2.5 12.2871 2.57192 12.109 2.71575 11.9655C2.85942 11.8218 3.0375 11.75 3.25 11.75H6.40375C6.56658 11.75 6.71375 11.7965 6.84525 11.8895C6.97658 11.9823 7.06917 12.1115 7.123 12.277L8.975 18.2962L12.2463 3.60775C12.2834 3.43042 12.3704 3.28483 12.5073 3.171C12.6441 3.057 12.7995 3 12.9735 3C13.1475 3 13.3023 3.05417 13.4378 3.1625C13.5731 3.27067 13.6593 3.41392 13.6962 3.59225L16.0057 13.5213L17.6077 8.39225C17.6616 8.22692 17.7542 8.09617 17.8857 8C18.0171 7.90383 18.1642 7.85575 18.327 7.85575C18.4923 7.85575 18.6359 7.89967 18.7577 7.9875C18.8794 8.07533 18.9723 8.19683 19.0365 8.352L20.3153 11.75H20.7402C20.9527 11.75 21.1309 11.8219 21.2747 11.9658C21.4184 12.1096 21.4902 12.2878 21.4902 12.5003C21.4902 12.7129 21.4184 12.891 21.2747 13.0345C21.1309 13.1782 20.9527 13.25 20.7402 13.25H19.7788C19.6134 13.25 19.4692 13.2063 19.3463 13.119C19.2231 13.0317 19.1308 12.9132 19.0693 12.7635L18.3828 10.9115L16.6038 16.6077C16.5499 16.7731 16.457 16.9064 16.325 17.0078C16.193 17.1089 16.0392 17.1544 15.8635 17.1443C15.6878 17.1339 15.5362 17.0743 15.4085 16.9653C15.2808 16.8564 15.1979 16.7187 15.1598 16.552L12.9712 7.14025L9.8115 21.4078C9.768 21.5833 9.68083 21.7226 9.55 21.8258C9.41917 21.9289 9.26658 21.987 9.09225 22Z" fill="#5D544B"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Altitude de culture</div>
+                              </div>
+                              <div>
+{{ section.settings.text_1100m }}
+</div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_7353_798" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7353_798)">
+                                      <path d="M5.74625 19.7476C5.04108 19.0393 4.49042 18.2248 4.09425 17.3041C3.69808 16.3835 3.5 15.4316 3.5 14.4486C3.5 13.4628 3.68883 12.4846 4.0665 11.5141C4.444 10.5436 5.05392 9.63722 5.89625 8.79489C6.96675 7.72439 8.48183 6.97722 10.4415 6.55339C12.401 6.12972 14.6257 5.95639 17.1155 6.03339C17.459 6.05639 17.7724 6.13197 18.0557 6.26014C18.3391 6.38847 18.5872 6.55897 18.8 6.77164C19.0128 6.98447 19.1785 7.23197 19.297 7.51414C19.4157 7.79614 19.4833 8.10247 19.5 8.43314C19.5333 9.6203 19.5087 10.7722 19.426 11.8889C19.3433 13.0056 19.1939 14.0434 18.9777 15.0024C18.7618 15.9614 18.4727 16.8322 18.1105 17.6149C17.7483 18.3976 17.2961 19.0601 16.7538 19.6024C15.9281 20.4346 15.0451 21.042 14.1048 21.4246C13.1644 21.8073 12.212 21.9986 11.2475 21.9986C10.2363 21.9986 9.24292 21.8006 8.26725 21.4044C7.29158 21.0082 6.45125 20.456 5.74625 19.7476ZM7.9885 19.5831C8.491 19.8986 9.02208 20.1301 9.58175 20.2774C10.1414 20.4249 10.6975 20.4986 11.25 20.4986C12.021 20.4986 12.7836 20.3461 13.5378 20.0409C14.2921 19.7357 15.0077 19.2383 15.6845 18.5486C15.9833 18.2486 16.2863 17.8278 16.5935 17.2861C16.9005 16.7445 17.1661 16.0361 17.3903 15.1611C17.6144 14.2861 17.7846 13.2278 17.9008 11.9861C18.0169 10.7445 18.0398 9.2653 17.9693 7.54864C17.1526 7.5153 16.2285 7.50597 15.197 7.52064C14.1657 7.53547 13.1368 7.61947 12.1105 7.77264C11.0843 7.92581 10.1145 8.16589 9.201 8.49289C8.2875 8.81972 7.54867 9.26522 6.9845 9.82939C6.241 10.5731 5.72433 11.326 5.4345 12.0881C5.14483 12.8503 5 13.5731 5 14.2564C5 15.2012 5.18433 16.0557 5.553 16.8199C5.9215 17.5839 6.30508 18.1511 6.70375 18.5216C7.26275 17.2653 8.04833 16.0599 9.0605 14.9054C10.0727 13.7509 11.3551 12.7436 12.9078 11.8834C11.7332 12.9077 10.7274 14.0327 9.89025 15.2584C9.05308 16.4839 8.41917 17.9255 7.9885 19.5831Z" fill="#5D544B"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Variété</div>
+                              </div>
+                              <div>
+{{ section.settings.text_100_arabica }}
+</div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_7353_814" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7353_814)">
+                                      <path d="M5.30775 21.9981C4.80258 21.9981 4.375 21.8231 4.025 21.4731C3.675 21.1231 3.5 20.6955 3.5 20.1903V6.80581C3.5 6.30065 3.675 5.87306 4.025 5.52306C4.375 5.17306 4.80258 4.99806 5.30775 4.99806H6.69225V3.65181C6.69225 3.43265 6.76567 3.24965 6.9125 3.10281C7.05933 2.95615 7.24233 2.88281 7.4615 2.88281C7.68083 2.88281 7.86383 2.95615 8.0105 3.10281C8.15733 3.24965 8.23075 3.43265 8.23075 3.65181V4.99806H15.8077V3.63281C15.8077 3.41998 15.8795 3.24173 16.023 3.09806C16.1667 2.95456 16.3449 2.88281 16.5577 2.88281C16.7706 2.88281 16.9487 2.95456 17.0922 3.09806C17.2359 3.24173 17.3077 3.41998 17.3077 3.63281V4.99806H18.6923C19.1974 4.99806 19.625 5.17306 19.975 5.52306C20.325 5.87306 20.5 6.30065 20.5 6.80581V20.1903C20.5 20.6955 20.325 21.1231 19.975 21.4731C19.625 21.8231 19.1974 21.9981 18.6923 21.9981H5.30775ZM5.30775 20.4981H18.6923C18.7692 20.4981 18.8398 20.466 18.9038 20.4018C18.9679 20.3378 19 20.2673 19 20.1903V10.8058H5V20.1903C5 20.2673 5.03208 20.3378 5.09625 20.4018C5.16025 20.466 5.23075 20.4981 5.30775 20.4981ZM5 9.30581H19V6.80581C19 6.72881 18.9679 6.65831 18.9038 6.59431C18.8398 6.53014 18.7692 6.49806 18.6923 6.49806H5.30775C5.23075 6.49806 5.16025 6.53014 5.09625 6.59431C5.03208 6.65831 5 6.72881 5 6.80581V9.30581ZM12 14.5751C11.7552 14.5751 11.5465 14.4888 11.374 14.3163C11.2017 14.144 11.1155 13.9353 11.1155 13.6903C11.1155 13.4455 11.2017 13.2368 11.374 13.0643C11.5465 12.892 11.7552 12.8058 12 12.8058C12.2448 12.8058 12.4535 12.892 12.626 13.0643C12.7983 13.2368 12.8845 13.4455 12.8845 13.6903C12.8845 13.9353 12.7983 14.144 12.626 14.3163C12.4535 14.4888 12.2448 14.5751 12 14.5751ZM8 14.5751C7.75517 14.5751 7.5465 14.4888 7.374 14.3163C7.20167 14.144 7.1155 13.9353 7.1155 13.6903C7.1155 13.4455 7.20167 13.2368 7.374 13.0643C7.5465 12.892 7.75517 12.8058 8 12.8058C8.24483 12.8058 8.4535 12.892 8.626 13.0643C8.79833 13.2368 8.8845 13.4455 8.8845 13.6903C8.8845 13.9353 8.79833 14.144 8.626 14.3163C8.4535 14.4888 8.24483 14.5751 8 14.5751ZM16 14.5751C15.7552 14.5751 15.5465 14.4888 15.374 14.3163C15.2017 14.144 15.1155 13.9353 15.1155 13.6903C15.1155 13.4455 15.2017 13.2368 15.374 13.0643C15.5465 12.892 15.7552 12.8058 16 12.8058C16.2448 12.8058 16.4535 12.892 16.626 13.0643C16.7983 13.2368 16.8845 13.4455 16.8845 13.6903C16.8845 13.9353 16.7983 14.144 16.626 14.3163C16.4535 14.4888 16.2448 14.5751 16 14.5751ZM12 18.4981C11.7552 18.4981 11.5465 18.4118 11.374 18.2393C11.2017 18.067 11.1155 17.8584 11.1155 17.6136C11.1155 17.3686 11.2017 17.1599 11.374 16.9876C11.5465 16.8151 11.7552 16.7288 12 16.7288C12.2448 16.7288 12.4535 16.8151 12.626 16.9876C12.7983 17.1599 12.8845 17.3686 12.8845 17.6136C12.8845 17.8584 12.7983 18.067 12.626 18.2393C12.4535 18.4118 12.2448 18.4981 12 18.4981ZM8 18.4981C7.75517 18.4981 7.5465 18.4118 7.374 18.2393C7.20167 18.067 7.1155 17.8584 7.1155 17.6136C7.1155 17.3686 7.20167 17.1599 7.374 16.9876C7.5465 16.8151 7.75517 16.7288 8 16.7288C8.24483 16.7288 8.4535 16.8151 8.626 16.9876C8.79833 17.1599 8.8845 17.3686 8.8845 17.6136C8.8845 17.8584 8.79833 18.067 8.626 18.2393C8.4535 18.4118 8.24483 18.4981 8 18.4981ZM16 18.4981C15.7552 18.4981 15.5465 18.4118 15.374 18.2393C15.2017 18.067 15.1155 17.8584 15.1155 17.6136C15.1155 17.3686 15.2017 17.1599 15.374 16.9876C15.5465 16.8151 15.7552 16.7288 16 16.7288C16.2448 16.7288 16.4535 16.8151 16.626 16.9876C16.7983 17.1599 16.8845 17.3686 16.8845 17.6136C16.8845 17.8584 16.7983 18.067 16.626 18.2393C16.4535 18.4118 16.2448 18.4981 16 18.4981Z" fill="#5D544B"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Récolte</div>
+                              </div>
+                              <div>
+{{ section.settings.text_janvier_2025 }}
+</div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_7353_862" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7353_862)">
+                                      <path d="M8.03775 17.9615C7.78692 17.9615 7.57692 17.8767 7.40775 17.707C7.23842 17.5373 7.15375 17.3271 7.15375 17.0763C7.15375 16.8254 7.23867 16.6154 7.4085 16.4462C7.57817 16.2769 7.78842 16.1923 8.03925 16.1923C8.29008 16.1923 8.50008 16.2771 8.66925 16.4467C8.83842 16.6164 8.923 16.8267 8.923 17.0775C8.923 17.3283 8.83817 17.5384 8.6685 17.7078C8.49883 17.8769 8.28858 17.9615 8.03775 17.9615ZM11.9992 17.9615C11.7484 17.9615 11.5384 17.8767 11.3692 17.707C11.2001 17.5373 11.1155 17.3271 11.1155 17.0763C11.1155 16.8254 11.2003 16.6154 11.37 16.4462C11.5397 16.2769 11.7499 16.1923 12.0008 16.1923C12.2516 16.1923 12.4616 16.2771 12.6308 16.4467C12.7999 16.6164 12.8845 16.8267 12.8845 17.0775C12.8845 17.3283 12.7997 17.5384 12.63 17.7078C12.4603 17.8769 12.2501 17.9615 11.9992 17.9615ZM15.9607 17.9615C15.7099 17.9615 15.4999 17.8767 15.3307 17.707C15.1616 17.5373 15.077 17.3271 15.077 17.0763C15.077 16.8254 15.1618 16.6154 15.3315 16.4462C15.5012 16.2769 15.7114 16.1923 15.9622 16.1923C16.2131 16.1923 16.4231 16.2771 16.5922 16.4467C16.7616 16.6164 16.8462 16.8267 16.8462 17.0775C16.8462 17.3283 16.7613 17.5384 16.5915 17.7078C16.4218 17.8769 16.2116 17.9615 15.9607 17.9615ZM6.38475 14C6.13975 14 5.93108 13.9137 5.75875 13.7413C5.58625 13.5689 5.5 13.3602 5.5 13.1152V12.5C5.5 10.8295 6.04908 9.38433 7.14725 8.1645C8.24525 6.94467 9.61283 6.24367 11.25 6.0615V4.75C11.25 4.5375 11.3219 4.35942 11.4658 4.21575C11.6096 4.07192 11.7878 4 12.0003 4C12.2129 4 12.391 4.07192 12.5345 4.21575C12.6782 4.35942 12.75 4.5375 12.75 4.75V6.0615C14.3872 6.24367 15.7548 6.94467 16.8527 8.1645C17.9509 9.38433 18.5 10.8295 18.5 12.5V13.1152C18.5 13.3602 18.4138 13.5689 18.2413 13.7413C18.0689 13.9137 17.8602 14 17.6152 14H6.38475ZM7 12.5H17C17 11.1167 16.5125 9.9375 15.5375 8.9625C14.5625 7.9875 13.3833 7.5 12 7.5C10.6167 7.5 9.4375 7.9875 8.4625 8.9625C7.4875 9.9375 7 11.1167 7 12.5ZM8.03775 20.923C7.78692 20.923 7.57692 20.8382 7.40775 20.6685C7.23842 20.4988 7.15375 20.2886 7.15375 20.0378C7.15375 19.7869 7.23867 19.5769 7.4085 19.4078C7.57817 19.2384 7.78842 19.1538 8.03925 19.1538C8.29008 19.1538 8.50008 19.2386 8.66925 19.4083C8.83842 19.5779 8.923 19.7882 8.923 20.039C8.923 20.2898 8.83817 20.4999 8.6685 20.6693C8.49883 20.8384 8.28858 20.923 8.03775 20.923ZM11.9992 20.923C11.7484 20.923 11.5384 20.8382 11.3692 20.6685C11.2001 20.4988 11.1155 20.2886 11.1155 20.0378C11.1155 19.7869 11.2003 19.5769 11.37 19.4078C11.5397 19.2384 11.7499 19.1538 12.0008 19.1538C12.2516 19.1538 12.4616 19.2386 12.6308 19.4083C12.7999 19.5779 12.8845 19.7882 12.8845 20.039C12.8845 20.2898 12.7997 20.4999 12.63 20.6693C12.4603 20.8384 12.2501 20.923 11.9992 20.923ZM15.9607 20.923C15.7099 20.923 15.4999 20.8382 15.3307 20.6685C15.1616 20.4988 15.077 20.2886 15.077 20.0378C15.077 19.7869 15.1618 19.5769 15.3315 19.4078C15.5012 19.2384 15.7114 19.1538 15.9622 19.1538C16.2131 19.1538 16.4231 19.2386 16.5922 19.4083C16.7616 19.5779 16.8462 19.7882 16.8462 20.039C16.8462 20.2898 16.7613 20.4999 16.5915 20.6693C16.4218 20.8384 16.2116 20.923 15.9607 20.923Z" fill="#5D544B"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Process</div>
+                              </div>
+                              <div>
+{{ section.settings.text_nature }}
+</div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_7353_856" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7353_856)">
+                                      <path d="M9.88852 9.18734L11.473 6.56434L10.1038 4.29709C9.9231 3.98943 9.6581 3.83559 9.30877 3.83559C8.95944 3.83559 8.69435 3.98943 8.51352 4.29709L6.72302 7.29134C6.60252 7.50534 6.56985 7.73543 6.62502 7.98159C6.68019 8.22776 6.81485 8.41109 7.02902 8.53159L8.64802 9.49884C8.86219 9.61934 9.09077 9.65109 9.33377 9.59409C9.5766 9.53709 9.76152 9.40151 9.88852 9.18734ZM18.346 16.2316L16.771 13.6086C16.6339 13.3944 16.598 13.1643 16.6635 12.9181C16.7289 12.6719 16.8686 12.4886 17.0828 12.3681L18.727 11.4258C18.941 11.3053 19.1685 11.2736 19.4095 11.3306C19.6505 11.3878 19.8313 11.5233 19.9518 11.7373L20.975 13.4373C21.139 13.7015 21.231 13.9958 21.251 14.3201C21.2709 14.6444 21.2039 14.9438 21.05 15.2181C20.8962 15.5323 20.6679 15.7797 20.3653 15.9603C20.0628 16.1412 19.7359 16.2316 19.3845 16.2316H18.346ZM14.9193 21.9201L12.6328 19.6336C12.4519 19.4528 12.3615 19.2418 12.3615 19.0008C12.3615 18.7598 12.4519 18.5489 12.6328 18.3681L14.9193 16.0816C15.0666 15.9341 15.2323 15.8973 15.4163 15.9711C15.6003 16.0448 15.6923 16.1854 15.6923 16.3931V17.1546H20.0768L18.7423 19.8336C18.5718 20.1413 18.3394 20.3871 18.0453 20.5711C17.7509 20.7549 17.4282 20.8468 17.077 20.8468H15.6923V21.6086C15.6923 21.8163 15.6003 21.9569 15.4163 22.0306C15.2323 22.1043 15.0666 22.0674 14.9193 21.9201ZM6.75777 20.8468C6.4501 20.8468 6.16994 20.7674 5.91727 20.6086C5.66477 20.4496 5.47827 20.238 5.35777 19.9738C5.23727 19.7265 5.1796 19.4682 5.18477 19.1988C5.18977 18.9297 5.26085 18.6797 5.39802 18.4488L6.18077 17.1546H9.25002C9.50769 17.1546 9.72277 17.2408 9.89527 17.4133C10.0676 17.5857 10.1538 17.8008 10.1538 18.0586V19.9431C10.1538 20.2008 10.0676 20.4158 9.89527 20.5883C9.72277 20.7607 9.50769 20.8468 9.25002 20.8468H6.75777ZM4.47502 18.2181L2.97502 15.2181C2.83152 14.9374 2.76552 14.639 2.77702 14.3228C2.78852 14.0068 2.87952 13.7117 3.05002 13.4373L3.41152 12.8201L2.76552 12.4393C2.60135 12.3355 2.53435 12.1807 2.56452 11.9748C2.59469 11.7692 2.70844 11.6445 2.90577 11.6008L6.01927 10.8238C6.26027 10.7637 6.48877 10.798 6.70477 10.9268C6.92094 11.0557 7.0591 11.2406 7.11927 11.4816L7.89627 14.6103C7.93977 14.8078 7.87952 14.9668 7.71552 15.0873C7.55135 15.2078 7.38719 15.2162 7.22302 15.1123L6.57702 14.7066L4.47502 18.2181ZM16.0578 10.1008L12.9443 9.32384C12.7468 9.28034 12.6372 9.15568 12.6155 8.94984C12.5937 8.74418 12.6648 8.58943 12.8288 8.48559L13.475 8.10484L10.5905 3.30859H13.8463C14.1706 3.30859 14.4741 3.38968 14.7568 3.55184C15.0394 3.71401 15.266 3.93226 15.4365 4.20659L16.6403 6.21809L17.252 5.83734C17.416 5.73351 17.5817 5.74026 17.749 5.85759C17.9164 5.97493 17.9782 6.13234 17.9345 6.32984L17.1578 9.44309C17.0974 9.68409 16.9593 9.86909 16.7433 9.99809C16.5273 10.1269 16.2988 10.1612 16.0578 10.1008Z" fill="#5D544B"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Certification</div>
+                              </div>
+                              <div>
+{{ section.settings.text_achat_en_direct_du_producteur }}
+</div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_7353_868" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7353_868)">
+                                      <path d="M3.25 21C3.03717 21 2.859 20.9282 2.7155 20.7845C2.57183 20.641 2.5 20.4628 2.5 20.25C2.5 20.0372 2.57183 19.859 2.7155 19.7155C2.859 19.5718 3.03717 19.5 3.25 19.5H11.25V8.38275C10.7975 8.26475 10.4017 8.041 10.0625 7.7115C9.72333 7.382 9.49158 6.97817 9.36725 6.5H6.05775L8.77875 13.0942C8.85575 13.2647 8.89933 13.4394 8.9095 13.6183C8.91983 13.7971 8.90833 13.9769 8.875 14.1578C8.725 14.8474 8.33492 15.3782 7.70475 15.75C7.07475 16.1218 6.42317 16.3077 5.75 16.3077C5.077 16.3077 4.42542 16.1218 3.79525 15.75C3.16508 15.3782 2.775 14.8474 2.625 14.1578C2.59167 13.9769 2.58017 13.7971 2.5905 13.6183C2.60067 13.4394 2.64425 13.2647 2.72125 13.0942L5.44225 6.5H4.25C4.03717 6.5 3.859 6.42817 3.7155 6.2845C3.57183 6.141 3.5 5.96283 3.5 5.75C3.5 5.53717 3.57183 5.359 3.7155 5.2155C3.859 5.07183 4.03717 5 4.25 5H9.36725C9.52242 4.4295 9.84067 3.95358 10.322 3.57225C10.8035 3.19075 11.3628 3 12 3C12.6372 3 13.1965 3.19075 13.678 3.57225C14.1593 3.95358 14.4776 4.4295 14.6328 5H19.75C19.9628 5 20.141 5.07183 20.2845 5.2155C20.4282 5.359 20.5 5.53717 20.5 5.75C20.5 5.96283 20.4282 6.141 20.2845 6.2845C20.141 6.42817 19.9628 6.5 19.75 6.5H18.5578L21.2788 13.0942C21.3558 13.2647 21.3993 13.4394 21.4095 13.6183C21.4198 13.7971 21.4083 13.9769 21.375 14.1578C21.225 14.8474 20.8349 15.3782 20.2048 15.75C19.5746 16.1218 18.923 16.3077 18.25 16.3077C17.5768 16.3077 16.9253 16.1218 16.2952 15.75C15.6651 15.3782 15.275 14.8474 15.125 14.1578C15.0917 13.9769 15.0802 13.7971 15.0905 13.6183C15.1007 13.4394 15.1442 13.2647 15.2212 13.0942L17.9423 6.5H14.6328C14.5084 6.97817 14.2767 7.382 13.9375 7.7115C13.5983 8.041 13.2025 8.26475 12.75 8.38275V19.5H20.75C20.9628 19.5 21.141 19.5718 21.2845 19.7155C21.4282 19.859 21.5 20.0372 21.5 20.25C21.5 20.4628 21.4282 20.641 21.2845 20.7845C21.141 20.9282 20.9628 21 20.75 21H3.25ZM16.3077 13.5577H20.1923L18.25 8.87125L16.3077 13.5577ZM3.80775 13.5577H7.69225L5.75 8.87125L3.80775 13.5577ZM12 7C12.3475 7 12.6427 6.8785 12.8855 6.6355C13.1285 6.39267 13.25 6.0975 13.25 5.75C13.25 5.4025 13.1285 5.10733 12.8855 4.8645C12.6427 4.6215 12.3475 4.5 12 4.5C11.6525 4.5 11.3573 4.6215 11.1145 4.8645C10.8715 5.10733 10.75 5.4025 10.75 5.75C10.75 6.0975 10.8715 6.39267 11.1145 6.6355C11.3573 6.8785 11.6525 7 12 7Z" fill="#5D544B"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Poids disponibles</div>
+                              </div>
+                              <div text="product.variants | map: 'title' | join: ', '">250gr, 1kg</div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_7353_884" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7353_884)">
+                                      <path d="M7.3845 21.025C6.85517 21.0083 6.35167 20.8717 5.874 20.6152C5.3965 20.3589 4.94492 19.9827 4.51925 19.4865C3.88458 18.7442 3.38942 17.8461 3.03375 16.7922C2.67792 15.7384 2.5 14.6506 2.5 13.5287C2.5 12.2096 2.74808 10.9705 3.24425 9.8115C3.74042 8.6525 4.41767 7.64383 5.276 6.7855C6.13433 5.92717 7.14142 5.24833 8.29725 4.749C9.45292 4.24967 10.6872 4 12 4C13.3128 4 14.5471 4.25225 15.7028 4.75675C16.8586 5.26125 17.8641 5.94617 18.7193 6.8115C19.5744 7.677 20.2517 8.69275 20.751 9.85875C21.2503 11.0247 21.5 12.2744 21.5 13.6077C21.5 14.7884 21.3092 15.9067 20.9277 16.9625C20.5464 18.0182 20.0109 18.9166 19.3212 19.6577C18.8929 20.1116 18.4477 20.4529 17.9855 20.6817C17.5233 20.9106 17.0448 21.025 16.55 21.025C16.282 21.025 16.0173 20.9923 15.7557 20.927C15.4942 20.8615 15.2327 20.7634 14.9712 20.6327L13.5712 19.9327C13.3328 19.8134 13.0802 19.724 12.8135 19.6645C12.5468 19.6048 12.2725 19.575 11.9905 19.575C11.702 19.575 11.426 19.6048 11.1625 19.6645C10.899 19.724 10.6512 19.8134 10.4193 19.9327L9.02875 20.6327C8.75058 20.7801 8.47817 20.8865 8.2115 20.952C7.94483 21.0173 7.66917 21.0417 7.3845 21.025ZM7.425 19.525C7.575 19.525 7.72917 19.5083 7.8875 19.475C8.04583 19.4417 8.2 19.3833 8.35 19.3L9.75 18.6C10.1 18.4167 10.4625 18.2833 10.8375 18.2C11.2125 18.1167 11.5917 18.075 11.975 18.075C12.3583 18.075 12.7417 18.1167 13.125 18.2C13.5083 18.2833 13.875 18.4167 14.225 18.6L15.65 19.3C15.8 19.3833 15.95 19.4417 16.1 19.475C16.25 19.5083 16.4 19.525 16.55 19.525C16.8667 19.525 17.1683 19.4417 17.4548 19.275C17.7413 19.1083 18.0262 18.8583 18.3095 18.525C18.8428 17.8917 19.2579 17.1333 19.5548 16.25C19.8516 15.3667 20 14.4552 20 13.5155C20 11.2822 19.225 9.38792 17.675 7.83275C16.125 6.27758 14.2333 5.5 12 5.5C9.76667 5.5 7.875 6.28333 6.325 7.85C4.775 9.41667 4 11.3167 4 13.55C4 14.5 4.15575 15.425 4.46725 16.325C4.77875 17.225 5.20633 17.9833 5.75 18.6C6.03333 18.9333 6.30833 19.1708 6.575 19.3125C6.84167 19.4542 7.125 19.525 7.425 19.525ZM12 15.25C12.4858 15.25 12.899 15.0798 13.2395 14.7395C13.5798 14.399 13.75 13.9858 13.75 13.5C13.75 13.3603 13.7327 13.2222 13.698 13.0855C13.6635 12.949 13.6148 12.8173 13.552 12.6905L15.1 10.6595C15.3218 10.8993 15.5087 11.1512 15.6605 11.4152C15.8125 11.6794 15.9333 11.9608 16.023 12.2595C16.0872 12.4557 16.1833 12.6265 16.3115 12.772C16.4397 12.9175 16.6018 12.9902 16.798 12.9902C17.0545 12.9902 17.2529 12.8797 17.3932 12.6585C17.5336 12.4375 17.5685 12.1937 17.498 11.927C17.1455 10.6923 16.4613 9.6875 15.4453 8.9125C14.4293 8.1375 13.2808 7.75 12 7.75C10.709 7.75 9.55642 8.1375 8.54225 8.9125C7.52825 9.6875 6.84492 10.6923 6.49225 11.927C6.42175 12.1937 6.45833 12.4375 6.602 12.6585C6.7455 12.8797 6.94225 12.9902 7.19225 12.9902C7.38842 12.9902 7.549 12.9175 7.674 12.772C7.799 12.6265 7.89358 12.4557 7.95775 12.2595C8.22308 11.3633 8.72758 10.6377 9.47125 10.0827C10.2148 9.52758 11.0577 9.25 12 9.25C12.3372 9.25 12.6686 9.29258 12.9943 9.37775C13.3199 9.46308 13.6283 9.58458 13.9193 9.74225L12.3558 11.8037C12.3033 11.7911 12.244 11.7789 12.178 11.7672C12.1118 11.7557 12.0525 11.75 12 11.75C11.5142 11.75 11.101 11.9202 10.7605 12.2605C10.4202 12.601 10.25 13.0142 10.25 13.5C10.25 13.9858 10.4202 14.399 10.7605 14.7395C11.101 15.0798 11.5142 15.25 12 15.25Z" fill="currentColor"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Score SCA</div>
+                              </div>
+                              <div>
+{{ section.settings.text_86 }}
+</div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div id="w-node-edcf59ee-35be-dece-a0d2-938250764749-0a9591df" class="tableau_content">
+                        <h2 class="heading-style-h3">D’ou vient mon café ?</h2>
+                        <div> {{ section.settings.richtext_dou_vient_mon_cafe }} </div>
+                        <div class="margin-top margin-medium">{% if section.settings.image_origine_du_cafe_image %}
+{{ section.settings.image_origine_du_cafe_image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'tableau_image' }}
+{% else %}
+<img src="{{ 'cafe.avif' | asset_url }}" loading="lazy" alt="" class="tableau_image">
+{% endif %}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section_conseil">
+              <div class="padding-global">
+                <div class="container-large is-relative">
+                  <div class="padding-section-medium">
+                    <div class="tableau_component">
+                      <div class="tableau_content">
+                        <h2 class="heading-style-h3">Les conseils du torréfacteur</h2>
+                        <div> {{ section.settings.richtext_contenu }} </div>
+                        <div class="conseil_image-wrapper"><img src="{{ 'conseil-torrefacteur.avif' | asset_url }}" loading="lazy" alt="" class="conseil_image"></div>
+                      </div>
+                      <div class="tableau_component-wrapper">
+                        <div class="tableau_wrapper">
+                          <ul role="list" class="tableau_list w-list-unstyled">
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_7353_862" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7353_862)">
+                                      <path d="M8.03775 17.9615C7.78692 17.9615 7.57692 17.8767 7.40775 17.707C7.23842 17.5373 7.15375 17.3271 7.15375 17.0763C7.15375 16.8254 7.23867 16.6154 7.4085 16.4462C7.57817 16.2769 7.78842 16.1923 8.03925 16.1923C8.29008 16.1923 8.50008 16.2771 8.66925 16.4467C8.83842 16.6164 8.923 16.8267 8.923 17.0775C8.923 17.3283 8.83817 17.5384 8.6685 17.7078C8.49883 17.8769 8.28858 17.9615 8.03775 17.9615ZM11.9992 17.9615C11.7484 17.9615 11.5384 17.8767 11.3692 17.707C11.2001 17.5373 11.1155 17.3271 11.1155 17.0763C11.1155 16.8254 11.2003 16.6154 11.37 16.4462C11.5397 16.2769 11.7499 16.1923 12.0008 16.1923C12.2516 16.1923 12.4616 16.2771 12.6308 16.4467C12.7999 16.6164 12.8845 16.8267 12.8845 17.0775C12.8845 17.3283 12.7997 17.5384 12.63 17.7078C12.4603 17.8769 12.2501 17.9615 11.9992 17.9615ZM15.9607 17.9615C15.7099 17.9615 15.4999 17.8767 15.3307 17.707C15.1616 17.5373 15.077 17.3271 15.077 17.0763C15.077 16.8254 15.1618 16.6154 15.3315 16.4462C15.5012 16.2769 15.7114 16.1923 15.9622 16.1923C16.2131 16.1923 16.4231 16.2771 16.5922 16.4467C16.7616 16.6164 16.8462 16.8267 16.8462 17.0775C16.8462 17.3283 16.7613 17.5384 16.5915 17.7078C16.4218 17.8769 16.2116 17.9615 15.9607 17.9615ZM6.38475 14C6.13975 14 5.93108 13.9137 5.75875 13.7413C5.58625 13.5689 5.5 13.3602 5.5 13.1152V12.5C5.5 10.8295 6.04908 9.38433 7.14725 8.1645C8.24525 6.94467 9.61283 6.24367 11.25 6.0615V4.75C11.25 4.5375 11.3219 4.35942 11.4658 4.21575C11.6096 4.07192 11.7878 4 12.0003 4C12.2129 4 12.391 4.07192 12.5345 4.21575C12.6782 4.35942 12.75 4.5375 12.75 4.75V6.0615C14.3872 6.24367 15.7548 6.94467 16.8527 8.1645C17.9509 9.38433 18.5 10.8295 18.5 12.5V13.1152C18.5 13.3602 18.4138 13.5689 18.2413 13.7413C18.0689 13.9137 17.8602 14 17.6152 14H6.38475ZM7 12.5H17C17 11.1167 16.5125 9.9375 15.5375 8.9625C14.5625 7.9875 13.3833 7.5 12 7.5C10.6167 7.5 9.4375 7.9875 8.4625 8.9625C7.4875 9.9375 7 11.1167 7 12.5ZM8.03775 20.923C7.78692 20.923 7.57692 20.8382 7.40775 20.6685C7.23842 20.4988 7.15375 20.2886 7.15375 20.0378C7.15375 19.7869 7.23867 19.5769 7.4085 19.4078C7.57817 19.2384 7.78842 19.1538 8.03925 19.1538C8.29008 19.1538 8.50008 19.2386 8.66925 19.4083C8.83842 19.5779 8.923 19.7882 8.923 20.039C8.923 20.2898 8.83817 20.4999 8.6685 20.6693C8.49883 20.8384 8.28858 20.923 8.03775 20.923ZM11.9992 20.923C11.7484 20.923 11.5384 20.8382 11.3692 20.6685C11.2001 20.4988 11.1155 20.2886 11.1155 20.0378C11.1155 19.7869 11.2003 19.5769 11.37 19.4078C11.5397 19.2384 11.7499 19.1538 12.0008 19.1538C12.2516 19.1538 12.4616 19.2386 12.6308 19.4083C12.7999 19.5779 12.8845 19.7882 12.8845 20.039C12.8845 20.2898 12.7997 20.4999 12.63 20.6693C12.4603 20.8384 12.2501 20.923 11.9992 20.923ZM15.9607 20.923C15.7099 20.923 15.4999 20.8382 15.3307 20.6685C15.1616 20.4988 15.077 20.2886 15.077 20.0378C15.077 19.7869 15.1618 19.5769 15.3315 19.4078C15.5012 19.2384 15.7114 19.1538 15.9622 19.1538C16.2131 19.1538 16.4231 19.2386 16.5922 19.4083C16.7616 19.5779 16.8462 19.7882 16.8462 20.039C16.8462 20.2898 16.7613 20.4999 16.5915 20.6693C16.4218 20.8384 16.2116 20.923 15.9607 20.923Z" fill="#5D544B"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Type d'extraction idéal</div>
+                              </div>
+                              <div>
+{{ section.settings.text_type_extraction }}
+</div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_7353_814" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7353_814)">
+                                      <path d="M5.30775 21.9981C4.80258 21.9981 4.375 21.8231 4.025 21.4731C3.675 21.1231 3.5 20.6955 3.5 20.1903V6.80581C3.5 6.30065 3.675 5.87306 4.025 5.52306C4.375 5.17306 4.80258 4.99806 5.30775 4.99806H6.69225V3.65181C6.69225 3.43265 6.76567 3.24965 6.9125 3.10281C7.05933 2.95615 7.24233 2.88281 7.4615 2.88281C7.68083 2.88281 7.86383 2.95615 8.0105 3.10281C8.15733 3.24965 8.23075 3.43265 8.23075 3.65181V4.99806H15.8077V3.63281C15.8077 3.41998 15.8795 3.24173 16.023 3.09806C16.1667 2.95456 16.3449 2.88281 16.5577 2.88281C16.7706 2.88281 16.9487 2.95456 17.0922 3.09806C17.2359 3.24173 17.3077 3.41998 17.3077 3.63281V4.99806H18.6923C19.1974 4.99806 19.625 5.17306 19.975 5.52306C20.325 5.87306 20.5 6.30065 20.5 6.80581V20.1903C20.5 20.6955 20.325 21.1231 19.975 21.4731C19.625 21.8231 19.1974 21.9981 18.6923 21.9981H5.30775ZM5.30775 20.4981H18.6923C18.7692 20.4981 18.8398 20.466 18.9038 20.4018C18.9679 20.3378 19 20.2673 19 20.1903V10.8058H5V20.1903C5 20.2673 5.03208 20.3378 5.09625 20.4018C5.16025 20.466 5.23075 20.4981 5.30775 20.4981ZM5 9.30581H19V6.80581C19 6.72881 18.9679 6.65831 18.9038 6.59431C18.8398 6.53014 18.7692 6.49806 18.6923 6.49806H5.30775C5.23075 6.49806 5.16025 6.53014 5.09625 6.59431C5.03208 6.65831 5 6.72881 5 6.80581V9.30581ZM12 14.5751C11.7552 14.5751 11.5465 14.4888 11.374 14.3163C11.2017 14.144 11.1155 13.9353 11.1155 13.6903C11.1155 13.4455 11.2017 13.2368 11.374 13.0643C11.5465 12.892 11.7552 12.8058 12 12.8058C12.2448 12.8058 12.4535 12.892 12.626 13.0643C12.7983 13.2368 12.8845 13.4455 12.8845 13.6903C12.8845 13.9353 12.7983 14.144 12.626 14.3163C12.4535 14.4888 12.2448 14.5751 12 14.5751ZM8 14.5751C7.75517 14.5751 7.5465 14.4888 7.374 14.3163C7.20167 14.144 7.1155 13.9353 7.1155 13.6903C7.1155 13.4455 7.20167 13.2368 7.374 13.0643C7.5465 12.892 7.75517 12.8058 8 12.8058C8.24483 12.8058 8.4535 12.892 8.626 13.0643C8.79833 13.2368 8.8845 13.4455 8.8845 13.6903C8.8845 13.9353 8.79833 14.144 8.626 14.3163C8.4535 14.4888 8.24483 14.5751 8 14.5751ZM16 14.5751C15.7552 14.5751 15.5465 14.4888 15.374 14.3163C15.2017 14.144 15.1155 13.9353 15.1155 13.6903C15.1155 13.4455 15.2017 13.2368 15.374 13.0643C15.5465 12.892 15.7552 12.8058 16 12.8058C16.2448 12.8058 16.4535 12.892 16.626 13.0643C16.7983 13.2368 16.8845 13.4455 16.8845 13.6903C16.8845 13.9353 16.7983 14.144 16.626 14.3163C16.4535 14.4888 16.2448 14.5751 16 14.5751ZM12 18.4981C11.7552 18.4981 11.5465 18.4118 11.374 18.2393C11.2017 18.067 11.1155 17.8584 11.1155 17.6136C11.1155 17.3686 11.2017 17.1599 11.374 16.9876C11.5465 16.8151 11.7552 16.7288 12 16.7288C12.2448 16.7288 12.4535 16.8151 12.626 16.9876C12.7983 17.1599 12.8845 17.3686 12.8845 17.6136C12.8845 17.8584 12.7983 18.067 12.626 18.2393C12.4535 18.4118 12.2448 18.4981 12 18.4981ZM8 18.4981C7.75517 18.4981 7.5465 18.4118 7.374 18.2393C7.20167 18.067 7.1155 17.8584 7.1155 17.6136C7.1155 17.3686 7.20167 17.1599 7.374 16.9876C7.5465 16.8151 7.75517 16.7288 8 16.7288C8.24483 16.7288 8.4535 16.8151 8.626 16.9876C8.79833 17.1599 8.8845 17.3686 8.8845 17.6136C8.8845 17.8584 8.79833 18.067 8.626 18.2393C8.4535 18.4118 8.24483 18.4981 8 18.4981ZM16 18.4981C15.7552 18.4981 15.5465 18.4118 15.374 18.2393C15.2017 18.067 15.1155 17.8584 15.1155 17.6136C15.1155 17.3686 15.2017 17.1599 15.374 16.9876C15.5465 16.8151 15.7552 16.7288 16 16.7288C16.2448 16.7288 16.4535 16.8151 16.626 16.9876C16.7983 17.1599 16.8845 17.3686 16.8845 17.6136C16.8845 17.8584 16.7983 18.067 16.626 18.2393C16.4535 18.4118 16.2448 18.4981 16 18.4981Z" fill="#5D544B"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Matériel recommandé</div>
+                              </div>
+                              {% assign materiel_recommande = product.metafields.custom.materiel_recommande.value %}
+                              {% if materiel_recommande %}    <div li-if="materiel_recommande">
+    
+                                <a li-object:href="materiel_recommande.url" href="{{ materiel_recommande.url }}" class="w-inline-block">
+                                  <div li-object="materiel_recommande.title">{{ materiel_recommande.title }}</div>
+                                </a>
+                                  </div>
+{% endif %}
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_7353_798" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7353_798)">
+                                      <path d="M5.74625 19.7476C5.04108 19.0393 4.49042 18.2248 4.09425 17.3041C3.69808 16.3835 3.5 15.4316 3.5 14.4486C3.5 13.4628 3.68883 12.4846 4.0665 11.5141C4.444 10.5436 5.05392 9.63722 5.89625 8.79489C6.96675 7.72439 8.48183 6.97722 10.4415 6.55339C12.401 6.12972 14.6257 5.95639 17.1155 6.03339C17.459 6.05639 17.7724 6.13197 18.0557 6.26014C18.3391 6.38847 18.5872 6.55897 18.8 6.77164C19.0128 6.98447 19.1785 7.23197 19.297 7.51414C19.4157 7.79614 19.4833 8.10247 19.5 8.43314C19.5333 9.6203 19.5087 10.7722 19.426 11.8889C19.3433 13.0056 19.1939 14.0434 18.9777 15.0024C18.7618 15.9614 18.4727 16.8322 18.1105 17.6149C17.7483 18.3976 17.2961 19.0601 16.7538 19.6024C15.9281 20.4346 15.0451 21.042 14.1048 21.4246C13.1644 21.8073 12.212 21.9986 11.2475 21.9986C10.2363 21.9986 9.24292 21.8006 8.26725 21.4044C7.29158 21.0082 6.45125 20.456 5.74625 19.7476ZM7.9885 19.5831C8.491 19.8986 9.02208 20.1301 9.58175 20.2774C10.1414 20.4249 10.6975 20.4986 11.25 20.4986C12.021 20.4986 12.7836 20.3461 13.5378 20.0409C14.2921 19.7357 15.0077 19.2383 15.6845 18.5486C15.9833 18.2486 16.2863 17.8278 16.5935 17.2861C16.9005 16.7445 17.1661 16.0361 17.3903 15.1611C17.6144 14.2861 17.7846 13.2278 17.9008 11.9861C18.0169 10.7445 18.0398 9.2653 17.9693 7.54864C17.1526 7.5153 16.2285 7.50597 15.197 7.52064C14.1657 7.53547 13.1368 7.61947 12.1105 7.77264C11.0843 7.92581 10.1145 8.16589 9.201 8.49289C8.2875 8.81972 7.54867 9.26522 6.9845 9.82939C6.241 10.5731 5.72433 11.326 5.4345 12.0881C5.14483 12.8503 5 13.5731 5 14.2564C5 15.2012 5.18433 16.0557 5.553 16.8199C5.9215 17.5839 6.30508 18.1511 6.70375 18.5216C7.26275 17.2653 8.04833 16.0599 9.0605 14.9054C10.0727 13.7509 11.3551 12.7436 12.9078 11.8834C11.7332 12.9077 10.7274 14.0327 9.89025 15.2584C9.05308 16.4839 8.41917 17.9255 7.9885 19.5831Z" fill="#5D544B"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Conseil de mouture</div>
+                              </div>
+                              <div>
+{{ section.settings.text_conseil_mouture }}
+</div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_7869_22226" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                      <rect width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7869_22226)">
+                                      <path d="M8.03775 17.4615C7.78692 17.4615 7.57692 17.3767 7.40775 17.207C7.23842 17.0373 7.15375 16.8271 7.15375 16.5763C7.15375 16.3254 7.23867 16.1154 7.4085 15.9462C7.57817 15.7769 7.78842 15.6923 8.03925 15.6923C8.29008 15.6923 8.50008 15.7771 8.66925 15.9467C8.83842 16.1164 8.923 16.3267 8.923 16.5775C8.923 16.8283 8.83817 17.0384 8.6685 17.2078C8.49883 17.3769 8.28858 17.4615 8.03775 17.4615ZM11.9992 17.4615C11.7484 17.4615 11.5384 17.3767 11.3692 17.207C11.2001 17.0373 11.1155 16.8271 11.1155 16.5763C11.1155 16.3254 11.2003 16.1154 11.37 15.9462C11.5397 15.7769 11.7499 15.6923 12.0008 15.6923C12.2516 15.6923 12.4616 15.7771 12.6308 15.9467C12.7999 16.1164 12.8845 16.3267 12.8845 16.5775C12.8845 16.8283 12.7997 17.0384 12.63 17.2078C12.4603 17.3769 12.2501 17.4615 11.9992 17.4615ZM15.9607 17.4615C15.7099 17.4615 15.4999 17.3767 15.3307 17.207C15.1616 17.0373 15.077 16.8271 15.077 16.5763C15.077 16.3254 15.1618 16.1154 15.3315 15.9462C15.5012 15.7769 15.7114 15.6923 15.9622 15.6923C16.2131 15.6923 16.4231 15.7771 16.5922 15.9467C16.7616 16.1164 16.8462 16.3267 16.8462 16.5775C16.8462 16.8283 16.7613 17.0384 16.5915 17.2078C16.4218 17.3769 16.2116 17.4615 15.9607 17.4615ZM6.38475 13.5C6.13975 13.5 5.93108 13.4137 5.75875 13.2413C5.58625 13.0689 5.5 12.8602 5.5 12.6152V12C5.5 10.3295 6.04908 8.88433 7.14725 7.6645C8.24525 6.44467 9.61283 5.74367 11.25 5.5615V4.25C11.25 4.0375 11.3219 3.85942 11.4658 3.71575C11.6096 3.57192 11.7878 3.5 12.0003 3.5C12.2129 3.5 12.391 3.57192 12.5345 3.71575C12.6782 3.85942 12.75 4.0375 12.75 4.25V5.5615C14.3872 5.74367 15.7548 6.44467 16.8527 7.6645C17.9509 8.88433 18.5 10.3295 18.5 12V12.6152C18.5 12.8602 18.4138 13.0689 18.2413 13.2413C18.0689 13.4137 17.8602 13.5 17.6152 13.5H6.38475ZM7 12H17C17 10.6167 16.5125 9.4375 15.5375 8.4625C14.5625 7.4875 13.3833 7 12 7C10.6167 7 9.4375 7.4875 8.4625 8.4625C7.4875 9.4375 7 10.6167 7 12ZM8.03775 20.423C7.78692 20.423 7.57692 20.3382 7.40775 20.1685C7.23842 19.9988 7.15375 19.7886 7.15375 19.5378C7.15375 19.2869 7.23867 19.0769 7.4085 18.9078C7.57817 18.7384 7.78842 18.6538 8.03925 18.6538C8.29008 18.6538 8.50008 18.7386 8.66925 18.9083C8.83842 19.0779 8.923 19.2882 8.923 19.539C8.923 19.7898 8.83817 19.9999 8.6685 20.1693C8.49883 20.3384 8.28858 20.423 8.03775 20.423ZM11.9992 20.423C11.7484 20.423 11.5384 20.3382 11.3692 20.1685C11.2001 19.9988 11.1155 19.7886 11.1155 19.5378C11.1155 19.2869 11.2003 19.0769 11.37 18.9078C11.5397 18.7384 11.7499 18.6538 12.0008 18.6538C12.2516 18.6538 12.4616 18.7386 12.6308 18.9083C12.7999 19.0779 12.8845 19.2882 12.8845 19.539C12.8845 19.7898 12.7997 19.9999 12.63 20.1693C12.4603 20.3384 12.2501 20.423 11.9992 20.423ZM15.9607 20.423C15.7099 20.423 15.4999 20.3382 15.3307 20.1685C15.1616 19.9988 15.077 19.7886 15.077 19.5378C15.077 19.2869 15.1618 19.0769 15.3315 18.9078C15.5012 18.7384 15.7114 18.6538 15.9622 18.6538C16.2131 18.6538 16.4231 18.7386 16.5922 18.9083C16.7616 19.0779 16.8462 19.2882 16.8462 19.539C16.8462 19.7898 16.7613 19.9999 16.5915 20.1693C16.4218 20.3384 16.2116 20.423 15.9607 20.423Z" fill="#5D544B"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Température d’eau conseillée</div>
+                              </div>
+                              <div>
+{{ section.settings.text_86c }}
+</div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div class="icon-embed-xsmall w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_7353_782" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_7353_782)">
+                                      <path d="M9.09225 22C8.91792 22 8.76542 21.9519 8.63475 21.8557C8.50392 21.7596 8.41158 21.6288 8.35775 21.4635L5.84625 13.25H3.25C3.0375 13.25 2.85942 13.1781 2.71575 13.0343C2.57192 12.8904 2.5 12.7122 2.5 12.4998C2.5 12.2871 2.57192 12.109 2.71575 11.9655C2.85942 11.8218 3.0375 11.75 3.25 11.75H6.40375C6.56658 11.75 6.71375 11.7965 6.84525 11.8895C6.97658 11.9823 7.06917 12.1115 7.123 12.277L8.975 18.2962L12.2463 3.60775C12.2834 3.43042 12.3704 3.28483 12.5073 3.171C12.6441 3.057 12.7995 3 12.9735 3C13.1475 3 13.3023 3.05417 13.4378 3.1625C13.5731 3.27067 13.6593 3.41392 13.6962 3.59225L16.0057 13.5213L17.6077 8.39225C17.6616 8.22692 17.7542 8.09617 17.8857 8C18.0171 7.90383 18.1642 7.85575 18.327 7.85575C18.4923 7.85575 18.6359 7.89967 18.7577 7.9875C18.8794 8.07533 18.9723 8.19683 19.0365 8.352L20.3153 11.75H20.7402C20.9527 11.75 21.1309 11.8219 21.2747 11.9658C21.4184 12.1096 21.4902 12.2878 21.4902 12.5003C21.4902 12.7129 21.4184 12.891 21.2747 13.0345C21.1309 13.1782 20.9527 13.25 20.7402 13.25H19.7788C19.6134 13.25 19.4692 13.2063 19.3463 13.119C19.2231 13.0317 19.1308 12.9132 19.0693 12.7635L18.3828 10.9115L16.6038 16.6077C16.5499 16.7731 16.457 16.9064 16.325 17.0078C16.193 17.1089 16.0392 17.1544 15.8635 17.1443C15.6878 17.1339 15.5362 17.0743 15.4085 16.9653C15.2808 16.8564 15.1979 16.7187 15.1598 16.552L12.9712 7.14025L9.8115 21.4078C9.768 21.5833 9.68083 21.7226 9.55 21.8258C9.41917 21.9289 9.26658 21.987 9.09225 22Z" fill="#5D544B"></path>
+                                    </g>
+                                  </svg></div>
+                                <div>Temps d’extraction</div>
+                              </div>
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div>
+{{ section.settings.text_2530s }}
+</div><button data-tippy-content="En suivant les conseils du torréfacteur." class="tooltip_tippy">
+                                  <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic" width="100%" height="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
+                                      <path fill="currentColor" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8"></path>
+                                    </svg></div>
+                                </button>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <section li-section="Animation-Produit" class="section_contenu">
+              <div class="padding-global">
+                <div class="padding-section-medium">
+                  <div class="container-large">
+                    <div class="contenu_component-wrapper">
+                      <div class="contenu_heading">
+                        <h2 class="text-align-center">Notre petit truc en plus</h2>
+                      </div>
+                      <div class="contenu_content">
+                        <div class="contenu_cards-wrapper">
+                          <div class="contenu_card is-first">
+                            <h3>
+{{ section.settings.text_animation_titre_1 }}
+</h3>
+                            <div> {{ section.settings.richtext_animation_texte_1 }} </div>
+                          </div>
+                          <div class="contenu_card is-second">
+                            <h3>
+{{ section.settings.text_animation_titre_2 }}
+</h3>
+                            <div> {{ section.settings.richtext_animation_texte_2 }} </div>
+                          </div>
+                          <div class="contenu_card is-third">
+                            <h3>
+{{ section.settings.text_animation_titre_3 }}
+</h3>
+                            <div> {{ section.settings.richtext_animation_texte_3 }} </div>
+                          </div>
+                        </div>
+                        <div class="contenu_lottie-wrapper">
+                          <div data-w-id="6c45c0d7-be4d-e9cc-32ec-918800d7e118" data-is-ix2-target="1" class="contenu_lottie" data-animation-type="lottie" data-src="{{ 'lottie-fiche-cafe.json' | asset_url }}" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="0" data-duration="3"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section li-section="FAQ Café" class="section_faq">
+              <div class="padding-global padding-section-medium" style="color: {{ section.settings.text_color }}">
+                <div class="container-large">
+                  <div class="faq_wrapper">
+                    <div class="faq_heading">
+                      <h2 class="heading-style-h2">
+{{ section.settings.text_heading }}
+</h2>
+                      <div class="text-rich-text max-width-medium w-richtext"> {{ section.settings.richtext_richtext }} </div>
+                    </div>
+                    <ul x-data="{open: 1}" role="list" class="faq_faq-list">
+                      {% for block in section.blocks %}
+    {% if block.type == "faq-item" %}
+                    <li li-block="FAQ Item" role="button" tabindex="0" aria-controls="faq-body-{{forloop.index}}" x-on:click="open = (open === {{forloop.index}} ? 0 : {{forloop.index}}); $el.setAttribute('aria-expanded', open === {{forloop.index}} ? 'true' : 'false')" id="w-node-bad92ed7-fa46-3b2b-3e51-9a3827127757-0a9591df" class="faq-faq_item">
+                                    
+                        
+                                    <div class="faq_item-heading">
+                          <h3 id="faq-heading-{{forloop.index}}" class="text-size-medium">
+{{ block.settings.text_question }}
+</h3>
+                          <div x-bind:style="open === {{ forloop.index }} ? 'transform: rotate(45deg)' : 'transform: rotate(0deg)'" class="faq_icon w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <mask id="mask0_7620_8288" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                <rect y="0.859375" width="24" height="24" fill="#D9D9D9"></rect>
+                              </mask>
+                              <g mask="url(#mask0_7620_8288)">
+                                <path d="M11 13.7188H5V11.7188H11V5.71875H13V11.7188H19V13.7188H13V19.7188H11V13.7188Z" fill="currentColor"></path>
+                              </g>
+                            </svg></div>
+                        </div>
+                                    
+                        
+                                    <div id="faq-body-{{forloop.index}}" x-show="open === {{ forloop.index }}" x-collapse="" x-cloak="" aria-labelledby="faq-heading-{{forloop.index}}" class="faq_item-body">
+                          <div class="text-rich-text margin-top margin-small w-richtext"> {{ block.settings.richtext_reponse }} </div>
+                        </div>
+                                    
+                      
+                            </li>
+            {% endif %}
+{% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          {% when 'The' %} 
+<div li-when="'The'">
+
+            <div class="section_conseil">
+              <div class="padding-global">
+                <div class="container-large is-relative">
+                  <div class="padding-section-medium">
+                    <div class="tableau_component">
+                      <div class="tableau_content">
+                        <h2 class="heading-style-h3">Les conseils du torréfacteur</h2>
+                        <div> {{ section.settings.richtext_contenu }} </div>
+                        <div class="conseil_image-wrapper"><img src="{{ 'conseil-torrefacteur.avif' | asset_url }}" loading="lazy" alt="" class="conseil_image"></div>
+                      </div>
+                      <div class="tableau_component-wrapper">
+                        <div class="tableau_wrapper">
+                          <ul role="list" class="tableau_list w-list-unstyled">
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div>Types de thé</div>
+                              </div>
+                              <div>
+{{ section.settings.text_type_the }}
+</div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div>Origine</div>
+                              </div>
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div>
+{{ section.settings.text_origine }}
+</div>
+                              </div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div>Temps d’infusion</div>
+                              </div>
+                              <div>
+{{ section.settings.text_temps_infusion }}
+</div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div>Température d’eau conseillée</div>
+                              </div>
+                              <div>
+{{ section.settings.text_temperature_eau }}
+</div>
+                            </li>
+                            <li class="tableau_list-item">
+                              <div class="display-inlineflex display-align-center gap-0-75">
+                                <div>Contenance</div>
+                              </div>
+                              <div>
+{{ section.settings.text_contenance }}
+</div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% when 'Accessoires' %} 
+<div li-when="'Accessoires'">
+
+            <div class="section_accessoires">
+              <div class="padding-global">
+                <div class="padding-section-medium">
+                  <div class="container-large">
+                    <div class="card_component-wrapper">
+                      {% if product.metafields.custom.accessoires != blank %}    <div li-if="product.metafields.custom.accessoires != blank" class="card_component">
+    
+                        {% assign accessoires = product.metafields.custom.accessoires.value %}
+                        <div id="w-node-_3431c7fd-9d72-3e89-1360-20bc710af0de-0a9591df" class="card_img-wrapper" style="{% if section.settings.left_right == 'right'%}order: 9999;{% endif %}"><img li-object:src="accessoires.image_1 | img_url: 'master'" loading="lazy" alt="" src="{{ accessoires.image_1 | img_url: 'master' }}" class="card_img"></div>
+                        <div class="content_wrapper">
+                          <h2 li-object="accessoires.titre_1" id="w-node-_3431c7fd-9d72-3e89-1360-20bc710af0e1-0a9591df" class="text-size-large text-font-body text-weight-bold">{{ accessoires.titre_1 }}</h2>
+                          <p li-object="accessoires.texte_1">{{ accessoires.texte_1 }}</p>
+                        </div>
+                          </div>
+{% endif %}
+                      {% if product.metafields.custom.accessoires != blank %}    <div li-if="product.metafields.custom.accessoires != blank" class="card_component">
+    
+                        {% assign machine = product.metafields.custom.machine.value %}
+                        <div class="content_wrapper">
+                          <h2 li-object="accessoires.titre_2" class="text-size-large text-font-body text-weight-bold">{{ accessoires.titre_2 }}</h2>
+                          <p li-object="accessoires.texte_2">{{ accessoires.texte_2 }}</p>
+                        </div>
+                        <div id="w-node-_3431c7fd-9d72-3e89-1360-20bc710af0ec-0a9591df" class="card_img-wrapper" style="{% if section.settings.left_right == 'right'%}order: 9999;{% endif %}"><img li-object:src="accessoires.image_2 | img_url: 'master'" loading="lazy" alt="" src="{{ accessoires.image_2 | img_url: 'master' }}" class="card_img"></div>
+                          </div>
+{% endif %}
+                      {% if product.metafields.custom.accessoires != blank %}    <div li-if="product.metafields.custom.accessoires != blank" class="card_component">
+    
+                        {% assign machine = product.metafields.custom.machine.value %}
+                        <div id="w-node-_3431c7fd-9d72-3e89-1360-20bc710af0f0-0a9591df" class="card_img-wrapper" style="{% if section.settings.left_right == 'right'%}order: 9999;{% endif %}"><img li-object:src="accessoires.image_3 | img_url: 'master'" loading="lazy" alt="" src="{{ accessoires.image_3 | img_url: 'master' }}" class="card_img"></div>
+                        <div class="content_wrapper">
+                          <h2 li-object="accessoires.titre_3" class="text-size-large text-font-body text-weight-bold">{{ accessoires.titre_3 }}</h2>
+                          <p li-object="accessoires.texte_3">{{ accessoires.texte_3 }}</p>
+                        </div>
+                          </div>
+{% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endcase %}
+</div> {% schema %} {
+    "tag": "section",
+    "name": "Contenu produits",
+    "class": "section_contenu-produits",
+    "blocks": [
+        {
+            "name": "FAQ Item",
+            "type": "faq-item",
+            "settings": [
+                {
+                    "id": "text_question",
+                    "type": "text",
+                    "label": "Question",
+                    "default": "Heading"
+                },
+                {
+                    "id": "richtext_reponse",
+                    "type": "richtext",
+                    "label": "R\u00e9ponse",
+                    "default": "<p>\n                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n                          <\/p>"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button Text",
+            "default": "Voir mode d\u2019emploi \u00a0PDF"
+        },
+        {
+            "id": "url_button_link",
+            "type": "url",
+            "label": "Button Link"
+        },
+        {
+            "id": "text_tableau_1",
+            "type": "text",
+            "label": "Tableau-1",
+            "default": "Sp\u00e9cialit\u00e9s"
+        },
+        {
+            "id": "text_6",
+            "type": "text",
+            "label": "6",
+            "default": "6"
+        },
+        {
+            "id": "text_tableau_3",
+            "type": "text",
+            "label": "Tableau-3",
+            "default": "Caract\u00e9ristiques standard des machines \u00e0 caf\u00e9 JURA"
+        },
+        {
+            "id": "text_tableau_2",
+            "type": "text",
+            "label": "Tableau-2",
+            "default": "Pourquoi vous allez l\u2019adorer"
+        },
+        {
+            "id": "text_tableau_4",
+            "type": "text",
+            "label": "Tableau-4",
+            "default": "Quelques chiffres"
+        },
+        {
+            "id": "image_drapeau_pays",
+            "type": "image_picker",
+            "label": "Drapeau Pays"
+        },
+        {
+            "id": "text_salvador",
+            "type": "text",
+            "label": "Salvador",
+            "default": "Salvador"
+        },
+        {
+            "id": "text_1100m",
+            "type": "text",
+            "label": "1100m",
+            "default": "1100m"
+        },
+        {
+            "id": "text_100_arabica",
+            "type": "text",
+            "label": "100% Arabica",
+            "default": "100% Arabica"
+        },
+        {
+            "id": "text_janvier_2025",
+            "type": "text",
+            "label": "Janvier 2025",
+            "default": "Janvier 2025"
+        },
+        {
+            "id": "text_nature",
+            "type": "text",
+            "label": "NAture",
+            "default": "Nature"
+        },
+        {
+            "id": "text_achat_en_direct_du_producteur",
+            "type": "text",
+            "label": "Achat en direct du producteur",
+            "default": "Achat en direct du producteur"
+        },
+        {
+            "id": "text_86",
+            "type": "text",
+            "label": "86",
+            "default": "86"
+        },
+        {
+            "id": "richtext_dou_vient_mon_cafe",
+            "type": "richtext",
+            "label": "D'ou vient mon caf\u00e9",
+            "default": "<p>Ce caf\u00e9 nous vient tout droit du Salvador, cultiv\u00e9 sur les terres volcaniques de Chaparastique, dans le d\u00e9partement de San Miguel.\u2028Il pousse \u00e0 flanc de volcan, sur une plantation de 42 hectares tenue par Beatriz et Cyrille, avec qui nous collaborons en direct.\u2028C\u2019est d\u2019ailleurs notre premier caf\u00e9 import\u00e9 sans interm\u00e9diaire : une vraie fiert\u00e9 !\u2028Un terroir riche, une tra\u00e7abilit\u00e9 ma\u00eetris\u00e9e, pour une tasse pleine de sens !<\/p>"
+        },
+        {
+            "id": "image_origine_du_cafe_image",
+            "type": "image_picker",
+            "label": "Origine du caf\u00e9 : Image"
+        },
+        {
+            "id": "richtext_contenu",
+            "type": "richtext",
+            "label": "Contenu",
+            "default": "<p>Ce caf\u00e9 nous vient tout droit du Salvador, cultiv\u00e9 sur les terres volcaniques de Chaparastique, dans le d\u00e9partement de San Miguel.\u2028Il pousse \u00e0 flanc de volcan, sur une plantation de 42 hectares tenue par Beatriz et Cyrille, avec qui nous collaborons en direct.\u2028C\u2019est d\u2019ailleurs notre premier caf\u00e9 import\u00e9 sans interm\u00e9diaire : une vraie fiert\u00e9 !\u2028Un terroir riche, une tra\u00e7abilit\u00e9 ma\u00eetris\u00e9e, pour une tasse pleine de sens !<\/p>"
+        },
+        {
+            "id": "text_type_extraction",
+            "type": "text",
+            "label": "Type extraction",
+            "default": "Nature"
+        },
+        {
+            "id": "text_conseil_mouture",
+            "type": "text",
+            "label": "Conseil mouture",
+            "default": "100% Arabica"
+        },
+        {
+            "id": "text_86c",
+            "type": "text",
+            "label": "86\u00b0C",
+            "default": "Salvador"
+        },
+        {
+            "id": "text_2530s",
+            "type": "text",
+            "label": "25\/30s",
+            "default": "1100m"
+        },
+        {
+            "id": "text_animation_titre_1",
+            "type": "text",
+            "label": "Animation titre 1",
+            "default": "De la ferme \u00e0 votre tasse, chaque \u00e9tape compte"
+        },
+        {
+            "id": "richtext_animation_texte_1",
+            "type": "richtext",
+            "label": "Animation texte 1",
+            "default": "<p>Chez nous, on source une grande partie de nos caf\u00e9s en direct chez les producteurs, pour garantir une tra\u00e7abilit\u00e9 totale ! \u2028Pourquoi ? Pour assurer une juste r\u00e9mun\u00e9ration, comprendre le travail de chaque ferme et s\u00e9lectionner des caf\u00e9s d\u2019exception.\u2028En allant sur le terrain, on cr\u00e9e du lien, on \u00e9change, on apprend.\u2028Chaque caf\u00e9 que vous buvez raconte une histoire vraie \u2014 celle d\u2019un terroir, d\u2019un savoir-faire, d\u2019un engagement.\u2028Et \u00e7a change tout dans <\/p>"
+        },
+        {
+            "id": "text_animation_titre_2",
+            "type": "text",
+            "label": "Animation titre 2",
+            "default": "De la ferme \u00e0 votre tasse, chaque \u00e9tape compte"
+        },
+        {
+            "id": "richtext_animation_texte_2",
+            "type": "richtext",
+            "label": "Animation texte 2",
+            "default": "<p>Chez nous, on source une grande partie de nos caf\u00e9s en direct chez les producteurs, pour garantir une tra\u00e7abilit\u00e9 totale ! \u2028Pourquoi ? Pour assurer une juste r\u00e9mun\u00e9ration, comprendre le travail de chaque ferme et s\u00e9lectionner des caf\u00e9s d\u2019exception.\u2028En allant sur le terrain, on cr\u00e9e du lien, on \u00e9change, on apprend.\u2028Chaque caf\u00e9 que vous buvez raconte une histoire vraie \u2014 celle d\u2019un terroir, d\u2019un savoir-faire, d\u2019un engagement.\u2028Et \u00e7a change tout dans <\/p>"
+        },
+        {
+            "id": "text_animation_titre_3",
+            "type": "text",
+            "label": "Animation titre 3",
+            "default": "De la ferme \u00e0 votre tasse, chaque \u00e9tape compte"
+        },
+        {
+            "id": "richtext_animation_texte_3",
+            "type": "richtext",
+            "label": "Animation texte 3",
+            "default": "<p>Chez nous, on source une grande partie de nos caf\u00e9s en direct chez les producteurs, pour garantir une tra\u00e7abilit\u00e9 totale ! \u2028Pourquoi ? Pour assurer une juste r\u00e9mun\u00e9ration, comprendre le travail de chaque ferme et s\u00e9lectionner des caf\u00e9s d\u2019exception.\u2028En allant sur le terrain, on cr\u00e9e du lien, on \u00e9change, on apprend.\u2028Chaque caf\u00e9 que vous buvez raconte une histoire vraie \u2014 celle d\u2019un terroir, d\u2019un savoir-faire, d\u2019un engagement.\u2028Et \u00e7a change tout dans <\/p>"
+        },
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Foire aux questions"
+        },
+        {
+            "id": "richtext_richtext",
+            "type": "richtext",
+            "label": "Richtext",
+            "default": "<p>\n                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n                      <\/p>"
+        },
+        {
+            "id": "text_type_the",
+            "type": "text",
+            "label": "Type the",
+            "default": "Salvador"
+        },
+        {
+            "id": "text_origine",
+            "type": "text",
+            "label": "Origine",
+            "default": "Chine Sri Lanka"
+        },
+        {
+            "id": "text_temps_infusion",
+            "type": "text",
+            "label": "Temps infusion",
+            "default": "4 minutes"
+        },
+        {
+            "id": "text_temperature_eau",
+            "type": "text",
+            "label": "Temperature eau",
+            "default": "80\u00b0C"
+        },
+        {
+            "id": "text_contenance",
+            "type": "text",
+            "label": "Contenance",
+            "default": "100g"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Contenu produits",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "faq-item"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

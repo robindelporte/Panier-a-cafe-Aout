@@ -1,0 +1,84 @@
+<div class="padding-global">
+          <div class="padding-section-medium">
+            <div class="container-large">
+              <div class="bandeau_heading-wrapper">
+                <h2>
+{{ section.settings.text_heading }}
+</h2>
+              </div>
+              <div class="icon_list-wrapper">
+                {% for block in section.blocks %}
+    {% if block.type == "icone" %}
+                    <div li-block="icone" class="icon-wrapper">
+                                    {% if block.settings.image_icone %}
+{{ block.settings.image_icone | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'icon' }}
+{% else %}
+<img src="{{ 'panier-a-cafe-bblanc.avif' | asset_url }}" loading="lazy" alt="" class="icon">
+{% endif %}
+                                    
+                  
+                                    <div class="icon-content">
+                    <p class="text-size-medium text-weight-bold">
+{{ block.settings.text_titre_icone }}
+</p>
+                    <p>
+{{ block.settings.text_description }}
+</p>
+                  </div>
+                                    
+                
+                            </div>
+            {% endif %}
+{% endfor %}
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "bandeau",
+    "class": "section_bandeau",
+    "blocks": [
+        {
+            "name": "icone",
+            "type": "icone",
+            "settings": [
+                {
+                    "id": "image_icone",
+                    "type": "image_picker",
+                    "label": "icone"
+                },
+                {
+                    "id": "text_titre_icone",
+                    "type": "text",
+                    "label": "Titre icone",
+                    "default": "Livraison en 48h"
+                },
+                {
+                    "id": "text_description",
+                    "type": "text",
+                    "label": "description",
+                    "default": "Gr\u00e2ce \u00e0 Colissimo, votre colis arrive rapidement !"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "heading",
+            "default": "Heading"
+        }
+    ],
+    "presets": [
+        {
+            "name": "bandeau",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "icone"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

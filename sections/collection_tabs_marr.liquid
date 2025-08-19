@@ -1,0 +1,183 @@
+<style>.button.is-tab-button {
+  opacity: 60%;
+}
+.button.is-tab-button.is-active {
+  opacity: 100%;
+}
+</style>
+        <div class="padding-global padding-section-medium">
+          <div class="container-large">
+            <div x-data="{tab: {{section.index}}1}" class="category_wrapper">
+              <h2 class="text-align-center">
+{{ section.settings.text_titre }}
+</h2>
+              <div class="category_top">
+                <div role="tablist" li-for:inside="collection in section.settings.collection_list" class="tab_menu">
+        {% for collection in section.settings.collection_list %}                            <button role="tab" x-on:click="tab = {{section.index}}{{forloop.index}}" aria-controls="collection-tab-{{section.index}}{{forloop.index}}" id="collection-button-{{section.index}}{{forloop.index}}" x-bind:aria-selected="tab === {{section.index}}{{forloop.index}} ? 'true' : 'false'" x-bind:class="tab === {{section.index}}{{forloop.index}} ? 'is-active' : ''" class="button is-tab-button is-alternate">
+                    <div li-object="collection.title">{{ collection.title }}</div>
+                  </button>
+                    {% endfor %}    </div>
+              </div>
+              <div li-for:inside="collection in section.settings.collection_list" class="tab_body">
+        {% for collection in section.settings.collection_list %}                            
+                
+                            <div id="collection-tab-{{section.index}}{{forloop.index}}" role="tabpanel" aria-labelledby="collection-button-{{section.index}}{{forloop.index}}" x-show="tab === {{section.index}}{{forloop.index}}" class="category_tab-panel">
+                  <div class="swiper_component is-product-swiper">
+                    <div class="swiper is-product-swiper">
+                      <div class="swiper_overlay-navigation hide-tablet"><button aria-label="Previous slide" type="button" class="swiper_button swiper-prev">
+                          <div class="swiper_button-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323" style="transform: rotate(180deg)">
+                              <g id="Group_44" data-name="Group 44" transform="translate(0 1.014)">
+                                <path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path>
+                                <line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line>
+                              </g>
+                            </svg></div>
+                        </button><button aria-label="Next slide" type="button" class="swiper_button swiper-next">
+                          <div class="swiper_button-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 29.541 22.323">
+                              <g id="Group_44" data-name="Group 44" transform="translate(0 1.014)">
+                                <path id="Path_1" data-name="Path 1" d="M115.445,20.633l9.311-10.148L115.445.338" transform="translate(-97.25 -0.338)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></path>
+                                <line id="Line_1" data-name="Line 1" x1="27.506" transform="translate(0 10.148)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3"></line>
+                              </g>
+                            </svg></div>
+                        </button></div>
+                      <div li-for:inside="product in collection.products limit: 8" class="swiper-wrapper is-product-swiper">
+        {% for product in collection.products limit: 8 %}                            
+                        
+                            <div class="swiper-slide is-product-swiper">
+                          {% render 'product_item', product: product %}
+                        </div>
+                            
+                      
+                    {% endfor %}    </div>
+                    </div>
+                  </div>
+                  <a li-object:href="collection.url" href="{{ collection.url }}" class="button is-white w-button">En voir plus</a>
+                </div>
+                            
+              
+                    {% endfor %}    </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hide w-embed w-script">
+          <script>
+document.addEventListener("DOMContentLoaded", function() {
+// Fonction pour v&eacute;rifier si on est sur mobile/tablette
+function isMobile() {
+  return window.innerWidth < 992; // D&eacute;sactive sur &eacute;crans >= 992px
+}
+$(".swiper_component.is-product-swiper").each(function(index) {
+  // N'initialise le swiper que sur mobile/tablette
+  if (isMobile()) {
+    const swiper = new Swiper($(this).find(".swiper")[0], {
+      autoHeight: false,
+      followFinger: true,
+      freeMode: false,
+      slideToClickedSlide: true,
+      centeredSlides: false,
+      speed: 600,
+      slidesPerView: 'auto',
+      spaceBetween: 16,
+      // Param&egrave;tres pour am&eacute;liorer la fluidit&eacute; du swipe
+      threshold: 5, // Seuil minimum pour d&eacute;clencher le swipe
+      longSwipes: true, // Autorise les longs swipes
+      longSwipesRatio: 0.5, // Ratio pour les longs swipes
+      longSwipesMs: 300, // Dur&eacute;e minimum pour un long swipe
+      shortSwipes: true, // Autorise les courts swipes
+      touchRatio: 1, // Ratio de sensibilit&eacute; au touch
+      touchAngle: 45, // Angle maximum pour le swipe
+      simulateTouch: true, // Active la simulation de touch
+      allowTouchMove: true, // Permet le mouvement tactile
+      touchMoveStopPropagation: false, // Permet la propagation des &eacute;v&eacute;nements
+      mousewheel: {
+        forceToAxis: true
+      },
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true
+      },
+      pagination: {
+        el: $(this).find('.swiper_pagination')[0],
+        clickable: true,
+        bulletClass: 'swiper_bullet',
+        bulletActiveClass: 'is-active',
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '" tabindex="0" role="button" aria-label="Go to slide ' + (index + 1) + '">';
+        }
+      },
+      breakpoints: {
+        479: {
+          spaceBetween: 16
+        },
+        767: {
+          spaceBetween: 20
+        },
+        991: {
+          spaceBetween: 32
+        }
+      }
+    });
+  } else {
+    // Configuration pour PC (&ge; 992px)
+    const swiper = new Swiper($(this).find(".swiper")[0], {
+      autoHeight: false,
+      followFinger: false, // D&eacute;sactive le drag sur PC
+      freeMode: false,
+      slideToClickedSlide: false,
+      centeredSlides: false,
+      speed: 600,
+      slidesPerView: 4,
+      slidesPerGroup: 1,
+      spaceBetween: 32,
+      allowTouchMove: false, // D&eacute;sactive le drag/touch sur PC
+      mousewheel: {
+        forceToAxis: true
+      },
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true
+      },
+      navigation: {
+        nextEl: $(this).find('.swiper_button.swiper-next')[0],
+        prevEl: $(this).find('.swiper_button.swiper-prev')[0]
+      },
+      pagination: {
+        el: $(this).find('.swiper_pagination')[0],
+        clickable: true,
+        bulletClass: 'swiper_bullet',
+        bulletActiveClass: 'is-active',
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '" tabindex="0" role="button" aria-label="Go to slide ' + (index + 1) + '">';
+        }
+      }
+    });
+  }
+});
+});
+</script>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Collection Tabs Marr",
+    "class": "section_category-marron",
+    "settings": [
+        {
+            "id": "text_titre",
+            "type": "text",
+            "label": "Titre",
+            "default": "Heading"
+        },
+        {
+            "type": "collection_list",
+            "id": "collection_list",
+            "label": "Collections",
+            "limit": 8
+        }
+    ],
+    "presets": [
+        {
+            "name": "Collection Tabs Marr",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

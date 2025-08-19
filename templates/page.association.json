@@ -1,0 +1,99 @@
+{
+    "sections": {
+        "hero": {
+            "type": "hero"
+        },
+        "contenu_titre_sticke": {
+            "type": "contenu_titre_sticke",
+            "blocks": {
+                "h2": {
+                    "name": "h2",
+                    "type": "h2"
+                },
+                "headline-small": {
+                    "name": "Headline small",
+                    "type": "headline-small"
+                },
+                "headline": {
+                    "name": "Headline",
+                    "type": "headline"
+                },
+                "text": {
+                    "name": "Text",
+                    "type": "text"
+                },
+                "buttons": {
+                    "name": "Buttons",
+                    "type": "buttons"
+                }
+            },
+            "block_order": [
+                "h2",
+                "headline-small",
+                "headline",
+                "text",
+                "buttons"
+            ]
+        },
+        "card_swiper": {
+            "type": "card_swiper",
+            "blocks": {
+                "card": {
+                    "name": "Card",
+                    "type": "card"
+                }
+            },
+            "block_order": [
+                "card"
+            ]
+        },
+        "content": {
+            "type": "content",
+            "blocks": {
+                "headline-small": {
+                    "name": "Headline small",
+                    "type": "headline-small"
+                },
+                "headline": {
+                    "name": "Headline",
+                    "type": "headline"
+                },
+                "text": {
+                    "name": "Text",
+                    "type": "text"
+                },
+                "buttons": {
+                    "name": "Buttons",
+                    "type": "buttons"
+                }
+            },
+            "block_order": [
+                "headline-small",
+                "headline",
+                "text",
+                "buttons"
+            ]
+        },
+        "pages": {
+            "type": "pages",
+            "blocks": {
+                "carte": {
+                    "name": "Carte",
+                    "type": "carte"
+                }
+            },
+            "block_order": [
+                "carte"
+            ]
+        }
+    },
+    "layout": "page.association",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "hero",
+        "contenu_titre_sticke",
+        "card_swiper",
+        "content",
+        "pages"
+    ]
+}

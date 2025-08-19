@@ -1,0 +1,87 @@
+<div class="padding-global">
+          <div class="padding-section-medium">
+            <div class="container-large">
+              <div class="chiffres_wrapper">
+                <div class="chiffres_heading">
+                  <h2>
+{{ section.settings.text_heading }}
+</h2>
+                </div>
+                <div class="chiffres_list">
+                  {% for block in section.blocks %}
+    {% if block.type == "chiffres" %}
+                    <div li-block="Chiffres" class="chiffres_item">
+                                    
+                    
+                                    <t class="heading-style-h2 display-inlineflex">
+                      <div>
+{{ block.settings.text_valeur_gauche }}
+</div>
+                      <div>
+{{ block.settings.text_valeur_droite }}
+</div>
+                    </t>
+                                    
+                    
+                                    <p>
+{{ block.settings.text_texte }}
+</p>
+                                    
+                  
+                            </div>
+            {% endif %}
+{% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "div",
+    "name": "Chiffres",
+    "class": "section_chiffres",
+    "blocks": [
+        {
+            "name": "Chiffres",
+            "type": "chiffres",
+            "settings": [
+                {
+                    "id": "text_valeur_gauche",
+                    "type": "text",
+                    "label": "Valeur gauche",
+                    "default": "100"
+                },
+                {
+                    "id": "text_valeur_droite",
+                    "type": "text",
+                    "label": "Valeur droite",
+                    "default": "%"
+                },
+                {
+                    "id": "text_texte",
+                    "type": "text",
+                    "label": "Texte",
+                    "default": "Nous mettons \u00e0 l\u2019honneur des caf\u00e9s produits par des femmes engag\u00e9es."
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Le panier \u00e0 caf\u00e9 en chiffre"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Chiffres",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "chiffres"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

@@ -1,0 +1,21 @@
+{
+    "sections": {
+        "faq_page": {
+            "type": "faq_page",
+            "blocks": {
+                "faq-item": {
+                    "name": "FAQ Item",
+                    "type": "faq-item"
+                }
+            },
+            "block_order": [
+                "faq-item"
+            ]
+        }
+    },
+    "layout": "Theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "faq_page"
+    ]
+}

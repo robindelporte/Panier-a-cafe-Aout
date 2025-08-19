@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "blog_articles": {
+            "type": "blog_articles"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "blog_articles"
+    ]
+}

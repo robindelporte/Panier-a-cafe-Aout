@@ -1,0 +1,100 @@
+<div class="padding-global">
+          <div class="padding-section-medium">
+            <div class="container-large">
+              <div class="badges_component">
+                <div class="badges_heading">
+                  <h2>
+{{ section.settings.text_titre }}
+</h2>
+                </div>
+                <ul role="list" class="badges_list w-list-unstyled">
+                  {% for block in section.blocks %}
+    {% if block.type == "badge" %}
+                    <li li-block="Badge" class="badges_item">
+                                    {% if block.settings.image_image %}
+{{ block.settings.image_image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'badges_icon' }}
+{% else %}
+<img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="badges_icon">
+{% endif %}
+                                    
+                    
+                                    <div class="badges_content">
+                      <h3 class="text-size-large text-font-body text-weight-bold">
+{{ block.settings.text_heading }}
+</h3>
+                      <p>
+{{ block.settings.text_texte }}
+</p>
+                    </div>
+                                    
+                    
+                                    <a href="{{ block.settings.url_lien }}"> {{ block.settings.text_texte_lien }} </a>
+                                    
+                  
+                            </li>
+            {% endif %}
+{% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Badges",
+    "class": "section_badges",
+    "blocks": [
+        {
+            "name": "Badge",
+            "type": "badge",
+            "settings": [
+                {
+                    "id": "image_image",
+                    "type": "image_picker",
+                    "label": "Image"
+                },
+                {
+                    "id": "text_heading",
+                    "type": "text",
+                    "label": "Heading",
+                    "default": "Heading"
+                },
+                {
+                    "id": "text_texte",
+                    "type": "text",
+                    "label": "Texte",
+                    "default": "Nous achetons une grande partie de nos caf\u00e9s en direct."
+                },
+                {
+                    "id": "text_texte_lien",
+                    "type": "text",
+                    "label": "Texte lien",
+                    "default": "Text Link"
+                },
+                {
+                    "id": "url_lien",
+                    "type": "url",
+                    "label": "Lien"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_titre",
+            "type": "text",
+            "label": "Titre",
+            "default": "Heading"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Badges",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "badge"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

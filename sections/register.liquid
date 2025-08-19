@@ -1,0 +1,52 @@
+<div class="login_component">
+          <div id="w-node-_81b70825-012b-43ad-2c8a-0d6c0a5ad3ad-c8fa336f" class="login_tabs">
+            <div class="login_form w-form">
+              <h1 class="heading-style-h2 text-align-center">Créez mon compte</h1>
+              {% form 'create_customer', return_to: '/', class: 'form_form' %}
+{% if form.errors %}    <div li-if="form.errors" class="form_error-message">
+    
+                  <div li-object="form.errors | default_errors" class="text-size-regular text-color-red text-align-center">{{ form.errors | default_errors }}</div>
+                    </div>
+{% endif %}
+                <div class="form_field-wrapper"><label for="Prenom" class="form_hidden-label">First Name</label><input class="form_input w-input" maxlength="256" name="customer[first_name]" data-name="Prenom" placeholder="Prénom" type="text" id="Prenom" required=""></div>
+                <div class="form_field-wrapper"><label for="Nom" class="form_hidden-label">Last Name</label><input class="form_input w-input" maxlength="256" name="customer[last_name]" data-name="Nom" placeholder="Nom" type="text" id="Nom" required=""></div>
+                <div class="form_field-wrapper"><label for="Email" class="form_hidden-label">Email Address</label><input class="form_input w-input" maxlength="256" name="customer[email]" data-name="Email" placeholder="Email Address" type="email" id="Email" required=""></div>
+                <div class="form_field-wrapper"><label for="Password" class="form_hidden-label">Password</label><input class="form_input w-input" maxlength="256" name="customer[password]" data-name="Password" placeholder="Mot de passe" type="password" id="Password" required=""></div><label class="w-checkbox form_checkbox"><input type="checkbox" name="" data-name="" required="" class="w-checkbox-input form_checkbox-icon"><span class="form_checkbox-label w-form-label">J'accepte la <a href="{{ section.settings.url_politique_de_confidentialite }}"> politique de confidentialité </a></span></label><label class="w-checkbox form_checkbox"><input type="checkbox" name="customer[accepts_marketing]" data-name="" class="w-checkbox-input form_checkbox-icon"><span class="form_checkbox-label w-form-label">
+{{ section.settings.text_texte_marketing }}
+</span></label><input type="submit" data-wait="Please wait" id="w-node-_81b70825-012b-43ad-2c8a-0d6c0a5ad3cd-c8fa336f" class="button is-secondary w-button" value="Créer un compte">
+              {% endform %}
+              <div class="text-size-regular text-align-center">Vous avez déjà un compte ? <a href="{{ routes.account_login_url }}" li-object:href="routes.account_login_url" class="text-style-link text-weight-bold">Connectez vous</a>
+              </div>
+              <div class="hide w-form-done">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              <div class="hide w-form-fail">
+                <div>Oops! Something went wrong while submitting the form.</div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Register",
+    "class": "section_login",
+    "settings": [
+        {
+            "id": "url_politique_de_confidentialite",
+            "type": "url",
+            "label": "Politique de confidentialit\u00e9"
+        },
+        {
+            "id": "text_texte_marketing",
+            "type": "text",
+            "label": "Texte marketing",
+            "default": "J'accepte de recevoir les bons plans et nouveaut\u00e9s du Panier \u00e0 Caf\u00e9"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Register",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

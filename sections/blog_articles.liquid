@@ -1,0 +1,80 @@
+<div class="padding-global padding-section-medium">
+          <div class="container-large">
+            <div class="blog_heading-wrapper">
+              <div class="blog_heading">
+                <h2 class="heading-style-h2 text-align-center">
+{{ section.settings.text_titre_blog }}
+</h2>
+                <div class="max-width-large">
+                  <p>
+{{ section.settings.text_blog_sous_titre }}
+</p>
+                </div>
+                <div class="social_stickers-wrapper"><img src="{{ 'sticker-pacaf.avif' | asset_url }}" loading="lazy" width="160" alt="" class="social_sticker"></div>
+              </div>
+            </div>
+            <div class="spacer-large"></div>
+            <div class="blog_list-wrapper w-dyn-list">
+              {% if blog.articles != blank %}    <div li-if="blog.articles != blank" role="list" class="blog_list in-blog w-dyn-items">
+    
+                {% for article in blog.articles %}    <div li-for="article in blog.articles" role="listitem" class="blog_list-item w-dyn-item">
+                                    
+                  
+                            <a li-object:href="article.url" href="{{ article.url }}" class="blog_item-grid w-inline-block">
+                    <div id="w-node-_8ea635be-a9f2-1dea-f9fd-0a4dc0b41da0-c0b41d9f" class="blog_tags-wrapper"><img id="w-node-_8ea635be-a9f2-1dea-f9fd-0a4dc0b41da1-c0b41d9f" li-object:src="article.image | img_url: 'master'" alt="{{ article.image.alt }}" src="{{ article.image | img_url: 'master' }}" loading="lazy" li-object:alt="article.image.alt" class="blog_img">
+                      <div class="blog_tag-row">
+                        {% for tag in article.tags %}    <div li-for="tag in article.tags" class="blog_tag">
+                                    
+                          
+                            <div li-object="tag">{{ tag }}</div>
+                            
+                        
+                        </div>
+{% endfor %}
+                      </div>
+                    </div>
+                    <div id="w-node-_8ea635be-a9f2-1dea-f9fd-0a4dc0b41da6-c0b41d9f" class="spacer-small"></div>
+                    <div class="blog_info-wrapper">
+                      <h3 li-object="article.title" class="heading-style-h5">{{ article.title }}</h3>
+                    </div>
+                  </a>
+                            
+                
+                        </div>
+{% endfor %}
+                  </div>
+{% endif %}
+              <div class="hide w-dyn-empty"></div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Blog-Articles",
+    "class": "section_blog-list",
+    "settings": [
+        {
+            "id": "text_titre_blog",
+            "type": "text",
+            "label": "Titre Blog",
+            "default": "Nouveaut\u00e9s du blog"
+        },
+        {
+            "id": "text_blog_sous_titre",
+            "type": "text",
+            "label": "Blog sous-titre",
+            "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere."
+        }
+    ],
+    "presets": [
+        {
+            "name": "Blog-Articles",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "blog"
+        ]
+    }
+} {% endschema %}

@@ -1,0 +1,73 @@
+<div li-block="Logo defilants / Inversés" class="marquee">
+                    
+                
+                    <div class="marquee-content scroll">{% if block.settings.image_logo_1 %}
+{{ block.settings.image_logo_1 | image_url: width: 1000 | image_tag: loading: 'eager', class: 'marquee-image' }}
+{% else %}
+<img loading="eager" alt="" src="{{ 'logoipsum-287.svg' | asset_url }}" class="marquee-image">
+{% endif %}{% if block.settings.image_logo_2 %}
+{{ block.settings.image_logo_2 | image_url: width: 1000 | image_tag: loading: 'eager', class: 'marquee-image' }}
+{% else %}
+<img loading="eager" alt="" src="{{ 'logoipsum-287.svg' | asset_url }}" class="marquee-image">
+{% endif %}{% if block.settings.image_logo_3 %}
+{{ block.settings.image_logo_3 | image_url: width: 1000 | image_tag: loading: 'eager', class: 'marquee-image' }}
+{% else %}
+<img loading="eager" alt="" src="{{ 'logoipsum-287.svg' | asset_url }}" class="marquee-image">
+{% endif %}{% if block.settings.image_logo_4 %}
+{{ block.settings.image_logo_4 | image_url: width: 1000 | image_tag: loading: 'eager', class: 'marquee-image' }}
+{% else %}
+<img loading="eager" alt="" src="{{ 'logoipsum-287.svg' | asset_url }}" class="marquee-image">
+{% endif %}{% if block.settings.image_logo_5 %}
+{{ block.settings.image_logo_5 | image_url: width: 1000 | image_tag: loading: 'eager', class: 'marquee-image' }}
+{% else %}
+<img loading="eager" alt="" src="{{ 'logoipsum-287.svg' | asset_url }}" class="marquee-image">
+{% endif %}{% if block.settings.image_logo_6 %}
+{{ block.settings.image_logo_6 | image_url: width: 1000 | image_tag: loading: 'eager', class: 'marquee-image' }}
+{% else %}
+<img loading="eager" alt="" src="{{ 'logoipsum-287.svg' | asset_url }}" class="marquee-image">
+{% endif %}</div>
+                    
+                
+                    <div class="marquee-content scroll"><img li-object:src="block.settings.image_logo_1 | img_url: 'master'" loading="eager" alt="" src="{{ block.settings.image_logo_1 | img_url: 'master' }}" class="marquee-image"><img li-object:src="block.settings.image_logo_2 | img_url: 'master'" loading="eager" alt="" src="{{ block.settings.image_logo_2 | img_url: 'master' }}" class="marquee-image"><img li-object:src="block.settings.image_logo_3 | img_url: 'master'" loading="eager" alt="" src="{{ block.settings.image_logo_3 | img_url: 'master' }}" class="marquee-image"><img li-object:src="block.settings.image_logo_4 | img_url: 'master'" loading="eager" alt="" src="{{ block.settings.image_logo_4 | img_url: 'master' }}" class="marquee-image"><img li-object:src="block.settings.image_logo_5 | img_url: 'master'" loading="eager" alt="" src="{{ block.settings.image_logo_5 | img_url: 'master' }}" class="marquee-image"><img li-object:src="block.settings.image_logo_6 | img_url: 'master'" loading="eager" alt="" src="{{ block.settings.image_logo_6 | img_url: 'master' }}" class="marquee-image"></div>
+                    
+              
+                </div> {% schema %} {
+    "name": "Logo defilants \/ Invers\u00e9s",
+    "settings": [
+        {
+            "id": "image_logo_1",
+            "type": "image_picker",
+            "label": "logo_1"
+        },
+        {
+            "id": "image_logo_2",
+            "type": "image_picker",
+            "label": "logo_2"
+        },
+        {
+            "id": "image_logo_3",
+            "type": "image_picker",
+            "label": "logo_3"
+        },
+        {
+            "id": "image_logo_4",
+            "type": "image_picker",
+            "label": "logo_4"
+        },
+        {
+            "id": "image_logo_5",
+            "type": "image_picker",
+            "label": "logo_5"
+        },
+        {
+            "id": "image_logo_6",
+            "type": "image_picker",
+            "label": "logo_6"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Logo defilants \/ Invers\u00e9s"
+        }
+    ]
+} {% endschema %}

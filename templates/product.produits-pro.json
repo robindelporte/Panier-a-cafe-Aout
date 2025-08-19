@@ -1,0 +1,33 @@
+{
+    "sections": {
+        "product_hero_pro": {
+            "type": "product_hero_pro"
+        },
+        "contenu_produits": {
+            "type": "contenu_produits"
+        },
+        "category": {
+            "type": "category"
+        },
+        "acces_reserve": {
+            "type": "acces_reserve",
+            "blocks": {
+                "carte": {
+                    "name": "Carte",
+                    "type": "carte"
+                }
+            },
+            "block_order": [
+                "carte"
+            ]
+        }
+    },
+    "layout": "product.produits-pro",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "product_hero_pro",
+        "contenu_produits",
+        "category",
+        "acces_reserve"
+    ]
+}

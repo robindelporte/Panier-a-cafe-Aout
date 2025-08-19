@@ -1,0 +1,50 @@
+{
+    "sections": {
+        "collection_hero": {
+            "type": "collection_hero"
+        },
+        "collection_produits": {
+            "type": "collection_produits"
+        },
+        "bandeau": {
+            "type": "bandeau",
+            "blocks": {
+                "icone": {
+                    "name": "icone",
+                    "type": "icone"
+                }
+            },
+            "block_order": [
+                "icone"
+            ]
+        },
+        "faq": {
+            "type": "faq",
+            "blocks": {
+                "faq-item": {
+                    "name": "FAQ Item",
+                    "type": "faq-item"
+                }
+            },
+            "block_order": [
+                "faq-item"
+            ]
+        },
+        "collection_tabs": {
+            "type": "collection_tabs"
+        },
+        "reseaux": {
+            "type": "reseaux"
+        }
+    },
+    "layout": "collection",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "collection_hero",
+        "collection_produits",
+        "bandeau",
+        "faq",
+        "collection_tabs",
+        "reseaux"
+    ]
+}

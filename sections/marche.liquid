@@ -1,0 +1,185 @@
+<style>.button.is-tab-button {
+  opacity: 60%;
+}
+.button.is-tab-button.is-active {
+  opacity: 100%;
+}
+</style>
+        <div class="padding-global padding-section-large">
+          <div class="container-medium">
+            <div class="tabs_wrapper is-team">
+              <div class="tabs_heading is-marche">
+                <h2 class="heading-style-h2 text-align-center">
+{{ section.settings.text_heading }}
+</h2>
+                <div class="max-width-large">
+                  <p>Que vous soyez un·e habitué·e des marchés ou juste curieux de découvrir du bon café torréfié localement, il y a toujours un endroit où nous retrouver ! Du lundi au vendredi, venez directement à l’atelier pour découvrir notre gamme de cafés de spécialité fraîchement torréfiés sur place. Ou sur les marchés de la ville d’Annecy. Nous y servons nos cafés en grain, moulus à la demande, ainsi que des boissons à emporter préparées sur place par nos baristas.</p>
+                </div>
+              </div>
+              <div x-data="{tab: 1}" class="tabs_element is-locale">
+                <div li-for:inside="block in section.blocks" class="tabs_menu is-team">
+        {% for block in section.blocks %}                            {% if block.type == 'tab' %}    <button x-bind:class="tab === {{forloop.index}} ? 'is-active' : ''" x-on:click="tab = {{forloop.index}}" role="tab" aria-controls="panel-{{section.index}}-{{forloop.index}}" tabindex="0" id="tab-{{section.index}}-{{forloop.index}}" x-bind:aria-selected="tab === {{forloop.index}} ? 'true' : 'false'" li-if="block.type == 'tab'" class="button is-local-tab">
+    
+                    <h2 li-object="block.settings.text_tab_label" class="text-size-medium">{{ block.settings.text_tab_label }}</h2>
+                      </button>
+{% endif %}
+                    {% endfor %}    </div>
+                <div class="tabs_body is-locale">
+                  {% for block in section.blocks %}
+    {% if block.type == "tab" %}
+                    <div id="panel-{{section.index}}-{{forloop.index}}" x-show="tab === {{forloop.index}}" aria-labelledby="tab-{{section.index}}-{{forloop.index}}" role="tabpanel" x-bind:aria-hidden="tab === {{forloop.index}} ? 'false' : 'true'" x-cloak="" li-block="Tab" class="tabs_panel is-team">
+                                    
+                    
+                                    <div class="tabs_panel-content is-locale">
+                      <article class="tabs_panel-locale">
+                        <div class="display-inlineflex display-align-center gap-0-75">
+                          <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 24" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                              <mask id="mask0_7844_11840" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                <rect width="24" height="24" fill="#D9D9D9"></rect>
+                              </mask>
+                              <g mask="url(#mask0_7844_11840)">
+                                <path d="M10.9502 14.0648L9.34249 12.457C9.19383 12.3083 9.01983 12.2323 8.82049 12.229C8.62116 12.2259 8.44391 12.3018 8.28874 12.457C8.13358 12.6122 8.05599 12.7903 8.05599 12.9915C8.05599 13.1928 8.13358 13.3711 8.28874 13.5263L10.3175 15.5705C10.4983 15.7512 10.7092 15.8415 10.9502 15.8415C11.1912 15.8415 11.4022 15.7512 11.583 15.5705L15.7272 11.4263C15.8759 11.2774 15.9518 11.1008 15.955 10.8963C15.9582 10.6919 15.8822 10.5122 15.7272 10.357C15.5721 10.2018 15.3938 10.1243 15.1925 10.1243C14.9913 10.1243 14.8132 10.2018 14.658 10.357L10.9502 14.0648ZM12.0002 21.4993C10.8207 21.4993 9.71566 21.2762 8.68499 20.83C7.65416 20.3838 6.75541 19.7774 5.98874 19.0108C5.22208 18.2441 4.61566 17.3453 4.16949 16.3145C3.72333 15.2838 3.50024 14.1788 3.50024 12.9993C3.50024 11.8198 3.72333 10.7147 4.16949 9.68402C4.61566 8.65318 5.22208 7.75443 5.98874 6.98777C6.75541 6.2211 7.65416 5.61468 8.68499 5.16852C9.71566 4.72235 10.8207 4.49927 12.0002 4.49927C13.1797 4.49927 14.2848 4.72235 15.3155 5.16852C16.3463 5.61468 17.2451 6.2211 18.0117 6.98777C18.7784 7.75443 19.3848 8.65318 19.831 9.68402C20.2772 10.7147 20.5002 11.8198 20.5002 12.9993C20.5002 14.1788 20.2772 15.2838 19.831 16.3145C19.3848 17.3453 18.7784 18.2441 18.0117 19.0108C17.2451 19.7774 16.3463 20.3838 15.3155 20.83C14.2848 21.2762 13.1797 21.4993 12.0002 21.4993ZM2.41574 7.28002C2.27074 7.13518 2.19824 6.95952 2.19824 6.75302C2.19824 6.54668 2.27074 6.3711 2.41574 6.22627L5.22724 3.41477C5.36574 3.27627 5.53974 3.20543 5.74924 3.20227C5.95891 3.19893 6.13616 3.26977 6.28099 3.41477C6.42583 3.5596 6.49824 3.73518 6.49824 3.94152C6.49824 4.14802 6.42583 4.32368 6.28099 4.46852L3.46949 7.28002C3.33099 7.41852 3.15699 7.48935 2.94749 7.49252C2.73783 7.49568 2.56058 7.42485 2.41574 7.28002ZM21.5847 7.28002C21.4399 7.42485 21.2643 7.49727 21.058 7.49727C20.8515 7.49727 20.6758 7.42485 20.531 7.28002L17.7195 4.46852C17.581 4.33002 17.5102 4.15602 17.507 3.94652C17.5038 3.73685 17.5747 3.5596 17.7195 3.41477C17.8643 3.26977 18.04 3.19727 18.2465 3.19727C18.4528 3.19727 18.6284 3.26977 18.7732 3.41477L21.5847 6.22627C21.7232 6.36477 21.7941 6.53877 21.7972 6.74827C21.8006 6.95793 21.7297 7.13518 21.5847 7.28002ZM12.0002 19.9993C13.9439 19.9993 15.5965 19.3185 16.958 17.957C18.3195 16.5955 19.0002 14.9429 19.0002 12.9993C19.0002 11.0556 18.3195 9.40302 16.958 8.04152C15.5965 6.68002 13.9439 5.99927 12.0002 5.99927C10.0566 5.99927 8.40399 6.68002 7.04249 8.04152C5.68099 9.40302 5.00024 11.0556 5.00024 12.9993C5.00024 14.9429 5.68099 16.5955 7.04249 17.957C8.40399 19.3185 10.0566 19.9993 12.0002 19.9993Z" fill="#F9F7F4"></path>
+                              </g>
+                            </svg></div>
+                          <p>
+{{ block.settings.text_horaires }}
+</p>
+                        </div>
+                        <div class="display-inlineflex display-align-center gap-0-75">
+                          <div class="icon-embed-xsmall w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <mask id="mask0_7844_11845" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                <rect width="24" height="24" fill="#D9D9D9"></rect>
+                              </mask>
+                              <g mask="url(#mask0_7844_11845)">
+                                <path d="M8.64425 15.923L13.3 14.5115C13.5948 14.418 13.8471 14.2664 14.0568 14.0568C14.2664 13.8471 14.418 13.5948 14.5115 13.3L15.925 8.64225C15.9737 8.47308 15.933 8.32408 15.803 8.19525C15.673 8.06642 15.5239 8.027 15.3558 8.077L10.7 9.4885C10.4052 9.582 10.1529 9.73358 9.94325 9.94325C9.73358 10.1529 9.582 10.4052 9.4885 10.7L8.075 15.3577C8.02633 15.5269 8.067 15.6759 8.197 15.8048C8.327 15.9336 8.47608 15.973 8.64425 15.923ZM11.9978 13.3077C11.6339 13.3077 11.3254 13.1803 11.0723 12.9255C10.8189 12.6708 10.6923 12.3616 10.6923 11.9978C10.6923 11.6339 10.8197 11.3254 11.0745 11.0723C11.3292 10.8189 11.6384 10.6923 12.0022 10.6923C12.3661 10.6923 12.6746 10.8197 12.9277 11.0745C13.1811 11.3292 13.3077 11.6384 13.3077 12.0022C13.3077 12.3661 13.1803 12.6746 12.9255 12.9277C12.6708 13.1811 12.3616 13.3077 11.9978 13.3077ZM12.0017 21.5C10.6877 21.5 9.45267 21.2507 8.2965 20.752C7.14033 20.2533 6.13467 19.5766 5.2795 18.7218C4.42433 17.8669 3.74725 16.8617 3.24825 15.706C2.74942 14.5503 2.5 13.3156 2.5 12.0017C2.5 10.6877 2.74933 9.45267 3.248 8.2965C3.74667 7.14033 4.42342 6.13467 5.27825 5.2795C6.13308 4.42433 7.13833 3.74725 8.294 3.24825C9.44967 2.74942 10.6844 2.5 11.9983 2.5C13.3123 2.5 14.5473 2.74933 15.7035 3.248C16.8597 3.74667 17.8653 4.42342 18.7205 5.27825C19.5757 6.13308 20.2528 7.13833 20.7518 8.294C21.2506 9.44967 21.5 10.6844 21.5 11.9983C21.5 13.3123 21.2507 14.5473 20.752 15.7035C20.2533 16.8597 19.5766 17.8653 18.7218 18.7205C17.8669 19.5757 16.8617 20.2528 15.706 20.7518C14.5503 21.2506 13.3156 21.5 12.0017 21.5ZM12 20C14.223 20 16.1121 19.2224 17.6673 17.6673C19.2224 16.1121 20 14.223 20 12C20 9.777 19.2224 7.88792 17.6673 6.33275C16.1121 4.77758 14.223 4 12 4C9.777 4 7.88792 4.77758 6.33275 6.33275C4.77758 7.88792 4 9.777 4 12C4 14.223 4.77758 16.1121 6.33275 17.6673C7.88792 19.2224 9.777 20 12 20Z" fill="#F9F7F4"></path>
+                              </g>
+                            </svg></div>
+                          <p>
+{{ block.settings.text_adresse }}
+</p>
+                        </div>
+                      </article>
+                      <a rel="noopener noreferrer" target="_blank" href="{{ block.settings.url_link }}" class="tab_locale-image-wrapper w-inline-block"> {% if block.settings.image_image_carte %} {{ block.settings.image_image_carte | image_url: width: 1000 | image_tag: class: 'tab_locale-image', sizes: '100vw', loading: 'eager' }} {% else %} <img class="tab_locale-image" src="{{ 'map.png' | asset_url }}" alt="" sizes="100vw" loading="eager" srcset="{{ 'map-p-500.png' | asset_url }} 500w, {{ 'map-p-800.png' | asset_url }} 800w, {{ 'map.png' | asset_url }} 942w"> {% endif %} </a>
+                    </div>
+                                    
+                    
+                                    <div class="hide">
+{{ block.settings.text_tab_label }}
+</div>
+                                    
+                  
+                            </div>
+            {% endif %}
+{% endfor %}
+                </div>
+              </div>
+              <ul li-for:inside="block in section.blocks" x-data="{open: 1}" role="list" class="faq_list is-locale">
+        {% for block in section.blocks %}                            
+                
+                            <li x-on:click="open = (open === {{forloop.index}} ? 0 : {{forloop.index}}); $el.setAttribute('aria-expanded', open === {{forloop.index}} ? 'true' : 'false')" role="button" tabindex="0" aria-controls="faq-body-{{forloop.index}}" class="faq_item">
+                  <div class="faq_item-heading">
+                    <h3 li-object="block.settings.text_tab_label" class="text-size-medium">{{ block.settings.text_tab_label }}</h3>
+                    <div x-bind:style="open === {{ forloop.index }} ? 'transform: rotate(180deg)' : 'transform: rotate(0deg)'" class="faq_icon w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_7620_8288" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                          <rect y="0.859375" width="24" height="24" fill="#D9D9D9"></rect>
+                        </mask>
+                        <g mask="url(#mask0_7620_8288)">
+                          <path d="M11 13.7188H5V11.7188H11V5.71875H13V11.7188H19V13.7188H13V19.7188H11V13.7188Z" fill="currentColor"></path>
+                        </g>
+                      </svg></div>
+                  </div>
+                  <div id="faq-body-{{forloop.index}}" x-show="open === {{ forloop.index }}" x-collapse="" x-cloakd="" aria-labelledby="faq-heading-{{forloop.index}}" class="faq_item-body">
+                    <div class="tabs_panel-content is-locale">
+                      <article class="tabs_panel-locale">
+                        <div class="display-inlineflex display-align-center gap-0-75 align-top-mobile">
+                          <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 24" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                              <mask id="mask0_7844_11840" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                <rect width="24" height="24" fill="#D9D9D9"></rect>
+                              </mask>
+                              <g mask="url(#mask0_7844_11840)">
+                                <path d="M10.9502 14.0648L9.34249 12.457C9.19383 12.3083 9.01983 12.2323 8.82049 12.229C8.62116 12.2259 8.44391 12.3018 8.28874 12.457C8.13358 12.6122 8.05599 12.7903 8.05599 12.9915C8.05599 13.1928 8.13358 13.3711 8.28874 13.5263L10.3175 15.5705C10.4983 15.7512 10.7092 15.8415 10.9502 15.8415C11.1912 15.8415 11.4022 15.7512 11.583 15.5705L15.7272 11.4263C15.8759 11.2774 15.9518 11.1008 15.955 10.8963C15.9582 10.6919 15.8822 10.5122 15.7272 10.357C15.5721 10.2018 15.3938 10.1243 15.1925 10.1243C14.9913 10.1243 14.8132 10.2018 14.658 10.357L10.9502 14.0648ZM12.0002 21.4993C10.8207 21.4993 9.71566 21.2762 8.68499 20.83C7.65416 20.3838 6.75541 19.7774 5.98874 19.0108C5.22208 18.2441 4.61566 17.3453 4.16949 16.3145C3.72333 15.2838 3.50024 14.1788 3.50024 12.9993C3.50024 11.8198 3.72333 10.7147 4.16949 9.68402C4.61566 8.65318 5.22208 7.75443 5.98874 6.98777C6.75541 6.2211 7.65416 5.61468 8.68499 5.16852C9.71566 4.72235 10.8207 4.49927 12.0002 4.49927C13.1797 4.49927 14.2848 4.72235 15.3155 5.16852C16.3463 5.61468 17.2451 6.2211 18.0117 6.98777C18.7784 7.75443 19.3848 8.65318 19.831 9.68402C20.2772 10.7147 20.5002 11.8198 20.5002 12.9993C20.5002 14.1788 20.2772 15.2838 19.831 16.3145C19.3848 17.3453 18.7784 18.2441 18.0117 19.0108C17.2451 19.7774 16.3463 20.3838 15.3155 20.83C14.2848 21.2762 13.1797 21.4993 12.0002 21.4993ZM2.41574 7.28002C2.27074 7.13518 2.19824 6.95952 2.19824 6.75302C2.19824 6.54668 2.27074 6.3711 2.41574 6.22627L5.22724 3.41477C5.36574 3.27627 5.53974 3.20543 5.74924 3.20227C5.95891 3.19893 6.13616 3.26977 6.28099 3.41477C6.42583 3.5596 6.49824 3.73518 6.49824 3.94152C6.49824 4.14802 6.42583 4.32368 6.28099 4.46852L3.46949 7.28002C3.33099 7.41852 3.15699 7.48935 2.94749 7.49252C2.73783 7.49568 2.56058 7.42485 2.41574 7.28002ZM21.5847 7.28002C21.4399 7.42485 21.2643 7.49727 21.058 7.49727C20.8515 7.49727 20.6758 7.42485 20.531 7.28002L17.7195 4.46852C17.581 4.33002 17.5102 4.15602 17.507 3.94652C17.5038 3.73685 17.5747 3.5596 17.7195 3.41477C17.8643 3.26977 18.04 3.19727 18.2465 3.19727C18.4528 3.19727 18.6284 3.26977 18.7732 3.41477L21.5847 6.22627C21.7232 6.36477 21.7941 6.53877 21.7972 6.74827C21.8006 6.95793 21.7297 7.13518 21.5847 7.28002ZM12.0002 19.9993C13.9439 19.9993 15.5965 19.3185 16.958 17.957C18.3195 16.5955 19.0002 14.9429 19.0002 12.9993C19.0002 11.0556 18.3195 9.40302 16.958 8.04152C15.5965 6.68002 13.9439 5.99927 12.0002 5.99927C10.0566 5.99927 8.40399 6.68002 7.04249 8.04152C5.68099 9.40302 5.00024 11.0556 5.00024 12.9993C5.00024 14.9429 5.68099 16.5955 7.04249 17.957C8.40399 19.3185 10.0566 19.9993 12.0002 19.9993Z" fill="currentColor"></path>
+                              </g>
+                            </svg></div>
+                          <p li-object="block.settings.text_horaires">{{ block.settings.text_horaires }}</p>
+                        </div>
+                        <div class="display-inlineflex display-align-center gap-0-75">
+                          <div class="icon-embed-xsmall w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <mask id="mask0_7844_11845" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                <rect width="24" height="24" fill="#D9D9D9"></rect>
+                              </mask>
+                              <g mask="url(#mask0_7844_11845)">
+                                <path d="M8.64425 15.923L13.3 14.5115C13.5948 14.418 13.8471 14.2664 14.0568 14.0568C14.2664 13.8471 14.418 13.5948 14.5115 13.3L15.925 8.64225C15.9737 8.47308 15.933 8.32408 15.803 8.19525C15.673 8.06642 15.5239 8.027 15.3558 8.077L10.7 9.4885C10.4052 9.582 10.1529 9.73358 9.94325 9.94325C9.73358 10.1529 9.582 10.4052 9.4885 10.7L8.075 15.3577C8.02633 15.5269 8.067 15.6759 8.197 15.8048C8.327 15.9336 8.47608 15.973 8.64425 15.923ZM11.9978 13.3077C11.6339 13.3077 11.3254 13.1803 11.0723 12.9255C10.8189 12.6708 10.6923 12.3616 10.6923 11.9978C10.6923 11.6339 10.8197 11.3254 11.0745 11.0723C11.3292 10.8189 11.6384 10.6923 12.0022 10.6923C12.3661 10.6923 12.6746 10.8197 12.9277 11.0745C13.1811 11.3292 13.3077 11.6384 13.3077 12.0022C13.3077 12.3661 13.1803 12.6746 12.9255 12.9277C12.6708 13.1811 12.3616 13.3077 11.9978 13.3077ZM12.0017 21.5C10.6877 21.5 9.45267 21.2507 8.2965 20.752C7.14033 20.2533 6.13467 19.5766 5.2795 18.7218C4.42433 17.8669 3.74725 16.8617 3.24825 15.706C2.74942 14.5503 2.5 13.3156 2.5 12.0017C2.5 10.6877 2.74933 9.45267 3.248 8.2965C3.74667 7.14033 4.42342 6.13467 5.27825 5.2795C6.13308 4.42433 7.13833 3.74725 8.294 3.24825C9.44967 2.74942 10.6844 2.5 11.9983 2.5C13.3123 2.5 14.5473 2.74933 15.7035 3.248C16.8597 3.74667 17.8653 4.42342 18.7205 5.27825C19.5757 6.13308 20.2528 7.13833 20.7518 8.294C21.2506 9.44967 21.5 10.6844 21.5 11.9983C21.5 13.3123 21.2507 14.5473 20.752 15.7035C20.2533 16.8597 19.5766 17.8653 18.7218 18.7205C17.8669 19.5757 16.8617 20.2528 15.706 20.7518C14.5503 21.2506 13.3156 21.5 12.0017 21.5ZM12 20C14.223 20 16.1121 19.2224 17.6673 17.6673C19.2224 16.1121 20 14.223 20 12C20 9.777 19.2224 7.88792 17.6673 6.33275C16.1121 4.77758 14.223 4 12 4C9.777 4 7.88792 4.77758 6.33275 6.33275C4.77758 7.88792 4 9.777 4 12C4 14.223 4.77758 16.1121 6.33275 17.6673C7.88792 19.2224 9.777 20 12 20Z" fill="currentColor"></path>
+                              </g>
+                            </svg></div>
+                          <p li-object="block.settings.text_adresse" class="text-align-left">{{ block.settings.text_adresse }}</p>
+                        </div>
+                      </article>
+                      <a li-object:href="block.settings.lien_maps" href="{{ block.settings.lien_maps }}" class="tab_locale-image-wrapper w-inline-block"><img class="tab_locale-image" src="{{ block.settings.image_image_carte }}" alt="" sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 981px) 96vw, 942px" li-object:src="block.settings.image_image_carte" loading="lazy" srcset="{{ 'map-p-500.png' | asset_url }} 500w, {{ 'map-p-800.png' | asset_url }} 800w, {{ 'map.png' | asset_url }} 942w"></a>
+                    </div>
+                  </div>
+                </li>
+                            
+              
+                    {% endfor %}    </ul>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Marche",
+    "class": "section_tabs is-local",
+    "blocks": [
+        {
+            "name": "Tab",
+            "type": "tab",
+            "settings": [
+                {
+                    "id": "text_horaires",
+                    "type": "text",
+                    "label": "Horaires",
+                    "default": "7h - 13h"
+                },
+                {
+                    "id": "text_adresse",
+                    "type": "text",
+                    "label": "Adresse",
+                    "default": "Place Ste Claire (En vieille Ville)"
+                },
+                {
+                    "id": "url_link",
+                    "type": "url",
+                    "label": "Link"
+                },
+                {
+                    "id": "image_image_carte",
+                    "type": "image_picker",
+                    "label": "Image carte"
+                },
+                {
+                    "id": "text_tab_label",
+                    "type": "text",
+                    "label": "tab_label",
+                    "default": "This is some text inside of a div block."
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "O\u00f9 nous trouver ?"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Marche",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "tab"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

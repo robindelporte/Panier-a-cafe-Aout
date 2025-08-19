@@ -1,0 +1,1087 @@
+<div class="banner_component">
+        <div class="padding-global">
+          <div class="banner_content-wrapper">
+            <div class="banner_content">
+              <div class="banner_rich-text w-richtext"> {{ section.settings.richtext_banner_content }} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-animation="default" class="navbar9_component w-nav" data-easing2="ease" fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="medium" data-w-id="aaae659e-26a2-8a91-9a34-6264eddd3133" role="banner" data-duration="400">
+        <div class="navbar9_container">
+          <a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="navbar9_logo-link w-nav-brand"><img sizes="(max-width: 479px) 98vw, (max-width: 767px) 99vw, (max-width: 1081px) 100vw, 1081px" srcset="{{ 'LOGO-MARON-p-500.png' | asset_url }} 500w, {{ 'LOGO-MARON-p-800.png' | asset_url }} 800w, {{ 'logo_panier_a_cafe-maron.png' | asset_url }} 1081w" alt="" src="{{ 'logo_panier_a_cafe-maron.png' | asset_url }}" loading="lazy" class="navbar9_logo"></a>
+          <nav role="navigation" class="navbar9_menu w-nav-menu">
+            <div class="navbar9_menu-left">
+              {% for block in section.blocks %}
+    {% if block.type == "menu" %}
+                    <div li-block="menu" class="nav_dropdown-wrapper">
+                                    
+                
+                                    {% if block.type == 'menu' and linklists[block.settings.menu] %}    <div li-if="block.type == 'menu' and linklists[block.settings.menu]" class="nav_dropdown">
+    
+                  {% assign menu_links = linklists[block.settings.menu].links %}
+                  {% if menu_links.size > 0 %}    <div data-delay="200" data-hover="false" li-if="menu_links.size > 0" class="nav_menu-dropdown w-dropdown">
+    
+                    <div class="nav_dropdown-toggle w-dropdown-toggle">
+                      <div class="dropdown-icon w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+                        </svg></div>
+                      <div class="nav_link-block">
+                        <div>
+                          <div>
+{{ block.settings.text_menu }}
+</div>
+                        </div>
+                      </div>
+                    </div>
+                    <nav class="nav_dropdown-list w-dropdown-list">
+                      <div class="padding-global max-width-full not-mobile">
+                        <div class="container-large">
+                          <div class="nav_dropdown-grid-wrapper">
+                            <div class="nav_dropdown-grid">
+                              {% for link in menu_links %}    <div li-for="link in menu_links" class="nav_link-column">
+                                    
+                                
+                            <div li-object="link.title" class="nav_dropdown-link">{{ link.title }}</div>
+                            
+                                
+                            {% if link.links.size > 0 %}    <div li-if="link.links.size > 0" class="nav_dropdown-links-wrapper">
+    
+                                  {% for child_link in link.links %}    <div li-for="child_link in link.links" class="nav_dropdown-link-item">
+                                    
+                                    
+                            <a li-object="child_link.title" li-object:href="child_link.url" href="{{ child_link.url }}" class="nav_dropdown-link_child">{{ child_link.title }}</a>
+                            
+                                  
+                        </div>
+{% endfor %}
+                                    </div>
+{% endif %}
+                            
+                              
+                        </div>
+{% endfor %}
+                            </div>
+                            <div class="nav_dropdown-grid is-2">
+                              <div id="w-node-_1708ebff-0ffc-cd25-ecef-fcae6629e00c-eddd3128">
+                                <div class="nav_child-link is-image">{% assign product = all_products[block.settings.product_produit_en_avant_1] %} 
+                                  <a li-object:href="product.url" href="{{ product.url }}" class="w-inline-block"><img alt="" src="{{ product.featured_image | img_url: 'master' }}" li-object:src="product.featured_image | img_url: 'master'" loading="lazy" class="nav_dropdown-image"></a>
+                                  <a li-object:href="product.url" href="{{ product.url }}" class="nav_dropdown-link w-inline-block">
+                                    <div li-object:text="product.title">
+{{ product.title }}
+</div>
+                                  </a>
+                                </div>
+                              </div>
+                              <div id="w-node-_0bbe715d-c0c0-b0dd-1a9f-9865d92d1fa3-eddd3128">
+                                <div class="nav_child-link is-image">{% assign product = all_products[block.settings.product_produit_en_avant_2] %} 
+                                  <a li-object:href="product.url" href="{{ product.url }}" class="w-inline-block"><img alt="" src="{{ product.featured_image | img_url: 'master' }}" li-object:src="product.featured_image | img_url: 'master'" loading="lazy" class="nav_dropdown-image"></a>
+                                  <a li-object:href="product.url" href="{{ product.url }}" class="nav_dropdown-link w-inline-block">
+                                    <div li-object:text="product.title">
+{{ product.title }}
+</div>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </nav>
+                      </div>
+{% endif %}
+                    </div>
+{% endif %}
+                                    
+                
+                                    
+                                    
+              
+                            </div>
+            {% endif %}
+{% endfor %}
+              {% if customer.tags contains 'PME' %}    <div li-if="customer.tags contains 'PME'">
+    
+                {% for link in linklists[section.settings.pme].links %}    <div data-delay="200" data-hover="false" li-for="link in linklists[section.settings.pme].links" class="nav_menu-dropdown w-dropdown">
+                                    
+                  
+                            <div class="nav_dropdown-toggle w-dropdown-toggle">
+                    {% if link.links.size > 0 %}    <div li-if="link.links.size > 0" class="dropdown-icon w-embed">
+    <svg width=" 100%" height=" 100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+                      </svg>    </div>
+{% endif %}
+                    <a li-object:href="link.url" href="{{ link.url }}" class="nav_link-block w-inline-block">
+                      <div li-object="link.title">{{ link.title }}</div>
+                    </a>
+                  </div>
+                            
+                  
+                            {% if link.links.size > 0  %}    <nav li-if="link.links.size > 0 " class="navbar_small-dropdown-list w-dropdown-list">
+    
+                    {% for child_link in link.links %}    <div li-for="child_link in link.links" class="nav_child-link">
+                                    
+                      
+                            <a href="{{ child_link.url }}" li-object="child_link.title" li-object:href="child_link.url" class="navbar_small-dropdown-link w-dropdown-link">{{ child_link.title }}</a>
+                            
+                    
+                        </div>
+{% endfor %}
+                      </nav>
+{% endif %}
+                            
+                
+                        </div>
+{% endfor %}
+                  </div>
+{% endif %}
+              {% if customer.tags contains 'CHR' %}    <div li-if="customer.tags contains 'CHR'">
+    
+                {% for link in linklists[section.settings.chr].links %}    <div data-delay="200" data-hover="false" li-for="link in linklists[section.settings.chr].links" class="nav_menu-dropdown w-dropdown">
+                                    
+                  
+                            <div class="nav_dropdown-toggle w-dropdown-toggle">
+                    {% if link.links.size > 0 %}    <div li-if="link.links.size > 0" class="dropdown-icon w-embed">
+    <svg width=" 100%" height=" 100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+                      </svg>    </div>
+{% endif %}
+                    <a li-object:href="link.url" href="{{ link.url }}" class="nav_link-block w-inline-block">
+                      <div li-object="link.title">{{ link.title }}</div>
+                    </a>
+                  </div>
+                            
+                  
+                            {% if link.links.size > 0  %}    <nav li-if="link.links.size > 0 " class="navbar_small-dropdown-list w-dropdown-list">
+    
+                    {% for child_link in link.links %}    <div li-for="child_link in link.links" class="nav_child-link">
+                                    
+                      
+                            <a href="{{ child_link.url }}" li-object="child_link.title" li-object:href="child_link.url" class="navbar_small-dropdown-link w-dropdown-link">{{ child_link.title }}</a>
+                            
+                    
+                        </div>
+{% endfor %}
+                      </nav>
+{% endif %}
+                            
+                
+                        </div>
+{% endfor %}
+                  </div>
+{% endif %}
+              {% if customer.tags contains 'Revendeurs Bio' %}    <div li-if="customer.tags contains 'Revendeurs Bio'">
+    
+                {% for link in linklists[section.settings.revendeursbio].links %}    <div data-delay="200" data-hover="false" li-for="link in linklists[section.settings.revendeursbio].links" class="nav_menu-dropdown w-dropdown">
+                                    
+                  
+                            <div class="nav_dropdown-toggle w-dropdown-toggle">
+                    {% if link.links.size > 0 %}    <div li-if="link.links.size > 0" class="dropdown-icon w-embed">
+    <svg width=" 100%" height=" 100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+                      </svg>    </div>
+{% endif %}
+                    <a li-object:href="link.url" href="{{ link.url }}" class="nav_link-block w-inline-block">
+                      <div li-object="link.title">{{ link.title }}</div>
+                    </a>
+                  </div>
+                            
+                  
+                            {% if link.links.size > 0  %}    <nav li-if="link.links.size > 0 " class="navbar_small-dropdown-list w-dropdown-list">
+    
+                    {% for child_link in link.links %}    <div li-for="child_link in link.links" class="nav_child-link">
+                                    
+                      
+                            <a href="{{ child_link.url }}" li-object="child_link.title" li-object:href="child_link.url" class="navbar_small-dropdown-link w-dropdown-link">{{ child_link.title }}</a>
+                            
+                    
+                        </div>
+{% endfor %}
+                      </nav>
+{% endif %}
+                            
+                
+                        </div>
+{% endfor %}
+                  </div>
+{% endif %}
+              {% if customer.tags contains 'Revendeurs' %}    <div li-if="customer.tags contains 'Revendeurs'">
+    
+                {% for link in linklists[section.settings.revendeurs].links %}    <div data-delay="200" data-hover="false" li-for="link in linklists[section.settings.revendeurs].links" class="nav_menu-dropdown w-dropdown">
+                                    
+                  
+                            <div class="nav_dropdown-toggle w-dropdown-toggle">
+                    {% if link.links.size > 0 %}    <div li-if="link.links.size > 0" class="dropdown-icon w-embed">
+    <svg width=" 100%" height=" 100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+                      </svg>    </div>
+{% endif %}
+                    <a li-object:href="link.url" href="{{ link.url }}" class="nav_link-block w-inline-block">
+                      <div li-object="link.title">{{ link.title }}</div>
+                    </a>
+                  </div>
+                            
+                  
+                            {% if link.links.size > 0  %}    <nav li-if="link.links.size > 0 " class="navbar_small-dropdown-list w-dropdown-list">
+    
+                    {% for child_link in link.links %}    <div li-for="child_link in link.links" class="nav_child-link">
+                                    
+                      
+                            <a href="{{ child_link.url }}" li-object="child_link.title" li-object:href="child_link.url" class="navbar_small-dropdown-link w-dropdown-link">{{ child_link.title }}</a>
+                            
+                    
+                        </div>
+{% endfor %}
+                      </nav>
+{% endif %}
+                            
+                
+                        </div>
+{% endfor %}
+                  </div>
+{% endif %}
+            </div>
+            <div class="navbar9_menu-right">
+              {% for link in linklists[section.settings.small].links %}    <div data-delay="200" data-hover="false" li-for="link in linklists[section.settings.small].links" class="nav_menu-dropdown w-dropdown">
+                                    
+                
+                            <div class="nav_dropdown-toggle w-dropdown-toggle">
+                  {% if link.links.size > 0 %}    <div li-if="link.links.size > 0" class="dropdown-icon w-embed">
+    <svg width=" 100%" height=" 100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+                    </svg>    </div>
+{% endif %}
+                  <a li-object:href="link.url" href="{{ link.url }}" class="nav_link-block w-inline-block">
+                    <div li-object="link.title">{{ link.title }}</div>
+                  </a>
+                </div>
+                            
+                
+                            {% if link.links.size > 0  %}    <nav li-if="link.links.size > 0 " class="navbar_small-dropdown-list w-dropdown-list">
+    
+                  {% for child_link in link.links %}    <div li-for="child_link in link.links" class="nav_child-link">
+                                    
+                    
+                            <a href="{{ child_link.url }}" li-object="child_link.title" li-object:href="child_link.url" class="navbar_small-dropdown-link w-dropdown-link">{{ child_link.title }}</a>
+                            
+                  
+                        </div>
+{% endfor %}
+                    </nav>
+{% endif %}
+                            
+              
+                        </div>
+{% endfor %}
+            </div>
+          </nav>
+          <div class="nav_shop-icons">
+            <div class="nav_search">
+              <div class="predictive_search-component">
+                <div aria-expanded="false" fs-modal-element="open-1" role="button" aria-roledescription="open-modal-trigger" aria-controls="fs-modal-2-popup" aria-haspopup="dialog" tabindex="0" class="nav_shop-icon">
+                  <div class="icon-embed-xsmall w-embed"><svg width="19" height="20" viewbox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16.1645 16.8532L12.852 13.5407M14.6415 9.23836C14.6415 12.6028 11.9141 15.3302 8.54964 15.3302C5.18519 15.3302 2.45776 12.6028 2.45776 9.23836C2.45776 5.87391 5.18519 3.14648 8.54964 3.14648C11.9141 3.14648 14.6415 5.87391 14.6415 9.23836Z" stroke="currentColor" stroke-width="1.52297" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></div>
+                </div>
+                <div id="fs-modal-2-popup" fs-modal-element="modal-1" role="dialog" aria-modal="true" aria-labelledby="fs-modal-2-heading" class="nav_predictive-search-holder">
+                  <div aria-roledescription="close-modal-trigger" class="nav_search-close" fs-modal-animation="fade" aria-label="Close modal" role="button" aria-controls="fs-modal-2-popup" fs-modal-element="close-1" aria-expanded="false" tabindex="0"></div>
+                  <div fs-modal-easing="ease" fs-modal-animation="slide-left" class="predictive-search_component">
+                    <div class="predictive-search_header">
+                      <div class="text-size-large">Recherche</div><button fs-modal-element="close-1" role="button" tabindex="0" aria-label="Close modal" aria-controls="fs-modal-2-popup" aria-roledescription="close-modal-trigger" aria-expanded="false" class="nav_dropdown-close-button">
+                        <div class="nav_dropdown-close-icon w-embed"><svg width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.84775 14.178L0.447754 12.778L6.04775 7.17798L0.447754 1.57798L1.84775 0.177979L7.44775 5.77798L13.0478 0.177979L14.4478 1.57798L8.84775 7.17798L14.4478 12.778L13.0478 14.178L7.44775 8.57798L1.84775 14.178Z" fill="currentColor"></path>
+                          </svg></div>
+                      </button>
+                    </div><predictive-search>
+                      <div class="predictive-search_holder">
+                        <div class="predictive-search_form w-form">
+                          <form id="wf-form-produkt-suche" name="wf-form-produkt-suche" data-name="produkt-suche" action="/search" method="get" class="predictive-search_form-component" data-wf-page-id="68134830de541dd62ef81999" data-wf-element-id="13e6987e-3dfb-52e8-f423-b72749e367d5">
+                            <div class="predictive-search_input-holder"><label for="search-input" class="form_hidden-label">Search</label><input type="search" id="search-input" placeholder="Rechercher" name="q" class="predictive-search_input">
+                              <a href="#" class="predictive-search_search-button w-inline-block">
+                                <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 25 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                    <mask id="mask0_2941_121300" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="25" height="25">
+                                      <rect x="0.123535" y="0.987549" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_2941_121300)">
+                                      <path d="M19.7235 21.9875L13.4235 15.6875C12.9235 16.0875 12.3485 16.4042 11.6985 16.6375C11.0485 16.8709 10.3569 16.9875 9.62354 16.9875C7.80687 16.9875 6.26937 16.3584 5.01104 15.1C3.7527 13.8417 3.12354 12.3042 3.12354 10.4875C3.12354 8.67088 3.7527 7.13338 5.01104 5.87505C6.26937 4.61672 7.80687 3.98755 9.62354 3.98755C11.4402 3.98755 12.9777 4.61672 14.236 5.87505C15.4944 7.13338 16.1235 8.67088 16.1235 10.4875C16.1235 11.2209 16.0069 11.9125 15.7735 12.5625C15.5402 13.2125 15.2235 13.7875 14.8235 14.2875L21.1235 20.5875L19.7235 21.9875ZM9.62354 14.9875C10.8735 14.9875 11.936 14.55 12.811 13.675C13.686 12.8 14.1235 11.7375 14.1235 10.4875C14.1235 9.23755 13.686 8.17505 12.811 7.30005C11.936 6.42505 10.8735 5.98755 9.62354 5.98755C8.37354 5.98755 7.31104 6.42505 6.43604 7.30005C5.56104 8.17505 5.12354 9.23755 5.12354 10.4875C5.12354 11.7375 5.56104 12.8 6.43604 13.675C7.31104 14.55 8.37354 14.9875 9.62354 14.9875Z" fill="currentColor"></path>
+                                    </g>
+                                  </svg></div>
+                              </a><input type="submit" data-wait="Please wait..." id="submit-search" class="hide w-button" value="Submit">
+                            </div>
+                            <div id="predictive-search" fs-scrolldisable-element="preserve" class="predictive-search_overflow no-scrollbar">
+                              <div li-section="predictive_search" class="predictive-search_section">
+                                {% if predictive_search.performed %}    <div li-if="predictive_search.performed" class="predictive-search_conditional">
+    
+                                  {% assign first_column_results_size = predictive_search.resources.queries.size | plus: predictive_search.resources.collections.size | plus: predictive_search.resources.pages.size | plus: predictive_search.resources.articles.size | plus: predictive_search.resources.products.size %}
+                                  {% if first_column_results_size > 0 %}    <div li-if="first_column_results_size > 0" class="predictive-search_conditional">
+    
+                                    {% if predictive_search.resources.products.size > 0 or predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0 %}    <div li-if="predictive_search.resources.products.size > 0 or predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0" class="predictive-search_topic">
+    
+                                      <div class="predictive-search_headline">
+                                        <div class="text-style-muted">Produits</div>
+                                      </div>
+                                      <ul role="list" class="predictive-search_product-list w-list-unstyled">
+                                        {% for product in predictive_search.resources.products %}    <li li-for="product in predictive_search.resources.products" class="predictive-search_produt-item">
+                                    
+                                          
+                            <a li-object:href="product.url" href="{{ product.url }}" class="predictive-search_line-item w-inline-block">
+                                            <div class="predictive-search_image-wrapper"><img li-object:src="product.featured_media | image_url: width: 150" li-object:alt="product.featured_image.alt" alt="{{ product.featured_image.alt }}" src="{{ product.featured_media | image_url: width: 150 }}" loading="lazy" class="predictive-search_image"></div>
+                                            <div class="predictive-search_product-info">
+                                              <div class="text-size-regular text-weight-bold"><span li-object="product.title">{{ product.title }}</span></div>
+                                              <div class="text-size-small"><span li-object="product.price | money">{{ product.price | money }}</span></div>
+                                            </div>
+                                          </a>
+                            
+                                        
+                        </li>
+{% endfor %}
+                                      </ul>
+                                        </div>
+{% endif %}
+                                    {% if predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 %}    <div li-if="predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0" class="predictive-search_topic">
+    
+                                      <div class="predictive-search_headline">
+                                        <div class="text-style-muted">Suggestions</div>
+                                      </div>
+                                      <ul role="list" class="predictive-search_list w-list-unstyled">
+                                        {% for query in predictive_search.resources.queries %}    <li li-for="query in predictive_search.resources.queries" class="predictive-search_item">
+                                    
+                                          
+                            <a li-object:href="query.url" href="{{ query.url }}" class="predictive-search_link w-inline-block">
+                                            <div li-object="query.styled_text">{{ query.styled_text }}</div>
+                                          </a>
+                            
+                                        
+                        </li>
+{% endfor %}
+                                        {% for collection in predictive_search.resources.collections %}    <li li-for="collection in predictive_search.resources.collections" class="predictive-search_item">
+                                    
+                                          
+                            <a li-object:href="collection.url" href="{{ collection.url }}" class="predictive-search_link w-inline-block">
+                                            <div li-object="collection.title">{{ collection.title }}</div>
+                                          </a>
+                            
+                                        
+                        </li>
+{% endfor %}
+                                      </ul>
+                                        </div>
+{% endif %}
+                                      </div>
+{% endif %}
+                                  {% if first_column_results_size == 0 %}    <div li-if="first_column_results_size == 0" class="predictive-search_conditional">
+    
+                                    <div class="predictive-search_topic">
+                                      <div class="text-style-muted">Nous avons rien trouvé avec "<span li-object="predictive_search.terms">{{ predictive_search.terms }}</span>"</div>
+                                    </div>
+                                      </div>
+{% endif %}
+                                    </div>
+{% endif %}
+                                {% unless predictive_search.performed %}    <div li-unless="predictive_search.performed" class="predictive-search_conditional">
+    
+                                  <div class="predictive-search_overflow">
+                                    <div class="predictive-search_topic">
+                                      <div class="predictive-search_headline">
+                                        <div class="text-style-muted">Meilleures ventes</div>
+                                      </div>
+                                      <ul role="list" class="predictive-search_product-list w-list-unstyled">
+                                        {% for product in section.settings.collection_search_bestseller.products limit: section.settings.collection_search_bestseller_limit %}
+<li class="predictive-search_produt-item">
+    
+                                          
+    <a li-object:href="product.url" href="{{ product.url }}" class="predictive-search_line-item w-inline-block">
+                                            <div class="predictive-search_image-wrapper"><img li-object:src="product.featured_image | img_url: 'master'" li-object:alt="product.featured_image.alt" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | img_url: 'master' }}" loading="lazy" class="predictive-search_image"></div>
+                                            <div class="predictive-search_product-info">
+                                              <div class="text-size-regular text-weight-bold"><span li-object="product.title">{{ product.title }}</span></div>
+                                              <div class="text-size-small"><span li-object="product.price | money">{{ product.price | money }}</span></div>
+                                            </div>
+                                          </a>
+    
+                                        
+</li>
+{% endfor %}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                    </div>
+{% endunless %}
+                              </div>
+                            </div>
+                          </form>
+                          <div class="hide w-form-done">
+                            <div>Thank you! Your submission has been received!</div>
+                          </div>
+                          <div class="hide w-form-fail">
+                            <div>Oops! Something went wrong while submitting the form.</div>
+                          </div>
+                        </div>
+                      </div>
+                    </predictive-search>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% if shop.customer_accounts_optional %}    <div li-if="shop.customer_accounts_optional" class="nav_account">
+    
+              <a aria-label="Compte" href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="nav_shop-icon w-inline-block">
+                <div class="icon-embed-xsmall w-embed"><svg width="19" height="20" viewbox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.9166 16.8532V15.3302C14.9166 14.5224 14.5957 13.7477 14.0245 13.1764C13.4533 12.6052 12.6785 12.2843 11.8707 12.2843H6.54032C5.73249 12.2843 4.95774 12.6052 4.38652 13.1764C3.8153 13.7477 3.49438 14.5224 3.49438 15.3302V16.8532M12.2515 6.19242C12.2515 7.87464 10.8877 9.23836 9.20551 9.23836C7.52329 9.23836 6.15958 7.87464 6.15958 6.19242C6.15958 4.5102 7.52329 3.14648 9.20551 3.14648C10.8877 3.14648 12.2515 4.5102 12.2515 6.19242Z" stroke="currentColor" stroke-width="1.52297" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg></div>
+              </a>
+                </div>
+{% endif %}
+            <div class="nav_mini-cart">
+              <script>
+    document.addEventListener('alpine:init', () => {
+
+    Alpine.data('handleMinicart', () => ({
+        init() {
+            console.log('handleMinicart init')
+        },
+        cart: {
+            note: null,
+            attributes: {},
+            items: [],
+            currency: window.Shopify.currency.active,
+            cart_level_discount_applications: [],
+            response: {
+                result : {},
+                show : false,
+                timeout : 5000,
+            },
+            item_count: 0,
+            total_price:0,
+            total_weight: 0,
+            total_discount: 0,
+            original_total_price: 0,
+            items_subtotal_price: 0
+        },
+        _abortController : null,
+        initAbortController() {
+            if(this._abortController) {
+                this._abortController.abort('abort previous request');
+            }
+            this._abortController = new AbortController()
+        },
+        getAbortControllerSignal() {
+            return this._abortController.signal
+        },
+        resetAbortController() {
+            this._abortController = null;
+        },
+        toggleMiniCart() {
+            console.log('(minicart.js) toggleMiniCart called');
+
+            LiquifyHelper.handleTriggerClick();
+
+            this.getCart();
+        },
+
+        /**
+         * Get the cart data.
+         */
+        async getCart() {
+            this.initAbortController()
+            await fetch(window.Shopify.routes.root + 'cart.js', {
+                method: 'GET',
+                signal: this.getAbortControllerSignal(),
+                headers: {'Content-Type': 'application/json'},
+            })
+                .then(response => response.json())
+                .then(data => {
+                    this.resetAbortController();
+
+                    this.cart.item_count = data.item_count;
+
+                    this.cart.items = data.items.map((item) => {
+                        item.title = this.htmlspecialchars_decode(item.title)
+                        return item
+                    })
+
+
+                    this.cart.total_price = data.total_price;
+                    this.cart.total_weight = data.total_weight;
+                    this.cart.total_discount = data.total_discount;
+
+                    this.$dispatch('carttotalitems', data.item_count);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        },
+
+        /**
+         * @param key
+         * @param quantity
+         */
+        increaseCartItemQuantity(key, quantity) {
+            this.updateCartItemQuantity(key, parseInt(quantity) + 1);
+        },
+
+        /**
+         * @param key
+         * @param quantity
+         */
+        decreaseCartItemQuantity(key, quantity) {
+            this.updateCartItemQuantity(key, parseInt(quantity) - 1);
+        },
+
+        /**
+         * Update the cart item.
+         *
+         * @param key
+         * @param quantity
+         */
+        updateCartItemQuantity(key, quantity) {
+            this.initAbortController();
+            console.log('updateCartItemQuantity(): key, quantity: ', key, quantity);
+            this.cart.items.filter((product)  => {
+                if(product.key === key) {
+                    product.quantity = quantity
+                }
+            })
+            let updates = {};
+            updates[key] = quantity;
+            fetch(window.Shopify.routes.root + 'cart/update.js', {
+                method: 'POST',
+                signal: this.getAbortControllerSignal(),
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ updates }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    this.resetAbortController();
+                    console.log('updateCartItemQuantity(): ', data);
+
+                    this.$dispatch('cartupdated');
+                    this.$dispatch('showcartmessage', { status: data.status, message: data.message, description: data.description });
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    this.$dispatch('showcartmessage', { status: error?.status, message: error, description: error });
+                });
+        },
+
+        /**
+         * Format monetary values.
+         */
+        moneyFormat(value, minor = true) {
+            return LiquifyHelper.moneyFormat(value, minor)
+        },
+
+        htmlspecialchars_decode(string) {
+            return LiquifyHelper.htmlspecialchars_decode(string)
+        },
+
+        /**
+         * Shows the minicart api message
+         * @param event
+         */
+        showCartMessage(event) {
+            //console.log("dispatched showCartMessage", event)
+            if(event?.detail?.status) {
+                this.cart.response.result = event.detail ?? {}
+                this.cart.response.show = true
+                setTimeout(() => {
+                    this.cart.response.result = {};
+                    this.cart.response.show = false
+                }, this.cart.response.timeout ?? 5000)
+            }
+        },
+
+        async returnCartItems() {
+            await this.getCart();
+
+            this.$dispatch('currentcartitems', this.cart.items);
+        },
+
+        /**
+         * @deprecated
+         */
+        set open(open) { // deprecated use  LiquifyHelper instead
+            //console.warn('Deprecated "set open" in mini_cart')
+        },
+        /**
+         * @deprecated
+         */
+        get open() { // deprecated use  LiquifyHelper instead
+            //console.warn('Deprecated "get open" in mini_cart')
+            return false;
+        },
+        /**
+         * @deprecated
+         */
+        set note(note) { // deprecated
+            //console.warn('Deprecated "set note" in mini_cart')
+            this.cart.note = note;
+        },
+        /**
+         * @deprecated
+         */
+        get note() { // deprecated
+            //console.warn('Deprecated "get note" in mini_cart')
+            return this.cart.note;
+        },
+        /**
+         * @deprecated
+         */
+        set attributes(attributes) { // deprecated
+            //console.warn('Deprecated "set attributes" in mini_cart')
+            this.cart.attributes = attributes;
+        },
+        /**
+         * @deprecated
+         */
+        get attributes() { // deprecated
+            //console.warn('Deprecated "get attributes" in mini_cart')
+            return this.cart.attributes;
+        },
+        /**
+         * @deprecated
+         */
+        set original_total_price(original_total_price) { //deprecated
+            //console.warn('Deprecated "set original_total_price" in mini_cart')
+            this.cart.original_total_price = original_total_price;
+        },
+        /**
+         * @deprecated
+         */
+        get original_total_price() { //deprecated
+            //console.warn('Deprecated "get original_total_price" in mini_cart')
+            return this.cart.original_total_price;
+        },
+        /**
+         * @deprecated
+         */
+        set total_price(total_price) { //deprecated
+            //console.warn('Deprecated "set total_price" in mini_cart')
+            this.cart.total_price = total_price;
+        },
+        /**
+         * @deprecated
+         */
+        get total_price() { //deprecated
+            //console.warn('Deprecated "get total_price" in mini_cart')
+            return this.cart.total_price;
+        },
+        /**
+         * @deprecated
+         */
+        set total_discount(total_discount) { //deprecated
+            //console.warn('Deprecated "set total_discount" in mini_cart')
+            this.cart.total_discount = total_discount;
+        },
+        /**
+         * @deprecated
+         */
+        get total_discount() { //deprecated
+            //console.warn('Deprecated "get total_discount" in mini_cart')
+            return this.cart.total_discount;
+        },
+        /**
+         * @deprecated
+         */
+        set total_weight(total_weight) { //deprecated
+            //console.warn('Deprecated "set total_weight" in mini_cart')
+            this.cart.total_discount = total_weight;
+        },
+        /**
+         * @deprecated
+         */
+        get total_weight() { //deprecated
+            //console.warn('Deprecated "get total_weight" in mini_cart')
+            return this.cart.total_weight;
+        },
+        /**
+         * @deprecated
+         */
+        set item_count(item_count) { //deprecated
+            //console.warn('Deprecated "set item_count" in mini_cart')
+            this.cart.total_discount = item_count;
+        },
+        /**
+         * @deprecated
+         */
+        get item_count() { //deprecated
+            //console.warn('Deprecated "get item_count" in mini_cart')
+            return this.cart.item_count;
+        },
+        /**
+         * @deprecated
+         */
+        set items_subtotal_price(items_subtotal_price) { //deprecated
+            //console.warn('Deprecated "set items_subtotal_price" in mini_cart')
+            this.cart.items_subtotal_price = items_subtotal_price;
+        },
+        /**
+         * @deprecated
+         */
+        get items_subtotal_price() { //deprecated
+            //console.warn('Deprecated "get items_subtotal_price" in mini_cart')
+            return this.cart.items_subtotal_price;
+        },
+        /**
+         * @deprecated
+         */
+        set products(products) {
+            //console.warn('Deprecated "set products" in mini_cart')
+            this.cart.items = products;
+        },
+        /**
+         * @deprecated
+         */
+        get products() {
+            //console.warn('Deprecated "get products" in mini_cart')
+            return this.cart.items;
+        },
+        /**
+         * @deprecated
+         */
+        set requires_shipping(requires_shipping) {
+            //console.warn('Deprecated "set requires_shipping" in mini_cart')
+        },
+        /**
+         * @deprecated
+         */
+        get requires_shipping() {
+            //console.warn('Deprecated "get requires_shipping" in mini_cart')
+            return false;
+        },
+        /**
+         * @deprecated
+         */
+        set currency(currency) { //deprecated
+            //console.warn('Deprecated "set currency" in mini_cart')
+            this.cart.currency = currency;
+        },
+        /**
+         * @deprecated
+         */
+        get currency() { //deprecated
+            //console.warn('Deprecated "get currency" in mini_cart')
+            return this.cart.currency;
+        },
+        /**
+         * @deprecated
+         */
+        set cart_level_discount_applications(cart_level_discount_applications) { //deprecated
+            //console.warn('Deprecated "set cart_level_discount_applications" in mini_cart')
+            this.cart.cart_level_discount_applications = cart_level_discount_applications;
+        },
+        /**
+         * @deprecated
+         */
+        get cart_level_discount_applications() { //deprecated
+            //console.warn('Deprecated "get cart_level_discount_applications" in mini_cart')
+            return this.cart.cart_level_discount_applications;
+        },
+        /**
+         * @deprecated
+         */
+        set cartApiResponse(cartApiResponse) { //deprecated
+            //console.warn('Deprecated "set cartApiResponse" in mini_cart')
+            this.cart.cartApiResponse = cartApiResponse;
+        },
+        /**
+         * @deprecated
+         */
+        get cartApiResponse() { //deprecated
+            //console.warn('Deprecated "get cartApiResponse" in mini_cart')
+            return this.cart.response;
+        },
+        /**
+         * @deprecated
+         */
+        set total(total) { //deprecated
+            //console.warn('Deprecated "set total" in mini_cart')
+            this.cart.item_count = total.items;
+            this.cart.total_price = total.price;
+            this.cart.total_weight = total.weight;
+            this.cart.total_discount = total.discount;
+        },
+        /**
+         * @deprecated
+         */
+        get total() { //deprecated
+            //console.warn('Deprecated "get total" in mini_cart')
+            return {
+                items: this.cart.item_count,
+                price: this.cart.total_price,
+                weight: this.cart.total_weight,
+                discount: this.cart.total_discount,
+            };
+        }
+    }))
+
+
+});
+
+</script>
+<div li-element="mini-cart" class="nav_mini-cart-holder" x-data="handleMinicart()" x-init="getCart()" @cartupdated.window="getCart()" @setcartitem.window="updateCartItemQuantity($event.detail.product, $event.detail.quantity)" @increasecartitem.window="increaseCartItemQuantity($event.detail.product, $event.detail.quantity)" @decreasecartitem.window="decreaseCartItemQuantity($event.detail.product, $event.detail.quantity)" @toggleminicart.window="toggleMiniCart()" @showcartmessage.window="showCartMessage" @getcartitems.window="returnCartItems">
+                <div aria-roledescription="open-modal-trigger" class="nav_shop-icon" data-minicart-trigger="" role="button" aria-haspopup="dialog" aria-controls="fs-modal-3-popup" fs-modal-element="open-2" aria-expanded="false" tabindex="0">
+                  <div class="icon-embed-xsmall w-embed"><svg width="19" height="20" viewbox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.12242 16.8614C6.74504 16.8614 6.42199 16.727 6.15325 16.4582C5.88452 16.1895 5.75015 15.8665 5.75015 15.4891C5.75015 15.1117 5.88452 14.7887 6.15325 14.5199C6.42199 14.2512 6.74504 14.1168 7.12242 14.1168C7.49979 14.1168 7.82285 14.2512 8.09158 14.5199C8.36032 14.7887 8.49469 15.1117 8.49469 15.4891C8.49469 15.8665 8.36032 16.1895 8.09158 16.4582C7.82285 16.727 7.49979 16.8614 7.12242 16.8614ZM13.9838 16.8614C13.6064 16.8614 13.2833 16.727 13.0146 16.4582C12.7459 16.1895 12.6115 15.8665 12.6115 15.4891C12.6115 15.1117 12.7459 14.7887 13.0146 14.5199C13.2833 14.2512 13.6064 14.1168 13.9838 14.1168C14.3611 14.1168 14.6842 14.2512 14.9529 14.5199C15.2217 14.7887 15.356 15.1117 15.356 15.4891C15.356 15.8665 15.2217 16.1895 14.9529 16.4582C14.6842 16.727 14.3611 16.8614 13.9838 16.8614ZM6.53921 5.88321L8.18593 9.31388H12.9889L14.8757 5.88321H6.53921ZM5.88738 4.51094H16.0079C16.2709 4.51094 16.471 4.62815 16.6082 4.86258C16.7454 5.09701 16.7512 5.3343 16.6254 5.57445L14.1896 9.9657C14.0638 10.1944 13.8951 10.3717 13.6836 10.4975C13.472 10.6233 13.2404 10.6861 12.9889 10.6861H7.87717L7.12242 12.0584H14.6699C14.8643 12.0584 15.0273 12.1242 15.1588 12.2557C15.2903 12.3872 15.356 12.5501 15.356 12.7445C15.356 12.939 15.2903 13.1019 15.1588 13.2334C15.0273 13.3649 14.8643 13.4307 14.6699 13.4307H7.12242C6.60782 13.4307 6.21901 13.2048 5.95599 12.7531C5.69297 12.3014 5.68154 11.8526 5.92168 11.4066L6.84797 9.72556L4.37788 4.51094H3.69175C3.49734 4.51094 3.33439 4.44519 3.20288 4.31368C3.07137 4.18217 3.00562 4.01921 3.00562 3.82481C3.00562 3.6304 3.07137 3.46744 3.20288 3.33594C3.33439 3.20443 3.49734 3.13867 3.69175 3.13867H4.80672C4.93251 3.13867 5.05258 3.17298 5.16694 3.24159C5.28129 3.31021 5.36706 3.40741 5.42424 3.5332L5.88738 4.51094Z" fill="currentColor"></path>
+                    </svg></div>
+                  <div li-element="mini-cart-item-count" class="nav_shop-quantity" x-data="{ items: 0 }" x-text="items" @carttotalitems.window="items = event.detail">1</div>
+                </div>
+                <div id="fs-modal-2-popup" fs-modal-element="modal-2" role="dialog" aria-modal="true" aria-labelledby="fs-modal-2-heading" li-element="mini-cart-container" class="nav_cart-holder" :class="open || 'mini-cart-closed'">
+                  <div aria-roledescription="close-modal-trigger" class="nav_cart-close" fs-modal-animation="fade" aria-label="Close modal" role="role" aria-controls="fs-modal-3-popup" fs-modal-element="close-2" aria-expanded="false" tabindex="0"></div>
+                  <div fs-modal-easing="ease" fs-modal-animation="slide-left" class="mini-cart_component">
+                    <div li-element="mini-cart-full" class="mini-cart_full" :style="total.items < 1 && { display: 'none' }">
+                      <div class="mini-cart_top">
+                        <div class="mini-cart_header">
+                          <div class="heading-style-h2 text-font-heading">Mon panier à café</div><button fs-modal-element="close-2" role="button" tabindex="0" aria-label="Close modal" aria-controls="fs-modal-3-popup" aria-roledescription="close-modal-trigger" class="nav_dropdown-close-button">
+                            <div aria-roledescription="close-modal-trigger" class="nav_cart-close" fs-modal-animation="fade" aria-label="Close modal" role="role" aria-controls="fs-modal-3-popup" fs-modal-element="close-2" aria-expanded="false" tabindex="0"></div>
+                            <div class="nav_dropdown-close-icon w-embed"><svg width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.84775 14.178L0.447754 12.778L6.04775 7.17798L0.447754 1.57798L1.84775 0.177979L7.44775 5.77798L13.0478 0.177979L14.4478 1.57798L8.84775 7.17798L14.4478 12.778L13.0478 14.178L7.44775 8.57798L1.84775 14.178Z" fill="currentColor"></path>
+                              </svg></div>
+                          </button>
+                        </div>
+                        <div x-data="{ freeShipping: {{ section.settings.free_shipping }}}" class="mini-cart_progress-component">
+                          <div x-bind:style="((freeShipping - total.price) / 100) < 0 ? 'display: none' : 'display: block'" class="mini-cart_top_progress-component">
+                            <div class="text-size-small">Plus que <span li-js-price="freeShipping - total.price" class="text-weight-bold" x-text="LiquifyHelper.moneyFormat(freeShipping - total.price, true, '{{ shop.money_with_currency_format }}')">45,75€</span>, et nous couvrons vos frais d'expédition en point relais !</div>
+                            <div class="mini-cart_top_progress-bar">
+                              <div x-bind:style="'width: ' + (total.price/freeShipping * 100) + '%'" class="mini-cart_top_progress-bar-innner"></div>
+                            </div>
+                          </div>
+                          <div x-bind:style="((freeShipping - total.price) / 100) < 0 ? 'display: block' : 'display: none'" class="mini-cart_top_progress-component">
+                            <div class="heading-style-h4">Félicitations !</div>
+                            <div class="spacer-tiny"></div>
+                            <div class="text-size-small">Vous avez débloqué la livraison gratuite pour votre commande.</div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <div class="mini-cart_line-item no-scrollbar">
+                        <ul role="list" class="mini-cart_line-item_list w-list-unstyled">
+                          <template x-for="product in products" :key="product.key">
+    <li :bss-b2b-cart-item-key="product.key" li-element="mini-cart-item" class="mini-cart_line-item_item">
+                            <a li-js-object:href="product.url" href="#" class="w-inline-block" x-bind:href="product.url"><img loading="lazy" alt="" src="images/placholder-3.svg" class="mini-cart_line-item_img" x-bind:src="product.image"></a>
+                            <div class="mini-cart_line-item_product-info">
+                              <div class="display-inlineflex space-beetween stack-children">
+                                <div class="mini-cart_line-item-product-name">
+                                  <a li-js-object:href="product.url" href="#" class="cart_product-link w-inline-block" x-bind:href="product.url">
+                                    <div href="#" li-js-object="product.title" class="text-size-medium text-weight-bold" x-text="product.title">Product Title</div>
+                                  </a>
+                                  <template x-if="product.selling_plan_allocation != null">
+            <div li-js-if="product.selling_plan_allocation != null">
+        
+                                    <div li-js-object="product.selling_plan_allocation.selling_plan.name" class="text-size-small text-color-secondary" x-text="product.selling_plan_allocation.selling_plan.name">Abonnement</div>
+                                          </div>
+    </template>
+                                  <div li-js-object="product.variant_title" class="text-size-small text-color-secondary" x-text="product.variant_title">250g</div>
+                                </div>
+                                <div class="mini-cart_line-item_price">
+                                  <template x-if="product.price < product.original_price">
+            <div li-js-if="product.price < product.original_price">
+        
+                                    <div li-js-price="product.original_price" class="text-size-small text-style-strikethrough text-style-muted" x-text="LiquifyHelper.moneyFormat(product.original_price, true, '{{ shop.money_with_currency_format }}')">14,99 $</div>
+                                          </div>
+    </template>
+                                  <div li-js-price="product.price" class="text-size-small" x-text="LiquifyHelper.moneyFormat(product.price, true, '{{ shop.money_with_currency_format }}')">14,99 $</div>
+                                </div>
+                              </div>
+                              <div class="display-inlineflex display-align-center space-beetween">
+                                <div class="mini-cart_line-item_quantity">
+                                  <a li-element="mini-cart-item-decrease" href="#" class="mini-cart_line-item_quantity-adjust" :productprop="product" @click="$dispatch('decreasecartitem', { product: product.key, quantity: product.quantity, action: 'decrease' })">-</a><input li-element="mini-cart-item-quantity" class="mini-cart_line-item_quantity-adjust" value="1" :productprop="product" @input="$dispatch('setcartitem', { product: product.key, quantity: product.quantity })" x-model="product.quantity">
+                                  <a li-element="mini-cart-item-increase" href="#" class="mini-cart_line-item_quantity-adjust" :productprop="product" @click="$dispatch('increasecartitem', { product: product.key, quantity: product.quantity, action: 'increase' })">+</a>
+                                </div>
+                                <div li-element="mini-cart-item-remove" class="icon-embed-xsmall text-style-link w-embed" :productprop="product" @click="$dispatch('setcartitem', { product: product.key, quantity: 0 })"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 25" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                    <mask id="mask0_40000112_5927" style="mask-type:alpha" maskunits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                      <rect y="0.5" width="24" height="24" fill="#D9D9D9"></rect>
+                                    </mask>
+                                    <g mask="url(#mask0_40000112_5927)">
+                                      <path d="M7.30775 20.9997C6.81058 20.9997 6.385 20.8227 6.031 20.4687C5.677 20.1147 5.5 19.6892 5.5 19.192V6.49973H5.25C5.0375 6.49973 4.85942 6.42782 4.71575 6.28398C4.57192 6.14015 4.5 5.96198 4.5 5.74948C4.5 5.53682 4.57192 5.35873 4.71575 5.21523C4.85942 5.07157 5.0375 4.99973 5.25 4.99973H9C9 4.7549 9.08625 4.54624 9.25875 4.37374C9.43108 4.2014 9.63967 4.11523 9.8845 4.11523H14.1155C14.3603 4.11523 14.5689 4.2014 14.7413 4.37374C14.9138 4.54624 15 4.7549 15 4.99973H18.75C18.9625 4.99973 19.1406 5.07165 19.2843 5.21548C19.4281 5.35932 19.5 5.53748 19.5 5.74998C19.5 5.96265 19.4281 6.14073 19.2843 6.28423C19.1406 6.4279 18.9625 6.49973 18.75 6.49973H18.5V19.192C18.5 19.6892 18.323 20.1147 17.969 20.4687C17.615 20.8227 17.1894 20.9997 16.6923 20.9997H7.30775ZM17 6.49973H7V19.192C7 19.2818 7.02883 19.3556 7.0865 19.4132C7.14417 19.4709 7.21792 19.4997 7.30775 19.4997H16.6923C16.7821 19.4997 16.8558 19.4709 16.9135 19.4132C16.9712 19.3556 17 19.2818 17 19.192V6.49973ZM10.1543 17.4997C10.3668 17.4997 10.5448 17.4279 10.6885 17.2842C10.832 17.1404 10.9037 16.9622 10.9037 16.7497V9.24973C10.9037 9.03723 10.8318 8.85907 10.688 8.71523C10.5443 8.57157 10.3662 8.49973 10.1535 8.49973C9.941 8.49973 9.76292 8.57157 9.61925 8.71523C9.47575 8.85907 9.404 9.03723 9.404 9.24973V16.7497C9.404 16.9622 9.47583 17.1404 9.6195 17.2842C9.76333 17.4279 9.94158 17.4997 10.1543 17.4997ZM13.8465 17.4997C14.059 17.4997 14.2371 17.4279 14.3807 17.2842C14.5243 17.1404 14.596 16.9622 14.596 16.7497V9.24973C14.596 9.03723 14.5242 8.85907 14.3805 8.71523C14.2367 8.57157 14.0584 8.49973 13.8458 8.49973C13.6333 8.49973 13.4552 8.57157 13.3115 8.71523C13.168 8.85907 13.0962 9.03723 13.0962 9.24973V16.7497C13.0962 16.9622 13.1682 17.1404 13.312 17.2842C13.4557 17.4279 13.6338 17.4997 13.8465 17.4997Z" fill="#848484"></path>
+                                    </g>
+                                  </svg></div>
+                              </div>
+                            </div>
+                          </li></template>
+                        </ul>
+                      </div>
+                      <div class="mini-cart_footer">
+                        <div class="mini-cart_footer-total">
+                          <div class="text-size-regular text-weight-bold">Sous-total</div>
+                          <div class="mini-cart_footer-price">
+                            <template x-if="total.price < original_total_price">
+            <div li-js-if="total.price < original_total_price" class="mini-cart_conditional">
+        
+                              <div li-js-price="original_total_price" class="text-size-regular text-weight-bold text-style-strikethrough text-style-muted" x-text="LiquifyHelper.moneyFormat(original_total_price, true, '{{ shop.money_with_currency_format }}')">14,99 $</div>
+                                    </div>
+    </template>
+                            <div li-js-price="total.price" class="text-size-regular text-weight-bold" x-text="LiquifyHelper.moneyFormat(total.price, true, '{{ shop.money_with_currency_format }}')">14,99 $</div>
+                          </div>
+                        </div>
+                        <div li-element="mini-cart-api-response" class="mini-cart_footer-message hide">
+                          <div class="mini-cart_footer-message-item">
+                            <div class="text-size-regular text-weight-bold">Message</div>
+                            <div li-js-object="cartApiResponse?.result?.message" class="text-size-regular text-weight-bold" x-text="cartApiResponse?.result?.message">14,99 $</div>
+                          </div>
+                        </div>
+                        <div class="button-group is-full-width">
+                          <a x-bind:href="'/checkout'" href="#" class="button max-width-full w-button">Valider ma commande</a>
+                        </div>
+                        <div class="text-size-tiny text-color-grey text-align-center">Les modalités de livraison définitives et codes promotionnels s'appliquent lors du paiement</div>
+                      </div>
+                    </div>
+                    <div li-cloak="hide" li-element="mini-cart-empty" class="mini-cart_empty" :style="total.items && { display: 'none' }">
+                      <div class="mini-cart_header">
+                        <div class="heading-style-h3">Panier</div><button fs-modal-element="close-2" role="button" tabindex="0" aria-label="Close modal" aria-controls="fs-modal-3-popup" aria-roledescription="close-modal-trigger" class="nav_dropdown-close-button">
+                          <div aria-roledescription="close-modal-trigger" class="nav_cart-close" fs-modal-animation="fade" aria-label="Close modal" role="role" aria-controls="fs-modal-3-popup" fs-modal-element="close-2" aria-expanded="false" tabindex="0"></div>
+                          <div class="nav_dropdown-close-icon w-embed"><svg width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M1.84775 14.178L0.447754 12.778L6.04775 7.17798L0.447754 1.57798L1.84775 0.177979L7.44775 5.77798L13.0478 0.177979L14.4478 1.57798L8.84775 7.17798L14.4478 12.778L13.0478 14.178L7.44775 8.57798L1.84775 14.178Z" fill="currentColor"></path>
+                            </svg></div>
+                        </button>
+                      </div>
+                      <div class="mini-cart_empty-content">
+                        <div class="heading-style-h2 text-font-heading">Votre panier est vide.</div>
+                        <a href="{{ section.settings.url_routesroot_url }}" class="button w-button"> Retourner à l'accueil </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="navbar9_menu-button w-nav-button">
+            <div class="menu-icon5">
+              <div class="menu-icon1_line-top"></div>
+              <div class="menu-icon1_line-middle">
+                <div class="menu-icon1_line-middle-inner"></div>
+              </div>
+              <div class="menu-icon1_line-bottom"></div>
+            </div>
+          </div>
+        </div>
+      </div> {% schema %} {
+    "tag": "section",
+    "name": "header",
+    "class": "section_navbar",
+    "blocks": [
+        {
+            "name": "menu",
+            "type": "menu",
+            "settings": [
+                {
+                    "id": "text_menu",
+                    "type": "text",
+                    "label": "Menu",
+                    "default": "Caf\u00e9s"
+                },
+                {
+                    "id": "product_produit_en_avant_1",
+                    "type": "product",
+                    "label": "Produit en avant 1"
+                },
+                {
+                    "id": "product_produit_en_avant_2",
+                    "type": "product",
+                    "label": "Produit en avant 2"
+                },
+                {
+                    "type": "header",
+                    "content": "Menu"
+                },
+                {
+                    "type": "link_list",
+                    "id": "menu",
+                    "label": "Menu \u00e0 afficher"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "richtext_banner_content",
+            "type": "richtext",
+            "label": "banner_content",
+            "default": "<p>\n                Livraison offerte pour toute commande de +80\u20ac\n              <\/p>"
+        },
+        {
+            "id": "collection_search_bestseller",
+            "type": "collection",
+            "label": "Search - Bestseller"
+        },
+        {
+            "type": "range",
+            "id": "collection_search_bestseller_limit",
+            "min": 1,
+            "max": 99,
+            "step": 1,
+            "label": "Limit: Search - Bestseller",
+            "default": 6
+        },
+        {
+            "type": "header",
+            "content": "free_shipping"
+        },
+        {
+            "type": "text",
+            "id": "free_shipping",
+            "label": "Free Shipping",
+            "default": "100"
+        },
+        {
+            "id": "url_routesroot_url",
+            "type": "url",
+            "label": "routes.root_url"
+        },
+        {
+            "type": "header",
+            "content": "Navigation"
+        },
+        {
+            "type": "link_list",
+            "id": "small",
+            "label": "Small Menu"
+        },
+        {
+            "type": "header",
+            "content": "Menu PME"
+        },
+        {
+            "type": "link_list",
+            "id": "pme",
+            "label": "Menu PME"
+        },
+        {
+            "type": "header",
+            "content": "Menu Revendeurs Bio"
+        },
+        {
+            "type": "link_list",
+            "id": "revendeursbio",
+            "label": "Menu Revendeurs Bio"
+        },
+        {
+            "type": "header",
+            "content": "Menu Revendeurs"
+        },
+        {
+            "type": "link_list",
+            "id": "revendeurs",
+            "label": "Menu Revendeurs"
+        },
+        {
+            "type": "header",
+            "content": "Menu CHR"
+        },
+        {
+            "type": "link_list",
+            "id": "chr",
+            "label": "Menu CHR"
+        }
+    ],
+    "presets": [
+        {
+            "name": "header",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "menu"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

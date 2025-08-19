@@ -1,0 +1,128 @@
+<div class="padding-global padding-section-small">
+          <div class="container-large">
+            <div class="account-tabs_wrapper">
+              <div id="w-node-_96731731-514b-fc1e-622d-4089b8761036-538d3d8c" class="account-tabs_left-links">
+                <a href="{{ routes.account_url }}" li-object:href="routes.account_url" class="account-tabs_link">Retour</a>
+              </div>
+            </div>
+            <div class="spacer-large"></div>
+            <div class="commande_top-info">
+              <h2 class="heading-style-h3">Commande <span li-object="order.name">{{ order.name }}</span></h2>
+              <div class="commande_top-info-right">
+                <div li-object="order.created_at | date: '%e.%m.%Y'" class="text-size-regular">{{ order.created_at | date: '%e.%m.%Y' }}</div>
+                <div class="commande_top-cancelled">
+                  {% if order.cancelled == true %}    <div li-if="order.cancelled == true" class="order_wrapper">
+    
+                    <div class="commandes_etat">
+                      <div class="red-dot"></div>
+                      <div class="text-size-regular">Annulée le :</div>
+                      <div li-object="order.cancelled_at | date: '%e.%m.%Y'" class="text-size-regular">{{ order.cancelled_at | date: '%e.%m.%Y' }}</div>
+                    </div>
+                      </div>
+{% endif %}
+                  <div liquid:if="order.cancelled == true" class="order_wrapper">
+                    <div class="text-size-regular">Cause :</div>
+                    <div li-object="order.cancel_reason_label" class="text-size-regular">{{ order.cancel_reason_label }}</div>
+                  </div>
+                </div>
+                {% if order.cancelled == false %}    <div li-if="order.cancelled == false" class="commande_top-valid-wrapper">
+    
+                  <div class="commande_top-valid">
+                    <div class="green-dot"></div>
+                    <div class="text-size-regular">Payée</div>
+                  </div>
+                  <div class="commande_top-valid">
+                    <div class="green-dot"></div>
+                    <div class="text-size-regular">Confirmée</div>
+                  </div>
+                    </div>
+{% endif %}
+              </div>
+            </div>
+            <div class="spacer-large"></div>
+            <div class="cart_grid-wrapper">
+              <div class="cart_table">
+                <div class="command_item-list">
+                  {% for item in order.line_items %}    <div li-for="item in order.line_items" class="command_item">
+                                    
+                    
+                            <div class="display-inlineflex display-align-center gap-0-75"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" li-object="item.product.featured_image | img_url: '300x'" alt="" class="icon-1x1-large radius-4">
+                      <div class="display-inlineflex flex-vertical gap-0-5">
+                        <h3 li-object="item.product.title" class="text-size-large text-font-body text-weight-bold">{{ item.product.title }}</h3>
+                        <div li-object="item.variant.title" class="text-size-small text-color-secondary">{{ item.variant.title }}</div>
+                      </div>
+                    </div>
+                            
+                    
+                            <div class="display-inlineflex display-align-bottom gap-0-75">
+                      <div li-object="item.quantity" class="text-size-small">{{ item.quantity }}</div>
+                      <div li-object="item.final_line_price | money">{{ item.final_line_price | money }}</div>
+                    </div>
+                            
+                  
+                        </div>
+{% endfor %}
+                </div>
+                <div class="separator"></div>
+                <div class="command_total-wrap">
+                  <div class="display-inlineflex flex-vertical gap-0-5">
+                    <a href="#" class="button w-button">Suivre ma commande</a>
+                    <a href="#" class="button is-secondary w-button">Télécharger ma facture</a>
+                  </div>
+                  <div class="total_line-list">
+                    <div class="total_line-item">
+                      <div>Sous-total</div>
+                      <div li-object="order.subtotal_price | money">{{ order.subtotal_price | money }}</div>
+                    </div>
+                    <div class="total_line-item">
+                      <div>Réduction</div>
+                      <div li-object="discount.amount | money">{{ discount.amount | money }}</div>
+                    </div>
+                    <div class="total_line-item">
+                      <div>Livraison</div>
+                      <div li-object="shipping_line.price | money">{{ shipping_line.price | money }}</div>
+                    </div>
+                    <div class="total_line-item">
+                      <div>Taxes (dont TVA)</div>
+                      <div li-object="tax_line.price | money">{{ tax_line.price | money }}</div>
+                    </div>
+                    <div class="total_line-item">
+                      <div>Total</div>
+                      <div li-object="order.total_price | money">{{ order.total_price | money }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="w-node-_599c1694-360d-cee5-86f0-be920c80398b-538d3d8c" class="cart_table is-adresses">
+                <div class="commande_card-info">
+                  <div class="margin-bottom margin-xxsmall">
+                    <div class="text-size-regular">Facturation :</div>
+                  </div>
+                  <div li-object="order.billing_address | format_address" class="text-size-regular">{{ order.billing_address | format_address }}</div>
+                </div>
+                <div class="commande_card-info">
+                  <div class="text-size-regular">Shipping Address:</div>
+                  <div li-object="order.shipping_address | format_address" class="text-size-regular">{{ order.shipping_address | format_address }}</div>
+                </div>
+                <div class="commande_card-info">
+                  <div class="margin-bottom margin-small">
+                    <div>Vous avez une question sur votre commande ?</div>
+                  </div>
+                  <a href="#" class="button is-secondary w-button">Nous écrire</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="command_table"></div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Order",
+    "class": "section_account",
+    "presets": [
+        {
+            "name": "Order",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

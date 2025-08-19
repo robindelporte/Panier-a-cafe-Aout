@@ -1,0 +1,33 @@
+<div class="login_component">
+          <div class="login_tabs">
+            <div class="login_form w-form">
+              <h1 class="heading-style-h2 text-align-center">Réinitialiser mon mot de passe</h1>
+              {% form 'reset_customer_password', class: 'form_form' %}
+{% if form.errors %}    <div li-if="form.errors" class="form_error-message">
+    
+                  <div li-object="form.errors | default_errors" class="text-size-regular text-color-red text-align-center">{{ form.errors | default_errors }}</div>
+                    </div>
+{% endif %}
+                <div class="form_field-wrapper"><label for="PAssword" class="form_hidden-label">Password</label><input class="form_input w-input" maxlength="256" name="customer[password]" data-name="PAssword" placeholder="Mot de passe" type="password" id="PAssword" required=""></div>
+                <div class="form_field-wrapper"><label for="field-2" class="form_hidden-label">Confirm Password</label><input class="form_input w-input" maxlength="256" name="customer[password_confirmation]" data-name="Confirm" placeholder="Confirmer le mot de passe" type="password" id="Confirm" required=""></div><input type="submit" data-wait="" id="w-node-a4c4e137-d629-c984-ed08-328f84f50464-aecbbaa4" class="button max-width-full w-button" value="Réinitialiser le mot de passe">
+              {% endform %}
+              <div class="w-form-done">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              <div class="login_hinweis-kachel w-form-fail">
+                <div>Oops! Something went wrong while submitting the form.</div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Reset",
+    "class": "section_login",
+    "presets": [
+        {
+            "name": "Reset",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

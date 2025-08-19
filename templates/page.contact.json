@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "small_hero": {
+            "type": "small_hero"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "small_hero"
+    ]
+}
